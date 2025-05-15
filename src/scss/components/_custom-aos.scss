@@ -1,0 +1,16 @@
+[data-aos="line-anim"].aos-animate {
+  &::after {
+    width: 100%;
+  }
+}
+[data-aos="show-fig"].aos-animate {
+  .avoid-item__fig {
+    transition-delay: inherit;
+    transition-duration: inherit;
+    span {
+      transform: translateY(0);
+      transition-delay: inherit;
+      transition-duration: inherit;
+    }
+  }
+}

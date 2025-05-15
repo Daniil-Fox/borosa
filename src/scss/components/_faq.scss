@@ -1,0 +1,127 @@
+.faq {
+  padding: 8rem 0;
+  background-color: #f5f5f5;
+  &__sup-label {
+    color: rgba(22, 22, 22, 0.5);
+    border-color: rgba(22, 22, 22, 0.2);
+    margin-bottom: 1.7rem;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    &:not(:last-child) {
+      margin-bottom: 3rem;
+    }
+  }
+
+  &__extra {
+    margin-bottom: 1rem;
+    text-align: right;
+    color: rgba(0, 0, 0, 0.5);
+  }
+
+  &__title {
+    cursor: default;
+    pointer-events: none;
+    span {
+      display: inline-block;
+      margin-right: 1rem;
+      font-size: 10rem;
+      line-height: 1;
+      transform: rotate(-4deg) translateY(1.8rem);
+      color: #e08428;
+    }
+  }
+}
+
+.faq-item {
+  background-color: #fff;
+  &:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 1.6rem 2.3rem;
+
+    transition: background-color 0.3s ease-in;
+    cursor: pointer;
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin: 0;
+    font-weight: 500;
+    font-size: 1.8rem;
+    line-height: 120%;
+    color: #312f2d;
+    transition: color 0.3s ease-in;
+    cursor: pointer;
+
+    p {
+      margin: 0;
+    }
+    span {
+      font-weight: 300;
+      font-size: 1.2rem;
+      line-height: 100%;
+    }
+  }
+  &__body {
+    transition: max-height 0.3s ease-in;
+    will-change: max-height;
+    box-sizing: content-box;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 2rem;
+  }
+
+  &__content {
+    padding: 2rem 3rem;
+
+    p {
+      margin: 0;
+      &:not(:last-child) {
+        margin-bottom: 1.6rem;
+      }
+    }
+  }
+  &__arr {
+    height: 0.7rem;
+    width: 1.3rem;
+    transition: transform 0.3s ease-in;
+    svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      fill: rgba(22, 22, 22, 0.5);
+      transition: fill 0.3s ease-in;
+    }
+  }
+
+  &.active {
+    .faq-item__arr {
+      transform: rotateZ(180deg);
+
+      svg {
+        fill: #b56d25;
+      }
+    }
+    .faq-item__header {
+      background-color: #312f2d;
+    }
+    .faq-item__title {
+      color: #fff;
+      span {
+        color: #faf3f0;
+      }
+    }
+  }
+}

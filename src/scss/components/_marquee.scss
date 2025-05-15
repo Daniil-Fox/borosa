@@ -1,0 +1,32 @@
+.marquee {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  min-width: 100%;
+  overflow: hidden;
+  &__row {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    animation: scroll-left 50s linear infinite;
+  }
+  &__item {
+    white-space: nowrap;
+    font-family: var(--second-family);
+    font-weight: 500;
+    font-size: 3.5rem;
+    line-height: 120%;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: rgba(221, 221, 221, 0.6);
+  }
+}
+
+@keyframes scroll-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}

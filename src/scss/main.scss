@@ -1,0 +1,13 @@
+@import "vars";
+@import "mixins";
+@import "fonts";
+@import "settings";
+@import "./components/ui";
+
+@import "./components/header";
+@import "./components/hero";
+@import "./components/marquee";
+@import "./components/problem";
+@import "./components/faq";
+@import "./components/avoid";
+@import "./components/custom-aos";
