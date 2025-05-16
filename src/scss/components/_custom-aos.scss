@@ -14,3 +14,42 @@
     }
   }
 }
+[data-aos="slides-lvl"].aos-animate {
+  .optima__slide {
+    &--1 {
+      .optima__slide-line::after {
+        transform: translateX(-40%) translateY(-13.4rem);
+      }
+    }
+    &--2 {
+      .optima__slide-line::after {
+        transform: translateX(-40%) translateY(-15rem);
+      }
+    }
+    &--3 {
+      .optima__slide-line::after {
+        transform: translateX(-40%) translateY(-5.2rem);
+      }
+    }
+    &--4 {
+      .optima__slide-line::after {
+        transform: translateX(-40%) translateY(-19.7rem);
+      }
+    }
+    &--5 {
+      .optima__slide-line::after {
+        transform: translateX(-40%) translateY(-8.7rem);
+      }
+    }
+    &--6 {
+      .optima__slide-line::after {
+        transform: translateX(-40%) translateY(-19.2rem);
+      }
+    }
+    &--7 {
+      .optima__slide-line::after {
+        transform: translateX(-40%) translateY(-12.2rem);
+      }
+    }
+  }
+}

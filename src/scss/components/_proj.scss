@@ -1,0 +1,56 @@
+.proj {
+  padding: 4rem 0;
+
+  &__title {
+    margin-bottom: 4rem;
+    span {
+      transform: translateY(1.8rem);
+      line-height: 79%;
+      letter-spacing: -0.01em;
+      color: #b56d25;
+    }
+  }
+  &__slider {
+    margin-bottom: 3.6rem;
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+    color: rgba(29, 27, 26, 0.7);
+    line-height: 1.2;
+    text-align: right;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 3rem;
+      aspect-ratio: 1 / 1;
+      flex-shrink: 0;
+      background-image: url("./../img/slider.svg");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      animation: slider 4s ease-in-out infinite;
+    }
+  }
+}
+
+@keyframes slider {
+  0% {
+    transform: translateX(0);
+  }
+  15% {
+    transform: translateX(-1rem);
+  }
+  35% {
+    transform: translateX(1rem);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
