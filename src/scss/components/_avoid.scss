@@ -2,6 +2,11 @@
   background-color: #1d1b1a;
   padding: 10rem 0 8.5rem;
   position: relative;
+  &__wrapper {
+    max-width: 120rem;
+    margin: 0 auto;
+    position: relative;
+  }
   &__title {
     max-width: 65rem;
     margin-bottom: 6rem;

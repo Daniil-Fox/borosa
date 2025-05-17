@@ -1,4 +1,4 @@
-@include font-face("Akrobat", "../fonts/Akrobat-Black", 400, normal);
+@include font-face("Akrobat", "../fonts/Akrobat-Black", 900, normal);
 @include font-face(
   "Alistair Signature",
   "../fonts/Alistair-Signature",
@@ -22,5 +22,10 @@
   400,
   normal
 );
-// @include font-face("Grato Grotesk", "../fonts/MBGrotesk-Regular", 400, normal);
+@include font-face(
+  "Grato Grotesk",
+  "../fonts/Grato-Grotesk-Light",
+  300,
+  normal
+);
 @include font-face("Bebas Neue", "../fonts/BebasNeueBold", 700, normal);

@@ -6,8 +6,8 @@
 html {
   font-size: calc(100vw / 120);
 
-  @media (min-width: 1920px) {
-    font-size: 10px;
+  @media (min-width: 1440px) {
+    font-size: calc(144px / 12);
   }
 }
 .page {

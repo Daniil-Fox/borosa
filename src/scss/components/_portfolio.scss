@@ -1,0 +1,144 @@
+.portfolio {
+  padding-top: 5rem;
+  padding-bottom: 8rem;
+  background-color: #1d1b1a;
+
+  &__title {
+    margin-bottom: 2.2rem;
+  }
+  &__subtitle {
+    margin: 0;
+    margin-bottom: 3.5rem;
+    font-weight: 500;
+    font-size: 2.2rem;
+    line-height: 130%;
+    letter-spacing: -0.01em;
+    color: #f5f5f5;
+  }
+
+  &__container {
+    max-width: calc(115.8rem + var(--container-offset) * 2);
+    padding: 0 var(--container-offset);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 2rem;
+  }
+}
+
+.portfolio-item {
+  grid-column: 6 span;
+  border: 1px solid rgba(245, 245, 245, 0.2);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+
+  max-height: 52rem;
+  @include hover {
+    .portfolio-item__img img {
+      transform: scale(1.05);
+    }
+  }
+  &__img {
+    flex-grow: 1;
+    overflow: hidden;
+    img {
+      display: block;
+      height: 100%;
+      width: 100%;
+      object-position: bottom;
+
+      transition: transform 1s ease-in-out;
+    }
+  }
+
+  &__info {
+    padding: 1rem 0.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    white-space: nowrap;
+  }
+
+  &__title {
+    margin: 0;
+
+    font-weight: 500;
+    font-size: 1.8rem;
+    line-height: 100%;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: #f5f5f5;
+
+    span {
+      text-transform: lowercase;
+      font-weight: 400;
+      font-size: 1.4rem;
+      line-height: 100%;
+      letter-spacing: -0.01em;
+      color: rgba(245, 245, 245, 0.5);
+      &::before {
+        content: "/ ";
+      }
+    }
+  }
+  &__btn {
+    width: 1.4rem;
+    aspect-ratio: 1 / 1;
+    flex-shrink: 0;
+    svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &:nth-child(10n + 1) {
+    grid-row: 2 span;
+  }
+  &:nth-child(10n + 2) {
+    .portfolio-item {
+      &__img {
+        height: 21.4rem;
+      }
+    }
+  }
+  &:nth-child(10n + 3),
+  &:nth-child(10n + 4) {
+    grid-column: 3 span;
+    .portfolio-item {
+      &__img {
+        height: 18.6rem;
+      }
+    }
+  }
+  &:nth-child(10n + 5),
+  &:nth-child(10n + 6) {
+    grid-column: 6 span;
+    .portfolio-item {
+      &__img {
+        height: 25.5rem;
+      }
+    }
+  }
+
+  &:nth-child(10n + 7) {
+    .portfolio-item {
+      &__img {
+        height: 21.4rem;
+      }
+    }
+  }
+
+  &:nth-child(10n + 8) {
+    grid-row: 2 span;
+  }
+  &:nth-child(10n + 9),
+  &:nth-child(10n + 10) {
+    grid-column: 3 span;
+    .portfolio-item {
+      &__img {
+        height: 18.6rem;
+      }
+    }
+  }
+}
