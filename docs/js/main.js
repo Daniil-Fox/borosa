@@ -10608,17 +10608,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_aos_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/aos.js */ "./src/js/components/aos.js");
 /* harmony import */ var _components_before_after_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/before-after.js */ "./src/js/components/before-after.js");
 /* harmony import */ var _components_slider_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/slider.js */ "./src/js/components/slider.js");
-/* harmony import */ var _components_browser_scroll_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/browser-scroll.js */ "./src/js/components/browser-scroll.js");
+/* harmony import */ var _components_tabs_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/tabs.js */ "./src/js/components/tabs.js");
+/* harmony import */ var _components_browser_scroll_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/browser-scroll.js */ "./src/js/components/browser-scroll.js");
+
 
 
 
 
 
 document.addEventListener("DOMContentLoaded", () => {
-  (0,_components_browser_scroll_js__WEBPACK_IMPORTED_MODULE_4__.initBrowserScroll)();
+  (0,_components_browser_scroll_js__WEBPACK_IMPORTED_MODULE_5__.initBrowserScroll)();
 });
 window.addEventListener("load", () => {
-  (0,_components_browser_scroll_js__WEBPACK_IMPORTED_MODULE_4__.initBrowserScroll)();
+  (0,_components_browser_scroll_js__WEBPACK_IMPORTED_MODULE_5__.initBrowserScroll)();
 });
 
 /***/ }),
@@ -11082,6 +11084,54 @@ new swiper__WEBPACK_IMPORTED_MODULE_0__.Swiper(".princeps__slider", {
     nextEl: ".princeps__btn--next"
   }
 });
+const teamSliders = document.querySelectorAll(".team__slider");
+teamSliders.forEach(slider => {
+  const sliderPrev = slider.querySelector(".team-prev");
+  const sliderNext = slider.querySelector(".team-next");
+  new swiper__WEBPACK_IMPORTED_MODULE_0__.Swiper(slider, {
+    slidesPerView: 4,
+    spaceBetween: 20,
+    navigation: {
+      prevEl: sliderPrev,
+      nextEl: sliderNext
+    }
+  });
+});
+new swiper__WEBPACK_IMPORTED_MODULE_0__.Swiper(".find__slider", {
+  slidesPerView: "auto",
+  spaceBetween: 10,
+  speed: 2000,
+  loop: true,
+  autoplay: {
+    delay: 0,
+    disableOnInteraction: false
+  }
+});
+
+/***/ }),
+
+/***/ "./src/js/components/tabs.js":
+/*!***********************************!*\
+  !*** ./src/js/components/tabs.js ***!
+  \***********************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const tabs = document.querySelectorAll(".team__tab");
+if (tabs.length > 0) {
+  const tabsContent = document.querySelectorAll(".team__slider");
+  tabs.forEach(el => {
+    el.addEventListener("click", e => {
+      if (el.classList.contains("active")) return;
+      tabs.forEach(t => t.classList.remove("active"));
+      tabsContent.forEach(t => t.classList.remove("active"));
+      const dataset = el.dataset.tab;
+      el.classList.add("active");
+      document.querySelector(`.team__slider[data-team-tab=${dataset}]`).classList.add("active");
+    });
+  });
+}
 
 /***/ })
 

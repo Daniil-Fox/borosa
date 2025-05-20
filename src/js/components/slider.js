@@ -21,3 +21,29 @@ new Swiper(".princeps__slider", {
     nextEl: ".princeps__btn--next",
   },
 });
+
+const teamSliders = document.querySelectorAll(".team__slider");
+
+teamSliders.forEach((slider) => {
+  const sliderPrev = slider.querySelector(".team-prev");
+  const sliderNext = slider.querySelector(".team-next");
+  new Swiper(slider, {
+    slidesPerView: 4,
+    spaceBetween: 20,
+    navigation: {
+      prevEl: sliderPrev,
+      nextEl: sliderNext,
+    },
+  });
+});
+
+new Swiper(".find__slider", {
+  slidesPerView: "auto",
+  spaceBetween: 10,
+  speed: 2000,
+  loop: true,
+  autoplay: {
+    delay: 0,
+    disableOnInteraction: false,
+  },
+});

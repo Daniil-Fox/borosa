@@ -34,6 +34,14 @@
   }
 }
 
+.title4 {
+  margin: 0;
+  font-weight: 500;
+  font-size: 3rem;
+  line-height: 110%;
+  color: #fff;
+}
+
 .capture1 {
   margin: 0;
   font-weight: 500;
@@ -142,9 +150,31 @@
   font-size: 1.6rem;
   line-height: 120%;
   color: #1d1b1a;
+  border: 1px solid #f5f5f5;
+  transition: color 0.3s ease-in, background-color 0.3s ease-in;
 
+  @include hover {
+    color: #f5f5f5;
+  }
   &--dark {
     color: #f5f5f5;
     background-color: #1d1b1a;
+    border-color: #1d1b1a;
+
+    @include hover {
+      background-color: #f5f5f5;
+      color: #1d1b1a;
+    }
+  }
+
+  &--stroke {
+    border: 1px solid #f5f5f5;
+    color: #f5f5f5;
+    background-color: transparent;
+
+    @include hover {
+      background-color: #f5f5f5;
+      color: #1d1b1a;
+    }
   }
 }
