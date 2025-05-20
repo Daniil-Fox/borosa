@@ -42,6 +42,7 @@ new Swiper(".find__slider", {
   spaceBetween: 10,
   speed: 2000,
   loop: true,
+
   autoplay: {
     delay: 0,
     disableOnInteraction: false,
