@@ -16,12 +16,21 @@
     gap: 2rem;
 
     margin-bottom: 6rem;
+
+    @include tablet {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 3rem;
+    }
   }
 
   &__left {
     width: 100%;
     max-width: 39rem;
     flex-shrink: 0;
+    @include tablet {
+      max-width: 100%;
+    }
   }
 
   &__desc {
@@ -43,6 +52,17 @@
     top: 50%;
     width: 100%;
     transform: translateY(-50%);
+
+    @include tablet {
+      width: auto;
+      left: calc(-1 * var(--container-offset));
+      right: calc(-1 * var(--container-offset));
+    }
+    @include mobile {
+      top: unset;
+      transform: unset;
+      bottom: 2rem;
+    }
   }
 
   &__lvl {
@@ -53,20 +73,38 @@
     color: rgba(245, 245, 245, 0.9);
     text-align: center;
 
+    @include tablet {
+      font-size: 0.8rem;
+    }
+    @include mobile {
+      font-size: 0.5rem;
+    }
     &--premium {
       padding-top: 4rem;
       padding-bottom: 3rem;
       border-top: 1px dashed rgba(181, 109, 37, 0.5);
+      @include mobile {
+        padding-top: 2.4rem;
+        padding-bottom: 1.6rem;
+      }
     }
     &--optimal {
       padding-top: 3rem;
       padding-bottom: 3rem;
       border-top: 1px dashed rgba(181, 109, 37, 0.5);
+
+      @include mobile {
+        padding-top: 1.9rem;
+        padding-bottom: 1.9rem;
+      }
     }
     &--wrong {
       padding-top: 2rem;
       color: rgba(255, 0, 0, 0.9);
       border-top: 1px dashed rgba(255, 0, 0, 0.5);
+      @include mobile {
+        padding-top: 1.1rem;
+      }
     }
   }
   &__slides {
@@ -83,6 +121,14 @@
     color: rgba(245, 245, 245, 0.8);
     position: relative;
     transition-duration: inherit;
+
+    @include tablet {
+      padding-top: 0;
+      padding-bottom: 24rem;
+    }
+    @include mobile {
+      padding-bottom: 15rem;
+    }
     &-line {
       position: absolute;
       top: 0;
@@ -92,6 +138,14 @@
       width: 0.4rem;
       background-color: rgba(245, 245, 245, 0.3);
 
+      @include tablet {
+        height: 24rem;
+        top: unset;
+        bottom: 0;
+      }
+      @include mobile {
+        height: 15rem;
+      }
       &::after {
         content: "";
         position: absolute;
@@ -113,6 +167,15 @@
         border-radius: 2px;
         transition: transform;
         transition-duration: 3s;
+
+        @include tablet {
+          width: 1.2rem;
+          height: 2rem;
+        }
+        @include mobile {
+          width: 0.8rem;
+          height: 1.3rem;
+        }
       }
     }
   }
@@ -139,6 +202,13 @@
   }
   &__capture {
     margin-bottom: 1.5rem;
+    @include tablet {
+      font-size: 1rem;
+    }
+    @include mobile {
+      font-size: 0.6rem;
+      margin-bottom: 1rem;
+    }
   }
 
   &__icon {

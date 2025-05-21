@@ -10713,7 +10713,7 @@ document.addEventListener("DOMContentLoaded", e => {
         let x = e.pageX;
         x -= slider.getBoundingClientRect().left;
         beforeAfterSlider(slider, before, change, x);
-        pauseEvent();
+        pauseEvent(e);
       });
       slider.addEventListener("mousedown", e => {
         isActive = true;
@@ -10722,6 +10722,26 @@ document.addEventListener("DOMContentLoaded", e => {
         isActive = false;
       });
       document.body.addEventListener("mouseleave", e => {
+        isActive = false;
+      });
+      wrapper?.addEventListener("touchmove", e => {
+        if (!isActive) return;
+        let x;
+        let i;
+        for (i = 0; i < e.changedTouches.length; i++) {
+          x = e.changedTouches[i].pageX;
+        }
+        x -= slider.getBoundingClientRect().left;
+        beforeAfterSlider(slider, before, change, x);
+        pauseEvent(e);
+      });
+      slider.addEventListener("touchstart", e => {
+        isActive = true;
+      });
+      document.body.addEventListener("touchend", e => {
+        isActive = false;
+      });
+      document.body.addEventListener("touchcancel", e => {
         isActive = false;
       });
     });
@@ -11094,6 +11114,17 @@ teamSliders.forEach(slider => {
     navigation: {
       prevEl: sliderPrev,
       nextEl: sliderNext
+    },
+    breakpoints: {
+      320: {
+        slidesPerView: 1
+      },
+      601: {
+        slidesPerView: 3
+      },
+      901: {
+        slidesPerView: 4
+      }
     }
   });
 });
@@ -11106,6 +11137,43 @@ new swiper__WEBPACK_IMPORTED_MODULE_0__.Swiper(".find__slider", {
     delay: 0,
     disableOnInteraction: false
   }
+});
+new swiper__WEBPACK_IMPORTED_MODULE_0__.Swiper(".optima__slider", {
+  slidesPerView: "auto",
+  spaceBetween: 10
+});
+window.addEventListener("DOMContentLoaded", () => {
+  const resizableSwiper = (breakpoint, swiperClass, swiperSettings, callback) => {
+    let swiper;
+    breakpoint = window.matchMedia(breakpoint);
+    const enableSwiper = function (className, settings) {
+      swiper = new swiper__WEBPACK_IMPORTED_MODULE_0__.Swiper(className, settings);
+      if (callback) {
+        callback(swiper);
+      }
+    };
+    const checker = function () {
+      if (breakpoint.matches) {
+        return enableSwiper(swiperClass, swiperSettings);
+      } else {
+        if (swiper !== undefined) swiper.destroy(true, true);
+        return;
+      }
+    };
+    breakpoint.addEventListener("change", checker);
+    checker();
+  };
+  const someFunc = instance => {
+    if (instance) {
+      instance.on("slideChange", function (e) {
+        console.log("*** mySwiper.activeIndex", instance.activeIndex);
+      });
+    }
+  };
+  resizableSwiper("(max-width: 900px)", ".solution__slider", {
+    spaceBetween: 10,
+    slidesPerView: "auto"
+  });
 });
 
 /***/ }),

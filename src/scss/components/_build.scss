@@ -80,4 +80,63 @@
     height: 23rem;
     width: 43.8rem;
   }
+  &__bottom {
+    display: none;
+
+    @include tablet {
+      display: flex;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+    @include mobile {
+      margin-top: 1rem;
+    }
+  }
+  &__hint {
+    @include tablet {
+      font-weight: 400;
+      font-size: 1.4rem;
+      line-height: 120%;
+      text-align: center;
+      color: #000;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      position: relative;
+      &::before {
+        content: "";
+        display: block;
+        width: 4rem;
+        height: 4rem;
+        background-image: url("./../img/slide.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: relative;
+        z-index: 3;
+        animation: slider 4s ease-in-out infinite;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 1rem;
+        width: 2rem;
+        aspect-ratio: 1 / 1;
+        background-color: rgba(29, 27, 26, 0.2);
+      }
+    }
+    @include mobile {
+      font-size: 0.8rem;
+      gap: 1.2rem;
+
+      &::before {
+        width: 2.5rem;
+        height: 2.5rem;
+      }
+    }
+  }
 }

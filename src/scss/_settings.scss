@@ -9,6 +9,12 @@ html {
   @media (min-width: 1440px) {
     font-size: calc(144px / 12);
   }
+  @media (max-width: 900px) {
+    font-size: calc(100vw / 90);
+  }
+  @media (max-width: 600px) {
+    font-size: calc(100vw / 32);
+  }
 }
 .page {
   height: 100%;

@@ -97,6 +97,24 @@
 </header>
       <main class="main">
         <section class="hero">
+  <div class="hero__img">
+    <picture>
+      <source
+        srcset="./img/hero-mob.webp"
+        type="image/webp"
+        media="(max-width: 600px)"
+      />
+      <source srcset="./img/hero.webp" type="image/webp" />
+      <img
+        loading="lazy"
+        src="./img/hero.jpg"
+        class="image"
+        width=""
+        height=""
+        alt=""
+      />
+    </picture>
+  </div>
   <div class="hero__container">
     <div class="hero__content">
       <h1 class="title1 hero__title">
@@ -933,152 +951,155 @@
       </p>
     </div>
   </div>
-  <div class="solution__items">
-    <div class="solution__item sol-item">
-      <div class="sol-item__fig">01</div>
-      <div class="sol-item__img">
-        <picture>
-          <source srcset="./img/solution/01.webp" type="image/webp" />
-          <img
-            loading="lazy"
-            src="./img/solution/01.jpg"
-            class="image"
-            width=""
-            height=""
-            alt=""
-          />
-        </picture>
+  <div class="solution__slider swiper">
+    <div class="solution__items swiper-wrapper">
+      <div class="solution__item swiper-slide sol-item">
+        <div class="sol-item__fig">01</div>
+        <div class="sol-item__img">
+          <picture>
+            <source srcset="./img/solution/01.webp" type="image/webp" />
+            <img
+              loading="lazy"
+              src="./img/solution/01.jpg"
+              class="image"
+              width=""
+              height=""
+              alt=""
+            />
+          </picture>
+        </div>
+        <p class="sol-item__capture desc2">
+          Здание в&nbsp;виде космической тарелки.<br />Проектировали
+        </p>
       </div>
-      <p class="sol-item__capture desc2">
-        Здание в&nbsp;виде космической тарелки.<br />Проектировали
-      </p>
-    </div>
 
-    <div class="solution__item sol-item">
-      <div class="sol-item__fig">02</div>
-      <div class="sol-item__img">
-        <picture>
-          <source srcset="./img/solution/02.webp" type="image/webp" />
-          <img
-            loading="lazy"
-            src="./img/solution/02.jpg"
-            class="image"
-            width=""
-            height=""
-            alt=""
-          />
-        </picture>
+      <div class="solution__item swiper-slide sol-item">
+        <div class="sol-item__fig">02</div>
+        <div class="sol-item__img">
+          <picture>
+            <source srcset="./img/solution/02.webp" type="image/webp" />
+            <img
+              loading="lazy"
+              src="./img/solution/02.jpg"
+              class="image"
+              width=""
+              height=""
+              alt=""
+            />
+          </picture>
+        </div>
+        <p class="sol-item__capture desc2">
+          Дом 1500 м2&nbsp;по&nbsp;древнеиндийской системе Васту.<br />
+          Проектировали и&nbsp;строили
+        </p>
       </div>
-      <p class="sol-item__capture desc2">
-        Дом 1500 м2&nbsp;по&nbsp;древнеиндийской системе Васту.<br />
-        Проектировали и&nbsp;строили
-      </p>
-    </div>
 
-    <div class="solution__item sol-item">
-      <div class="sol-item__fig">03</div>
-      <div class="sol-item__img">
-        <picture>
-          <source srcset="./img/solution/03.webp" type="image/webp" />
-          <img
-            loading="lazy"
-            src="./img/solution/03.jpg"
-            class="image"
-            width=""
-            height=""
-            alt=""
-          />
-        </picture>
+      <div class="solution__item swiper-slide sol-item">
+        <div class="sol-item__fig">03</div>
+        <div class="sol-item__img">
+          <picture>
+            <source srcset="./img/solution/03.webp" type="image/webp" />
+            <img
+              loading="lazy"
+              src="./img/solution/03.jpg"
+              class="image"
+              width=""
+              height=""
+              alt=""
+            />
+          </picture>
+        </div>
+        <p class="sol-item__capture desc2">
+          Крыша оригами из&nbsp;LVL бруса с&nbsp;нестандартными пролётами.<br />
+          Проектировали и&nbsp;строили
+        </p>
       </div>
-      <p class="sol-item__capture desc2">
-        Крыша оригами из&nbsp;LVL бруса с&nbsp;нестандартными пролётами.<br />
-        Проектировали и&nbsp;строили
-      </p>
-    </div>
 
-    <div class="solution__item sol-item">
-      <div class="sol-item__fig">04</div>
-      <div class="sol-item__img">
-        <picture>
-          <source srcset="./img/solution/04.webp" type="image/webp" />
-          <img
-            loading="lazy"
-            src="./img/solution/04.jpg"
-            class="image"
-            width=""
-            height=""
-            alt=""
-          />
-        </picture>
+      <div class="solution__item swiper-slide sol-item">
+        <div class="sol-item__fig">04</div>
+        <div class="sol-item__img">
+          <picture>
+            <source srcset="./img/solution/04.webp" type="image/webp" />
+            <img
+              loading="lazy"
+              src="./img/solution/04.jpg"
+              class="image"
+              width=""
+              height=""
+              alt=""
+            />
+          </picture>
+        </div>
+        <p class="sol-item__capture desc2">
+          Параметрические элементы на&nbsp;фасаде в&nbsp;виде
+          &laquo;парусов&raquo; из&nbsp;натурального камня.<br />
+          Проектировали и&nbsp;строили
+        </p>
       </div>
-      <p class="sol-item__capture desc2">
-        Параметрические элементы на&nbsp;фасаде в&nbsp;виде
-        &laquo;парусов&raquo; из&nbsp;натурального камня.<br />
-        Проектировали и&nbsp;строили
-      </p>
-    </div>
 
-    <div class="solution__item sol-item">
-      <div class="sol-item__fig">05</div>
-      <div class="sol-item__img">
-        <picture>
-          <source srcset="./img/solution/05.webp" type="image/webp" />
-          <img
-            loading="lazy"
-            src="./img/solution/05.jpg"
-            class="image"
-            width=""
-            height=""
-            alt=""
-          />
-        </picture>
+      <div class="solution__item swiper-slide sol-item">
+        <div class="sol-item__fig">05</div>
+        <div class="sol-item__img">
+          <picture>
+            <source srcset="./img/solution/05.webp" type="image/webp" />
+            <img
+              loading="lazy"
+              src="./img/solution/05.jpg"
+              class="image"
+              width=""
+              height=""
+              alt=""
+            />
+          </picture>
+        </div>
+        <p class="sol-item__capture desc2">
+          Парящая лесница нестандартной ширины 1,6&nbsp;м. (вместо
+          1&nbsp;м.).<br />
+          Проектировали и&nbsp;строили
+        </p>
       </div>
-      <p class="sol-item__capture desc2">
-        Парящая лесница нестандартной ширины 1,6&nbsp;м. (вместо 1&nbsp;м.).<br />
-        Проектировали и&nbsp;строили
-      </p>
-    </div>
 
-    <div class="solution__item sol-item">
-      <div class="sol-item__fig">06</div>
-      <div class="sol-item__img">
-        <picture>
-          <source srcset="./img/solution/06.webp" type="image/webp" />
-          <img
-            loading="lazy"
-            src="./img/solution/06.jpg"
-            class="image"
-            width=""
-            height=""
-            alt=""
-          />
-        </picture>
+      <div class="solution__item swiper-slide sol-item">
+        <div class="sol-item__fig">06</div>
+        <div class="sol-item__img">
+          <picture>
+            <source srcset="./img/solution/06.webp" type="image/webp" />
+            <img
+              loading="lazy"
+              src="./img/solution/06.jpg"
+              class="image"
+              width=""
+              height=""
+              alt=""
+            />
+          </picture>
+        </div>
+        <p class="sol-item__capture desc2">
+          Снежная комната: с&nbsp;потолка идёт снег для СПА.<br />
+          Проектировали и&nbsp;строили
+        </p>
       </div>
-      <p class="sol-item__capture desc2">
-        Снежная комната: с&nbsp;потолка идёт снег для СПА.<br />
-        Проектировали и&nbsp;строили
-      </p>
-    </div>
 
-    <div class="solution__item sol-item">
-      <div class="sol-item__fig">07</div>
-      <div class="sol-item__img">
-        <picture>
-          <source srcset="./img/solution/07.webp" type="image/webp" />
-          <img
-            loading="lazy"
-            src="./img/solution/07.jpg"
-            class="image"
-            width=""
-            height=""
-            alt=""
-          />
-        </picture>
+      <div class="solution__item swiper-slide sol-item">
+        <div class="sol-item__fig">07</div>
+        <div class="sol-item__img">
+          <picture>
+            <source srcset="./img/solution/07.webp" type="image/webp" />
+            <img
+              loading="lazy"
+              src="./img/solution/07.jpg"
+              class="image"
+              width=""
+              height=""
+              alt=""
+            />
+          </picture>
+        </div>
+        <p class="sol-item__capture desc2">
+          Мерцающее звёздное небо из&nbsp;4&nbsp;000 прозрачных нитей.<br />
+          Собирали 5&nbsp;месяцев
+        </p>
       </div>
-      <p class="sol-item__capture desc2">
-        Мерцающее звёздное небо из&nbsp;4&nbsp;000 прозрачных нитей.<br />
-        Собирали 5&nbsp;месяцев
-      </p>
     </div>
   </div>
 </section>
@@ -1144,6 +1165,10 @@
         <video src=""></video>
       </div>
     </div>
+  </div>
+
+  <div class="build__bottom">
+    <div class="build__hint">Двигайте галерею, чтобы увидеть больше видео</div>
   </div>
 </section>
  <section class="get-consult">
@@ -1972,7 +1997,7 @@
         />
       </picture>
 
-      <div class="team__capture">
+      <div class="team__capture-name">
         Оксана и&nbsp;Всеволод
         <span> Волковы</span>
       </div>
@@ -1980,6 +2005,9 @@
         Основатели и&nbsp;главные архитекторы BOROSA
       </div>
     </div>
+    <p class="team__capture team__capture--mob title4">
+      Все работают на&nbsp;единый результат, создавая совершенный дом
+    </p>
     <div class="team__content">
       <p class="team__capture title4">
         Все работают на&nbsp;единый результат, создавая совершенный дом
@@ -3159,7 +3187,236 @@
 </section>
 
       </main>
-      <footer class="footer">
+      <div class="modal modal--cons">
+  <div class="modal__body">
+    <button class="btn-reset modal__close"></button>
+    <div class="modal__header">
+      <div class="modal__images">
+        <div class="modal__img">
+          <picture>
+            <source srcset="./img/zay/01.webp" type="image/webp" />
+            <img
+              loading="lazy"
+              src="./img/zay/01.png"
+              class="image"
+              width=""
+              height=""
+              alt=""
+            />
+          </picture>
+        </div>
+        <div class="modal__img">
+          <picture>
+            <source srcset="./img/zay/02.webp" type="image/webp" />
+            <img
+              loading="lazy"
+              src="./img/zay/02.png"
+              class="image"
+              width=""
+              height=""
+              alt=""
+            />
+          </picture>
+        </div>
+        <div class="modal__img">
+          <picture>
+            <source srcset="./img/zay/03.webp" type="image/webp" />
+            <img
+              loading="lazy"
+              src="./img/zay/03.png"
+              class="image"
+              width=""
+              height=""
+              alt=""
+            />
+          </picture>
+        </div>
+        <div class="modal__img">
+          <picture>
+            <source srcset="./img/zay/04.webp" type="image/webp" />
+            <img
+              loading="lazy"
+              src="./img/zay/04.png"
+              class="image"
+              width=""
+              height=""
+              alt=""
+            />
+          </picture>
+        </div>
+        <div class="modal__img">
+          <picture>
+            <source srcset="./img/zay/05.webp" type="image/webp" />
+            <img
+              loading="lazy"
+              src="./img/zay/05.png"
+              class="image"
+              width=""
+              height=""
+              alt=""
+            />
+          </picture>
+        </div>
+        <div class="modal__img">
+          <picture>
+            <source srcset="./img/zay/06.webp" type="image/webp" />
+            <img
+              loading="lazy"
+              src="./img/zay/06.png"
+              class="image"
+              width=""
+              height=""
+              alt=""
+            />
+          </picture>
+        </div>
+      </div>
+      <p class="modal__title">
+        Заполните форму&nbsp;&mdash; и&nbsp;стройка работает на&nbsp;вас.
+        Остальные платят за&nbsp;просчёты
+      </p>
+      <form action="#" class="form modal__form">
+        <div class="form__field">
+          <span class="form__capture"> Вы уже купили Участок? </span>
+          <div class="form__row">
+            <label class="form__item">
+              <input
+                type="radio"
+                name="Вы уже купили участок?"
+                value="Да"
+                class="visually-hidden"
+              />
+              <div class="form__check"></div>
+              <span>Да</span>
+            </label>
+            <label class="form__item">
+              <input
+                type="radio"
+                name="Вы уже купили участок?"
+                value="Нет"
+                class="visually-hidden"
+              />
+              <div class="form__check"></div>
+              <span>Нет</span>
+            </label>
+            <label class="form__item">
+              <input
+                type="radio"
+                name="Вы уже купили участок?"
+                value="Выбираю"
+                class="visually-hidden"
+              />
+              <div class="form__check"></div>
+              <span>Выбираю</span>
+            </label>
+          </div>
+        </div>
+        <div class="form__field">
+          <span class="form__capture"> Планируемая площадь дома? </span>
+          <div class="form__row">
+            <label class="form__item">
+              <input
+                type="radio"
+                name="Планируемая площадь дома? "
+                value="Да"
+                class="visually-hidden"
+              />
+              <div class="form__check"></div>
+              <span>Да</span>
+            </label>
+            <label class="form__item">
+              <input
+                type="radio"
+                name="Планируемая площадь дома? "
+                value="Нет"
+                class="visually-hidden"
+              />
+              <div class="form__check"></div>
+              <span>Нет</span>
+            </label>
+            <label class="form__item">
+              <input
+                type="radio"
+                name="Планируемая площадь дома? "
+                value="Выбираю"
+                class="visually-hidden"
+              />
+              <div class="form__check"></div>
+              <span>Выбираю</span>
+            </label>
+          </div>
+        </div>
+        <div class="form__field">
+          <span class="form__capture"> Комфортный способ связи: </span>
+          <div class="form__row">
+            <label class="form__item">
+              <input
+                type="radio"
+                name="Комфортный способ связи:"
+                value="Да"
+                class="visually-hidden"
+              />
+              <div class="form__check"></div>
+              <span>Да</span>
+            </label>
+            <label class="form__item">
+              <input
+                type="radio"
+                name="Комфортный способ связи:"
+                value="Нет"
+                class="visually-hidden"
+              />
+              <div class="form__check"></div>
+              <span>Нет</span>
+            </label>
+            <label class="form__item">
+              <input
+                type="radio"
+                name="Комфортный способ связи:"
+                value="Выбираю"
+                class="visually-hidden"
+              />
+              <div class="form__check"></div>
+              <span>Выбираю</span>
+            </label>
+          </div>
+        </div>
+        <div class="form__field">
+          <input
+            type="text"
+            name="Имя"
+            id="form-name"
+            class="form__input input-name"
+          />
+          <label class="form__label" for="form-name">Имя</label>
+        </div>
+        <div class="form__field">
+          <input
+            type="text"
+            id="form-tel"
+            name="Телефон"
+            class="form__input input-tel"
+          />
+          <label class="form__label" for="form-tel">Телефон</label>
+        </div>
+        <button class="btn btn-reset btn--white form__btn">
+          Получить консультацию
+        </button>
+        <label class="form__agree form__item">
+          <input type="checkbox" class="visually-hidden" />
+          <div class="form__check"></div>
+          <span
+            >Согласен с&nbsp;<a href="#" target="_blank"
+              >Политикой конфиденциальности</a
+            ></span
+          >
+        </label>
+      </form>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
   <div class="container">
     <div class="footer__container">
       <div class="footer__col">

@@ -34,6 +34,17 @@ teamSliders.forEach((slider) => {
       prevEl: sliderPrev,
       nextEl: sliderNext,
     },
+    breakpoints: {
+      320: {
+        slidesPerView: 1,
+      },
+      601: {
+        slidesPerView: 3,
+      },
+      901: {
+        slidesPerView: 4,
+      },
+    },
   });
 });
 
@@ -47,4 +58,55 @@ new Swiper(".find__slider", {
     delay: 0,
     disableOnInteraction: false,
   },
+});
+
+new Swiper(".optima__slider", {
+  slidesPerView: "auto",
+  spaceBetween: 10,
+});
+
+window.addEventListener("DOMContentLoaded", () => {
+  const resizableSwiper = (
+    breakpoint,
+    swiperClass,
+    swiperSettings,
+    callback
+  ) => {
+    let swiper;
+
+    breakpoint = window.matchMedia(breakpoint);
+
+    const enableSwiper = function (className, settings) {
+      swiper = new Swiper(className, settings);
+
+      if (callback) {
+        callback(swiper);
+      }
+    };
+
+    const checker = function () {
+      if (breakpoint.matches) {
+        return enableSwiper(swiperClass, swiperSettings);
+      } else {
+        if (swiper !== undefined) swiper.destroy(true, true);
+        return;
+      }
+    };
+
+    breakpoint.addEventListener("change", checker);
+    checker();
+  };
+
+  const someFunc = (instance) => {
+    if (instance) {
+      instance.on("slideChange", function (e) {
+        console.log("*** mySwiper.activeIndex", instance.activeIndex);
+      });
+    }
+  };
+
+  resizableSwiper("(max-width: 900px)", ".solution__slider", {
+    spaceBetween: 10,
+    slidesPerView: "auto",
+  });
 });

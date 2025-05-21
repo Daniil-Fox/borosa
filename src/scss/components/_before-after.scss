@@ -1,7 +1,12 @@
 .before-after {
   position: relative;
   height: 59.3rem;
-
+  @include tablet {
+    height: 40rem;
+  }
+  @include mobile {
+    height: 15rem;
+  }
   img {
     display: block;
     width: 100%;
@@ -32,6 +37,9 @@
     height: 100%;
     cursor: pointer;
 
+    @include mobile {
+      width: 3px;
+    }
     &::after {
       content: "";
       position: absolute;
@@ -42,6 +50,15 @@
       width: 12px;
       height: 12.6rem;
       border-radius: 5px;
+
+      @include tablet {
+        width: 8px;
+        height: 9rem;
+      }
+      @include mobile {
+        width: 5px;
+        height: 5.2rem;
+      }
     }
 
     &-prev {

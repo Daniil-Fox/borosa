@@ -5,6 +5,14 @@
 
   &__title {
     margin-bottom: 2.2rem;
+
+    @include tablet {
+      text-align: center;
+      margin-bottom: 1.4rem;
+    }
+    @include mobile {
+      margin-bottom: 1.2rem;
+    }
   }
   &__subtitle {
     margin: 0;
@@ -14,6 +22,15 @@
     line-height: 130%;
     letter-spacing: -0.01em;
     color: #f5f5f5;
+
+    @include tablet {
+      font-size: 1.6rem;
+      text-align: center;
+    }
+    @include mobile {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
   }
 
   &__container {
@@ -23,6 +40,11 @@
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     gap: 2rem;
+
+    @include tablet {
+      display: flex;
+      flex-direction: column;
+    }
   }
 }
 
@@ -42,6 +64,12 @@
   &__img {
     flex-grow: 1;
     overflow: hidden;
+    @include tablet {
+      height: 30rem !important;
+    }
+    @include mobile {
+      height: 21rem !important;
+    }
     img {
       display: block;
       height: 100%;
@@ -58,6 +86,10 @@
     align-items: center;
     justify-content: space-between;
     white-space: nowrap;
+
+    @include tablet {
+      padding: 1.5rem 1rem;
+    }
   }
 
   &__title {
@@ -69,6 +101,13 @@
     letter-spacing: -0.01em;
     text-transform: uppercase;
     color: #f5f5f5;
+
+    @include tablet {
+      font-size: 1.6rem;
+    }
+    @include mobile {
+      font-size: 1.4rem;
+    }
 
     span {
       text-transform: lowercase;

@@ -6,6 +6,7 @@
     max-width: 120rem;
     margin: 0 auto;
     position: relative;
+    z-index: 2;
   }
   &__sup-label {
     color: rgba(22, 22, 22, 0.5);
@@ -46,10 +47,15 @@
   }
   &__img {
     position: absolute;
+    z-index: -1;
     height: 64rem;
     bottom: 0;
     right: -31.8rem;
 
+    @include tablet {
+      height: 46rem;
+      right: -20rem;
+    }
     img {
       height: 100%;
     }
@@ -135,10 +141,23 @@
     line-height: 120%;
     letter-spacing: -0.01em;
     color: #1d1b1a;
+
+    @include tablet {
+      bottom: -4.5rem;
+      font-size: 1.4rem;
+    }
+
+    @include mobile {
+      font-size: 1.2rem;
+    }
     b {
       margin-bottom: 0.5rem;
       display: block;
       font-weight: 500;
+
+      @include mobile {
+        font-size: 1.9rem;
+      }
     }
     a {
       text-decoration: underline;
@@ -153,6 +172,11 @@
       height: 18rem;
       left: 13rem;
       transform: rotate(70deg);
+
+      @include tablet {
+        width: 6rem;
+        height: 13rem;
+      }
     }
   }
 }

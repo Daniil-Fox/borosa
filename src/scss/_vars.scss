@@ -11,4 +11,8 @@
   --container-width: calc(var(--content-width) + (var(--container-offset) * 2));
 
   --light-color: #fff;
+
+  @media (max-width: 600px) {
+    --container-offset: 1rem;
+  }
 }

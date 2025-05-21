@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
         let x = e.pageX;
         x -= slider.getBoundingClientRect().left;
         beforeAfterSlider(slider, before, change, x);
-        pauseEvent();
+        pauseEvent(e);
       });
 
       slider.addEventListener("mousedown", (e) => {
@@ -43,6 +43,29 @@ document.addEventListener("DOMContentLoaded", (e) => {
         isActive = false;
       });
       document.body.addEventListener("mouseleave", (e) => {
+        isActive = false;
+      });
+
+      wrapper?.addEventListener("touchmove", (e) => {
+        if (!isActive) return;
+        let x;
+        let i;
+        for (i = 0; i < e.changedTouches.length; i++) {
+          x = e.changedTouches[i].pageX;
+        }
+
+        x -= slider.getBoundingClientRect().left;
+        beforeAfterSlider(slider, before, change, x);
+        pauseEvent(e);
+      });
+
+      slider.addEventListener("touchstart", (e) => {
+        isActive = true;
+      });
+      document.body.addEventListener("touchend", (e) => {
+        isActive = false;
+      });
+      document.body.addEventListener("touchcancel", (e) => {
         isActive = false;
       });
     });
