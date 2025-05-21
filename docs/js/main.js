@@ -10609,7 +10609,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_before_after_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/before-after.js */ "./src/js/components/before-after.js");
 /* harmony import */ var _components_slider_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/slider.js */ "./src/js/components/slider.js");
 /* harmony import */ var _components_tabs_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/tabs.js */ "./src/js/components/tabs.js");
-/* harmony import */ var _components_browser_scroll_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/browser-scroll.js */ "./src/js/components/browser-scroll.js");
+/* harmony import */ var _components_header_scroll_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/header-scroll.js */ "./src/js/components/header-scroll.js");
+/* harmony import */ var _components_browser_scroll_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/browser-scroll.js */ "./src/js/components/browser-scroll.js");
+
 
 
 
@@ -10617,10 +10619,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 document.addEventListener("DOMContentLoaded", () => {
-  (0,_components_browser_scroll_js__WEBPACK_IMPORTED_MODULE_5__.initBrowserScroll)();
+  (0,_components_browser_scroll_js__WEBPACK_IMPORTED_MODULE_6__.initBrowserScroll)();
 });
 window.addEventListener("load", () => {
-  (0,_components_browser_scroll_js__WEBPACK_IMPORTED_MODULE_5__.initBrowserScroll)();
+  (0,_components_browser_scroll_js__WEBPACK_IMPORTED_MODULE_6__.initBrowserScroll)();
 });
 
 /***/ }),
@@ -11094,6 +11096,58 @@ if (faqItems.length > 0) {
 
 /***/ }),
 
+/***/ "./src/js/components/header-scroll.js":
+/*!********************************************!*\
+  !*** ./src/js/components/header-scroll.js ***!
+  \********************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+let lastScroll = 0;
+const defaultOffset = 200;
+const header = document.querySelector(".header");
+const siteContainer = document.querySelector(".site-container");
+function handleScroll() {
+  const currentScroll = window.pageYOffset;
+  const isInitialPosition = currentScroll < defaultOffset;
+  const isScrollingUp = currentScroll < lastScroll;
+
+  // Если мы в начальной позиции
+  if (isInitialPosition) {
+    // Возвращаем изначальное состояние
+    header.classList.remove("header--scrolled");
+    header.classList.remove("header--hidden");
+    header.classList.remove("header--dark");
+    siteContainer.style.paddingTop = null;
+    // Восстанавливаем изначальное position
+    header.style.position = null;
+  }
+  // Если скроллим вверх и не в начальной позиции
+  else if (isScrollingUp) {
+    header.classList.remove("header--hidden");
+    header.classList.add("header--scrolled");
+    header.classList.contains("header--sec") ? siteContainer.style.paddingTop = header.clientHeight + "px" : null;
+    // Добавляем темный класс если его нет
+    if (!header.classList.contains("header--dark")) {
+      header.classList.add("header--dark");
+    }
+  }
+  // Если скроллим вниз и не в начальной позиции
+  else {
+    header.classList.add("header--hidden");
+  }
+  lastScroll = currentScroll;
+}
+
+// Используем throttle для оптимизации производительности
+let timeout;
+window.addEventListener("scroll", () => {
+  handleScroll();
+});
+
+/***/ }),
+
 /***/ "./src/js/components/slider.js":
 /*!*************************************!*\
   !*** ./src/js/components/slider.js ***!
@@ -11244,36 +11298,44 @@ __webpack_require__.r(__webpack_exports__);
 
 
 (function () {
-  const burger = document?.querySelector('[data-burger]');
-  const menu = document?.querySelector('[data-menu]');
-  const menuItems = document?.querySelectorAll('[data-menu-item]');
-  const overlay = document?.querySelector('[data-menu-overlay]');
-  burger?.addEventListener('click', e => {
-    burger?.classList.toggle('burger--active');
-    menu?.classList.toggle('menu--active');
-    if (menu?.classList.contains('menu--active')) {
-      burger?.setAttribute('aria-expanded', 'true');
-      burger?.setAttribute('aria-label', 'Закрыть меню');
+  const burger = document?.querySelector("[data-burger]");
+  const menu = document?.querySelector("[data-menu]");
+  const menuItems = document?.querySelectorAll("[data-menu-item]");
+  const overlay = document?.querySelector("[data-menu-overlay]");
+  const header = document?.querySelector(".header");
+  const body = document.body;
+  burger?.addEventListener("click", e => {
+    burger?.classList.toggle("burger--active");
+    menu?.classList.toggle("menu--active");
+    header?.classList.toggle("header--dark");
+    body.classList.toggle("menu-active");
+    if (menu?.classList.contains("menu--active")) {
+      burger?.setAttribute("aria-expanded", "true");
+      burger?.setAttribute("aria-label", "Закрыть меню");
       (0,_functions_disable_scroll_js__WEBPACK_IMPORTED_MODULE_0__.disableScroll)();
     } else {
-      burger?.setAttribute('aria-expanded', 'false');
-      burger?.setAttribute('aria-label', 'Открыть меню');
+      burger?.setAttribute("aria-expanded", "false");
+      burger?.setAttribute("aria-label", "Открыть меню");
       (0,_functions_enable_scroll_js__WEBPACK_IMPORTED_MODULE_1__.enableScroll)();
     }
   });
-  overlay?.addEventListener('click', () => {
-    burger?.setAttribute('aria-expanded', 'false');
-    burger?.setAttribute('aria-label', 'Открыть меню');
-    burger.classList.remove('burger--active');
-    menu.classList.remove('menu--active');
+  overlay?.addEventListener("click", () => {
+    burger?.setAttribute("aria-expanded", "false");
+    burger?.setAttribute("aria-label", "Открыть меню");
+    burger.classList.remove("burger--active");
+    menu.classList.remove("menu--active");
+    header.classList.remove("header--dark");
+    body.classList.remove("menu-active");
     (0,_functions_enable_scroll_js__WEBPACK_IMPORTED_MODULE_1__.enableScroll)();
   });
   menuItems?.forEach(el => {
-    el.addEventListener('click', () => {
-      burger?.setAttribute('aria-expanded', 'false');
-      burger?.setAttribute('aria-label', 'Открыть меню');
-      burger.classList.remove('burger--active');
-      menu.classList.remove('menu--active');
+    el.addEventListener("click", () => {
+      burger?.setAttribute("aria-expanded", "false");
+      burger?.setAttribute("aria-label", "Открыть меню");
+      burger.classList.remove("burger--active");
+      menu.classList.remove("menu--active");
+      header.classList.remove("header--dark");
+      body.classList.remove("menu-active");
       (0,_functions_enable_scroll_js__WEBPACK_IMPORTED_MODULE_1__.enableScroll)();
     });
   });

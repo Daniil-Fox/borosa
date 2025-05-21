@@ -12,6 +12,18 @@
   transition: transform 0.3s ease-in;
   pointer-events: none;
   transform: translateY(-100%);
+
+  @include mobile {
+    background-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.7),
+        rgba(0, 0, 0, 0.7)
+      ),
+      url(./../img/benefit.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+  }
   &.menu--active {
     pointer-events: all;
     transform: translateY(0);
@@ -33,6 +45,10 @@
         font-size: 1.4rem;
         line-height: 120%;
         color: #1d1b1a;
+
+        @include mobile {
+          color: #fff;
+        }
       }
     }
   }
@@ -49,11 +65,15 @@
     letter-spacing: -0.01em;
     text-transform: uppercase;
     color: #1d1b1a;
+    @include mobile {
+      color: #fff;
+    }
   }
 
   &__tg {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 1rem;
     font-weight: 400;
     font-size: 1.2rem;
@@ -68,10 +88,19 @@
     @include hover {
       background-color: rgba(29, 27, 26, 1);
     }
+    @include mobile {
+      gap: 0;
+      background-color: #fff;
+      color: #1d1b1a;
+      text-align: center;
+    }
     svg {
       flex-shrink: 0;
       width: 2rem;
       height: 2rem;
+      @include mobile {
+        display: none;
+      }
     }
   }
 }
