@@ -60,30 +60,34 @@
         height: 5.2rem;
       }
     }
-
-    &-prev {
-      position: absolute;
-      top: 50%;
-      left: -2.7rem;
-      transform: translateX(-100%) translateY(-50%);
-      width: 1.4rem;
-      height: 2.7rem;
-      background-image: url("./../img/arr-prev.svg");
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-    }
+    &-prev,
     &-next {
       position: absolute;
       top: 50%;
-      right: -2.7rem;
-      transform: rotateY(180deg) translateX(-100%) translateY(-50%);
       width: 1.4rem;
       height: 2.7rem;
       background-image: url("./../img/arr-prev.svg");
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
+      @include mobile {
+        width: 0.7rem;
+        height: 1.3rem;
+      }
+    }
+    &-prev {
+      left: -2.7rem;
+      transform: translateX(-100%) translateY(-50%);
+      @include mobile {
+        left: -0.7rem;
+      }
+    }
+    &-next {
+      right: -2.7rem;
+      transform: rotateY(180deg) translateX(-100%) translateY(-50%);
+      @include mobile {
+        right: -0.7rem;
+      }
     }
   }
 }

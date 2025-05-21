@@ -6,8 +6,8 @@
 html {
   font-size: calc(100vw / 120);
 
-  @media (min-width: 1440px) {
-    font-size: calc(144px / 12);
+  @media (min-width: 1920px) {
+    font-size: calc(192px / 12);
   }
   @media (max-width: 900px) {
     font-size: calc(100vw / 90);

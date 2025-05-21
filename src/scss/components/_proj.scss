@@ -1,17 +1,41 @@
 .proj {
   padding: 4rem 0;
-
+  .container {
+    @include mobile {
+      display: flex;
+      flex-direction: column;
+    }
+  }
   &__title {
     margin-bottom: 4rem;
+    @include mobile {
+      text-align: center;
+      white-space: nowrap;
+      order: -2;
+      margin-bottom: 2rem;
+    }
+    div {
+      display: inline;
+      @include mobile {
+        margin: 0 auto;
+      }
+    }
     span {
       transform: translateY(1.8rem);
       line-height: 79%;
       letter-spacing: -0.01em;
       color: #b56d25;
+
+      @include mobile {
+        transform: translateY(0.6rem);
+      }
     }
   }
   &__slider {
     margin-bottom: 3.6rem;
+    @include mobile {
+      margin: 0;
+    }
   }
 
   &__bottom {
@@ -21,7 +45,12 @@
     color: rgba(29, 27, 26, 0.7);
     line-height: 1.2;
     text-align: right;
-
+    @include mobile {
+      font-size: 0.8rem;
+      text-align: center;
+      order: -1;
+      margin-bottom: 2rem;
+    }
     &::before {
       content: "";
       display: block;
@@ -33,6 +62,9 @@
       background-repeat: no-repeat;
       background-position: center;
       animation: slider 4s ease-in-out infinite;
+      @include mobile {
+        width: 2rem;
+      }
     }
   }
 }

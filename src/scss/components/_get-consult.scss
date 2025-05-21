@@ -3,11 +3,22 @@
   padding: 7.5rem 0;
   position: relative;
   overflow: hidden;
+  @include mobile {
+    padding: 6rem 0;
+  }
   &__title {
     max-width: 80rem;
     margin-bottom: 3.3rem;
+    @include mobile {
+      margin-top: 1rem;
+    }
     span {
       transform: rotate(-2.6deg) translateY(1rem);
+
+      @include mobile {
+        line-height: 0;
+        transform: rotate(-2.6deg) translateY(0.5rem);
+      }
     }
   }
   &__container {
@@ -19,6 +30,11 @@
     margin-bottom: 5rem;
     font-weight: 400;
     line-height: 130%;
+
+    @include mobile {
+      font-size: 1.6rem;
+      margin-bottom: 3rem;
+    }
   }
 
   &__content {
@@ -30,6 +46,9 @@
     position: relative;
     display: flex;
     gap: 1.6rem;
+    @include mobile {
+      flex-direction: column;
+    }
     &::before {
       content: "";
       position: absolute;
@@ -38,9 +57,15 @@
       width: 100%;
       height: 1px;
       background: rgba(245, 245, 245, 0.2);
+      @include mobile {
+        display: none;
+      }
     }
     &:not(:last-child) {
       margin-bottom: 6rem;
+      @include mobile {
+        margin-bottom: 1.6rem;
+      }
     }
   }
 
@@ -49,18 +74,32 @@
   }
 
   &__btn {
+    @include mobile {
+      padding: 1.4rem 4rem;
+      width: 100%;
+    }
     &-wrap {
       display: inline-flex;
       align-items: flex-end;
       position: relative;
       width: auto;
-
+      @include mobile {
+        width: 100%;
+      }
       svg {
         position: absolute;
         left: 100%;
         margin-left: 2rem;
         width: 7rem;
         height: 8.3rem;
+
+        @include mobile {
+          height: 7rem;
+          width: 3.2rem;
+          top: -6rem;
+          left: 80%;
+          transform: rotate(-80deg);
+        }
       }
     }
   }
@@ -73,6 +112,12 @@
     font-size: 1.8rem;
     line-height: 130%;
     color: #f5f5f5;
+
+    @include mobile {
+      max-width: 100%;
+      font-size: 1.6rem;
+      margin-bottom: 1.6rem;
+    }
   }
 
   &__img {
@@ -81,6 +126,7 @@
     height: 83rem;
     bottom: -17rem;
     right: -40rem;
+
     &::after {
       content: "";
       position: absolute;
@@ -104,6 +150,11 @@
       height: 60rem;
       right: -30rem;
     }
+
+    @include mobile {
+      position: static;
+      height: 30rem;
+    }
   }
 
   &__cta {
@@ -118,8 +169,27 @@
     line-height: 130%;
     letter-spacing: -0.01em;
     color: rgba(245, 245, 245, 0.8);
+    @include mobile {
+      font-size: 1.2rem;
+    }
+    span {
+      display: block;
+
+      @include mobile {
+        &:first-child {
+          font-weight: 500;
+          margin-bottom: 1.2rem;
+        }
+      }
+    }
     @include tablet {
       bottom: -3rem;
+    }
+    @include mobile {
+      padding: 0;
+      left: 1rem;
+      right: 1rem;
+      text-align: center;
     }
     a {
       text-decoration: underline;
@@ -133,7 +203,12 @@
   width: 100%;
 
   max-width: 26.2rem;
-
+  @include mobile {
+    display: flex;
+    align-items: flex-end;
+    gap: 1.2rem;
+    border-bottom: 1px solid rgba(245, 245, 245, 0.2);
+  }
   &__fig {
     margin: 0;
     margin-top: -3rem;
@@ -144,6 +219,12 @@
     color: #c9c9c9;
     position: relative;
     z-index: -1;
+    @include mobile {
+      font-size: 7.5rem;
+      flex-shrink: 0;
+      margin-bottom: -2.8rem;
+      margin-top: 0;
+    }
     &::after {
       content: "";
       position: absolute;
@@ -163,5 +244,9 @@
     font-size: 1.4rem;
     line-height: 120%;
     color: rgba(255, 255, 255, 0.8);
+    @include mobile {
+      font-size: 1.2rem;
+      padding-bottom: 1rem;
+    }
   }
 }

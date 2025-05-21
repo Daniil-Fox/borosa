@@ -11091,7 +11091,11 @@ new swiper__WEBPACK_IMPORTED_MODULE_0__.Swiper(".build__slider", {
   slidesPerView: "auto",
   spaceBetween: 5,
   centeredSlides: true,
-  speed: 500,
+  speed: 6000,
+  autoplay: {
+    delay: 0,
+    disableOnInteraction: false
+  },
   loop: true
 });
 new swiper__WEBPACK_IMPORTED_MODULE_0__.Swiper(".princeps__slider", {
@@ -11117,7 +11121,7 @@ teamSliders.forEach(slider => {
     },
     breakpoints: {
       320: {
-        slidesPerView: 1
+        slidesPerView: "auto"
       },
       601: {
         slidesPerView: 3
@@ -11137,10 +11141,6 @@ new swiper__WEBPACK_IMPORTED_MODULE_0__.Swiper(".find__slider", {
     delay: 0,
     disableOnInteraction: false
   }
-});
-new swiper__WEBPACK_IMPORTED_MODULE_0__.Swiper(".optima__slider", {
-  slidesPerView: "auto",
-  spaceBetween: 10
 });
 window.addEventListener("DOMContentLoaded", () => {
   const resizableSwiper = (breakpoint, swiperClass, swiperSettings, callback) => {
@@ -11172,6 +11172,10 @@ window.addEventListener("DOMContentLoaded", () => {
   };
   resizableSwiper("(max-width: 900px)", ".solution__slider", {
     spaceBetween: 10,
+    slidesPerView: "auto"
+  });
+  resizableSwiper("(max-width: 600px)", ".optima__slider", {
+    spaceBetween: 0,
     slidesPerView: "auto"
   });
 });

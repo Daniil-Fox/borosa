@@ -6,8 +6,11 @@ new Swiper(".build__slider", {
   slidesPerView: "auto",
   spaceBetween: 5,
   centeredSlides: true,
-  speed: 500,
-
+  speed: 6000,
+  autoplay: {
+    delay: 0,
+    disableOnInteraction: false,
+  },
   loop: true,
 });
 
@@ -36,7 +39,7 @@ teamSliders.forEach((slider) => {
     },
     breakpoints: {
       320: {
-        slidesPerView: 1,
+        slidesPerView: "auto",
       },
       601: {
         slidesPerView: 3,
@@ -58,11 +61,6 @@ new Swiper(".find__slider", {
     delay: 0,
     disableOnInteraction: false,
   },
-});
-
-new Swiper(".optima__slider", {
-  slidesPerView: "auto",
-  spaceBetween: 10,
 });
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -107,6 +105,10 @@ window.addEventListener("DOMContentLoaded", () => {
 
   resizableSwiper("(max-width: 900px)", ".solution__slider", {
     spaceBetween: 10,
+    slidesPerView: "auto",
+  });
+  resizableSwiper("(max-width: 600px)", ".optima__slider", {
+    spaceBetween: 0,
     slidesPerView: "auto",
   });
 });

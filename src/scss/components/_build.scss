@@ -1,11 +1,20 @@
 .build {
   padding-top: 4rem;
   padding-bottom: 9rem;
+
+  @include mobile {
+    padding-top: 2rem;
+    padding-bottom: 6rem;
+  }
   &__title {
     margin-bottom: 3rem;
 
     span {
       transform: rotate(-2deg) translateY(1rem);
+
+      @include mobile {
+        transform: rotate(-2deg) translateY(0.5rem);
+      }
     }
   }
 
@@ -21,6 +30,12 @@
     gap: 2.5rem;
     padding-right: 10rem;
     margin-bottom: 6.6rem;
+
+    @include mobile {
+      padding: 0;
+      flex-direction: column;
+      border: none;
+    }
   }
   &__item {
     flex-grow: 1;
@@ -42,6 +57,11 @@
     background-color: #f5f5f5;
     border: 1px solid rgba(29, 27, 26, 0.2);
     transform: translateY(-50%);
+
+    @include mobile {
+      width: 3.5rem;
+      padding: 0.5rem;
+    }
     img {
       height: 100%;
       width: 100px;
@@ -58,6 +78,9 @@
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
+      @include mobile {
+        width: 0.8rem;
+      }
     }
     svg {
       display: block;
@@ -79,6 +102,15 @@
     background-color: #1d1b1a;
     height: 23rem;
     width: 43.8rem;
+    @include mobile {
+      width: 90%;
+      height: 15rem;
+    }
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
   &__bottom {
     display: none;

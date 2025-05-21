@@ -1,11 +1,23 @@
 .possible {
   padding: 8rem 0;
+  @include mobile {
+    padding: 6rem 0;
+  }
   &__title {
     max-width: 80rem;
     margin-bottom: 8rem;
+    @include mobile {
+      max-width: 100%;
+      margin-bottom: 3rem;
+    }
     span {
       line-height: 0;
       transform: rotate(-2deg) translate(-0rem, 1.6rem);
+
+      @include mobile {
+        transform: rotate(-1deg) translate(0, 0.5rem);
+        font-size: 4.2rem;
+      }
     }
   }
 
@@ -14,9 +26,21 @@
     gap: 2.5rem;
     border-top: 1px solid rgba(0, 0, 0, 0.2);
     margin-bottom: 4rem;
+
+    @include mobile {
+      flex-direction: column;
+      gap: 3rem;
+      border: none;
+    }
   }
   &__item {
     flex: 1;
+    @include mobile {
+      flex: unset;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
   }
 
   &__icon {
@@ -33,6 +57,11 @@
     border-radius: 100%;
     position: relative;
 
+    @include mobile {
+      width: 3.5rem;
+      padding: 0.7rem;
+    }
+
     &::after {
       content: "";
       position: absolute;
@@ -44,6 +73,10 @@
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
+
+      @include mobile {
+        width: 1.2rem;
+      }
     }
     img {
       display: block;

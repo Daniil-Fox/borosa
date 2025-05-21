@@ -19,6 +19,11 @@
     letter-spacing: -0.02em;
     text-transform: uppercase;
     color: rgba(221, 221, 221, 0.6);
+
+    @include mobile {
+      color: #fff;
+      font-size: 2.2rem;
+    }
   }
 }
 
