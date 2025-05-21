@@ -1,5 +1,8 @@
 import "./_components.js";
 import { burger } from "./functions/burger.js";
+import { initPortfolioMore } from "./components/portfolio.js";
+import { initServiceCards } from "./components/service.js";
+
 const solItems = document.querySelectorAll(".solution__item");
 
 if (solItems.length > 0) {
@@ -7,3 +10,8 @@ if (solItems.length > 0) {
     solItems[solItems.length - 1].classList.add("solution__item--mt");
   }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  initPortfolioMore();
+  initServiceCards();
+});

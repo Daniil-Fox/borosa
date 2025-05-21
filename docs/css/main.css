@@ -3968,6 +3968,27 @@ a {
     flex-direction: column;
   }
 }
+.portfolio__mob {
+  display: none;
+  padding: 0 var(--container-offset);
+}
+@media (max-width: 900px) {
+  .portfolio__mob {
+    display: block;
+  }
+}
+.portfolio__more {
+  width: 100%;
+  margin-top: 2rem;
+  display: block;
+  padding: 1.4rem;
+  font-size: 1.4rem;
+}
+.portfolio__more--hide {
+  color: #fff;
+  border-color: #fff;
+  background-color: #1d1b1a;
+}
 
 .portfolio-item {
   -ms-grid-column-span: 6;
@@ -4112,6 +4133,27 @@ a {
   height: 18.6rem;
 }
 
+@media (max-width: 900px) {
+  .portfolio__container .portfolio__item {
+    display: none;
+  }
+  .portfolio__container .portfolio__item:nth-child(-n+3) {
+    display: block;
+  }
+  .portfolio__container.show-all .portfolio__item {
+    display: block;
+  }
+  .portfolio__mob {
+    display: block;
+    margin-top: 30px;
+    text-align: center;
+  }
+}
+@media (min-width: 901px) {
+  .portfolio__mob {
+    display: none;
+  }
+}
 .methods {
   padding: 7.8rem 0;
   position: relative;
@@ -4803,6 +4845,23 @@ a {
 .service__slider {
   overflow: visible;
 }
+.service__mob {
+  display: none;
+  margin-top: 2rem;
+  text-align: center;
+}
+.service__more {
+  width: 100%;
+  max-width: 34rem;
+  margin: 0 auto;
+  padding: 1.4rem;
+  font-size: 1.4rem;
+}
+.service__more--hide {
+  background-color: transparent;
+  border-color: #1d1b1a;
+  color: #1d1b1a;
+}
 
 .service-item {
   padding: 3rem 2rem;
@@ -4969,6 +5028,17 @@ a {
     font-size: 1.2rem;
   }
 }
+.service-item__more {
+  width: 100%;
+  margin-top: 2rem;
+  padding: 1.4rem;
+  font-size: 1.4rem;
+  background-color: transparent;
+  border: 1px solid #1d1b1a;
+  color: #1d1b1a;
+  -webkit-transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
 
 .service-list {
   display: -webkit-box;
@@ -5023,6 +5093,77 @@ a {
   margin-top: -1.4rem;
 }
 
+@media (max-width: 900px) {
+  .service-item__body {
+    display: none;
+  }
+  .service-item__header {
+    cursor: pointer;
+    position: relative;
+  }
+  .service-item__header::after {
+    content: "";
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    -webkit-transform: translateY(-50%) rotate(0deg);
+    -ms-transform: translateY(-50%) rotate(0deg);
+    transform: translateY(-50%) rotate(0deg);
+    width: 1.2rem;
+    height: 0.7rem;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='7' viewBox='0 0 12 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23F5F5F5' stroke-width='1.5'/%3E%3C/svg%3E%0A");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    -webkit-transition: -webkit-transform 0.3s ease-in-out;
+    transition: -webkit-transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+  }
+  .service-item.is-open .service-item__body {
+    display: block;
+  }
+  .service-item.is-open .service-item__header::after {
+    -webkit-transform: translateY(-50%) rotate(180deg);
+    -ms-transform: translateY(-50%) rotate(180deg);
+    transform: translateY(-50%) rotate(180deg);
+  }
+}
+@media (max-width: 600px) {
+  .service-item__body {
+    position: relative;
+    -webkit-transform-origin: top;
+    -ms-transform-origin: top;
+    transform-origin: top;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transform: scaleY(0);
+    -ms-transform: scaleY(0);
+    transform: scaleY(0);
+    pointer-events: none;
+    -webkit-transition: opacity 0.2s ease, visibility 0s 0.4s, -webkit-transform 0.4s ease;
+    transition: opacity 0.2s ease, visibility 0s 0.4s, -webkit-transform 0.4s ease;
+    transition: transform 0.4s ease, opacity 0.2s ease, visibility 0s 0.4s;
+    transition: transform 0.4s ease, opacity 0.2s ease, visibility 0s 0.4s, -webkit-transform 0.4s ease;
+  }
+  .service-item.is-open .service-item__body {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transform: scaleY(1);
+    -ms-transform: scaleY(1);
+    transform: scaleY(1);
+    pointer-events: auto;
+    -webkit-transition: opacity 0.2s ease, -webkit-transform 0.4s ease;
+    transition: opacity 0.2s ease, -webkit-transform 0.4s ease;
+    transition: transform 0.4s ease, opacity 0.2s ease;
+    transition: transform 0.4s ease, opacity 0.2s ease, -webkit-transform 0.4s ease;
+  }
+  .service-item.is-open .service-item__more {
+    padding: 0;
+    border: none;
+    color: #1d1b1a;
+  }
+}
 .benefit {
   background-image: url("./../img/benefit.webp");
   background-size: cover;

@@ -46,6 +46,26 @@
       flex-direction: column;
     }
   }
+  &__mob {
+    display: none;
+    padding: 0 var(--container-offset);
+
+    @include tablet {
+      display: block;
+    }
+  }
+  &__more {
+    width: 100%;
+    margin-top: 2rem;
+    display: block;
+    padding: 1.4rem;
+    font-size: 1.4rem;
+    &--hide {
+      color: #fff;
+      border-color: #fff;
+      background-color: #1d1b1a;
+    }
+  }
 }
 
 .portfolio-item {
@@ -178,6 +198,40 @@
       &__img {
         height: 18.6rem;
       }
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .portfolio {
+    &__container {
+      .portfolio__item {
+        display: none;
+
+        &:nth-child(-n + 3) {
+          display: block;
+        }
+      }
+
+      &.show-all {
+        .portfolio__item {
+          display: block;
+        }
+      }
+    }
+
+    &__mob {
+      display: block;
+      margin-top: 30px;
+      text-align: center;
+    }
+  }
+}
+
+@media (min-width: 901px) {
+  .portfolio {
+    &__mob {
+      display: none;
     }
   }
 }

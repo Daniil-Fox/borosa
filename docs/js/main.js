@@ -11148,6 +11148,90 @@ window.addEventListener("scroll", () => {
 
 /***/ }),
 
+/***/ "./src/js/components/portfolio.js":
+/*!****************************************!*\
+  !*** ./src/js/components/portfolio.js ***!
+  \****************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   initPortfolioMore: () => (/* binding */ initPortfolioMore)
+/* harmony export */ });
+const initPortfolioMore = () => {
+  const portfolioContainer = document.querySelector(".portfolio__container");
+  const moreButton = document.querySelector(".portfolio__more");
+  if (!portfolioContainer || !moreButton) return;
+  moreButton.addEventListener("click", () => {
+    const isExpanded = portfolioContainer.classList.contains("show-all");
+    if (isExpanded) {
+      portfolioContainer.classList.remove("show-all");
+      moreButton.textContent = "Показать ещё";
+      moreButton.classList.remove("portfolio__more--hide");
+    } else {
+      portfolioContainer.classList.add("show-all");
+      moreButton.textContent = "Свернуть";
+      moreButton.classList.add("portfolio__more--hide");
+    }
+  });
+};
+
+/***/ }),
+
+/***/ "./src/js/components/service.js":
+/*!**************************************!*\
+  !*** ./src/js/components/service.js ***!
+  \**************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   initServiceCards: () => (/* binding */ initServiceCards)
+/* harmony export */ });
+const initServiceCards = () => {
+  const serviceItems = document.querySelectorAll(".service-item");
+  if (!serviceItems.length) return;
+  serviceItems.forEach(item => {
+    const moreButton = item.querySelector(".service-item__more");
+    const body = item.querySelector(".service-item__body");
+    if (!moreButton || !body) return;
+    moreButton.addEventListener("click", () => {
+      const isExpanded = item.classList.contains("is-open");
+      if (isExpanded) {
+        item.classList.remove("is-open");
+        moreButton.textContent = "Подробнее";
+      } else {
+        item.classList.add("is-open");
+        moreButton.textContent = "Свернуть";
+      }
+    });
+  });
+
+  // Функция для проверки ширины экрана и сброса состояния
+  const checkWidth = () => {
+    if (window.innerWidth > 600) {
+      serviceItems.forEach(item => {
+        item.classList.remove("is-open");
+        const moreButton = item.querySelector(".service-item__more");
+        if (moreButton) {
+          moreButton.style.display = "none";
+          moreButton.textContent = "Подробнее";
+        }
+      });
+    }
+  };
+
+  // Слушаем изменение размера окна
+  window.addEventListener("resize", checkWidth);
+
+  // Проверяем при инициализации
+  checkWidth();
+};
+
+/***/ }),
+
 /***/ "./src/js/components/slider.js":
 /*!*************************************!*\
   !*** ./src/js/components/slider.js ***!
@@ -11483,6 +11567,10 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_components.js */ "./src/js/_components.js");
 /* harmony import */ var _functions_burger_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./functions/burger.js */ "./src/js/functions/burger.js");
+/* harmony import */ var _components_portfolio_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/portfolio.js */ "./src/js/components/portfolio.js");
+/* harmony import */ var _components_service_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/service.js */ "./src/js/components/service.js");
+
+
 
 
 const solItems = document.querySelectorAll(".solution__item");
@@ -11491,6 +11579,10 @@ if (solItems.length > 0) {
     solItems[solItems.length - 1].classList.add("solution__item--mt");
   }
 }
+document.addEventListener("DOMContentLoaded", () => {
+  (0,_components_portfolio_js__WEBPACK_IMPORTED_MODULE_2__.initPortfolioMore)();
+  (0,_components_service_js__WEBPACK_IMPORTED_MODULE_3__.initServiceCards)();
+});
 })();
 
 /******/ })()
