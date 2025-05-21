@@ -111,4 +111,8 @@ window.addEventListener("DOMContentLoaded", () => {
     spaceBetween: 0,
     slidesPerView: "auto",
   });
+  resizableSwiper("(max-width: 600px)", ".service__slider", {
+    spaceBetween: 0,
+    slidesPerView: "auto",
+  });
 });

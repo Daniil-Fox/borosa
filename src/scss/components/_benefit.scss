@@ -7,6 +7,10 @@
   padding: 4rem 0 10rem;
   position: relative;
 
+  @include mobile {
+    padding: 6rem 0;
+  }
+
   &::before {
     content: "";
     position: absolute;
@@ -44,6 +48,10 @@
     @include tablet {
       font-size: 10rem;
     }
+    @include mobile {
+      position: relative;
+      margin-bottom: 3rem;
+    }
     span {
       font-size: 20.9rem;
       transform: rotate(-3deg) translateY(2rem);
@@ -51,6 +59,14 @@
       color: #e08428;
       @include tablet {
         font-size: 12rem;
+      }
+      @include mobile {
+        position: absolute;
+        margin-left: 0;
+        left: 50%;
+        top: 50%;
+        transform: rotate(-3deg) translate(-50%, -70%);
+        line-height: 1;
       }
     }
   }
@@ -75,6 +91,9 @@
 
     @include tablet {
       max-width: 100%;
+    }
+    @include mobile {
+      text-align: left;
     }
   }
 
