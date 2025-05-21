@@ -1,1 +1,32 @@
 // ваш код
+.header {
+  position: absolute;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  padding: 1.5rem 0;
+  &__logo {
+    display: block;
+    width: 11.6rem;
+    height: 3.5rem;
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: left;
+    }
+  }
+  &__container {
+    position: relative;
+    z-index: 20;
+    width: 100%;
+    max-width: calc(116rem + var(--container-offset) * 2);
+    padding: 0 var(--container-offset);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
