@@ -1,6 +1,7 @@
 .service {
   padding: 6rem 0 7.2rem;
   background-color: #fff;
+  overflow: hidden;
   &__items {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

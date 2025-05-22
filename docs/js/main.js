@@ -10677,19 +10677,19 @@ aos__WEBPACK_IMPORTED_MODULE_0__.init({
   // the delay on throttle used while scrolling the page (advanced)
 
   // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
-  offset: 50,
+  offset: 120,
   // offset (in px) from the original trigger point
   delay: 0,
   // values from 0 to 3000, with step 50ms
   duration: 500,
   // values from 0 to 3000, with step 50ms
-  easing: "ease",
+  easing: "linear",
   // default easing for AOS animations
   once: true,
   // whether animation should happen only once - while scrolling down
   mirror: false,
   // whether elements should animate out while scrolling past them
-  anchorPlacement: "bottom-bottom" // defines which position of the element regarding to window should trigger the animation
+  anchorPlacement: "top-bottom" // defines which position of the element regarding to window should trigger the animation
 });
 setTimeout(() => {
   aos__WEBPACK_IMPORTED_MODULE_0__.refresh();
@@ -11369,6 +11369,101 @@ if (tabs.length > 0) {
 
 /***/ }),
 
+/***/ "./src/js/components/tooltips.js":
+/*!***************************************!*\
+  !*** ./src/js/components/tooltips.js ***!
+  \***************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   initTooltips: () => (/* binding */ initTooltips)
+/* harmony export */ });
+const initTooltips = () => {
+  const tooltipTriggers = document.querySelectorAll(".methods__text span");
+  const tooltips = document.querySelectorAll(".methods__tooltip");
+  console.log("Найдено триггеров:", tooltipTriggers.length);
+  console.log("Найдено тултипов:", tooltips.length);
+
+  // Закрываем все тултипы
+  const closeAllTooltips = () => {
+    tooltips.forEach(tooltip => {
+      tooltip.style.opacity = "0";
+      tooltip.style.visibility = "hidden";
+      tooltip.style.transform = "translateY(-10px)";
+    });
+  };
+
+  // Обработчик для каждого триггера
+  tooltipTriggers.forEach((trigger, index) => {
+    // При наведении на иконку
+    trigger.addEventListener("mouseenter", () => {
+      closeAllTooltips();
+      const tooltip = trigger.closest(".methods__content").querySelector(".methods__tooltip");
+      console.log("Наведение на триггер:", index, "Найден тултип:", !!tooltip);
+      if (tooltip) {
+        tooltip.style.opacity = "1";
+        tooltip.style.visibility = "visible";
+        tooltip.style.transform = "translateX(50%) translateY(0);";
+
+        // Проверяем, не выходит ли тултип за пределы экрана
+        const tooltipRect = tooltip.getBoundingClientRect();
+        const offset = 20;
+
+        // Проверяем выход за правый край
+        if (tooltipRect.right > window.innerWidth - offset) {
+          const overflow = tooltipRect.right - (window.innerWidth - offset);
+          tooltip.style.transform = `translateX(-${overflow}px)`;
+        }
+
+        // Проверяем выход за верхний край
+        if (tooltipRect.top < offset) {
+          // Если тултип выходит за верхний край экрана, показываем его снизу
+          tooltip.style.bottom = "auto";
+          tooltip.style.top = "calc(100% + 10px)";
+          tooltip.style.transform = "translateX(50%) translateY(0);";
+          tooltip.querySelector("::before").style.bottom = "auto";
+          tooltip.querySelector("::before").style.top = "-8px";
+        }
+      }
+    });
+
+    // При уходе курсора
+    trigger.addEventListener("mouseleave", e => {
+      const tooltip = trigger.closest(".methods__content").querySelector(".methods__tooltip");
+      if (tooltip) {
+        const relatedTarget = e.relatedTarget;
+        if (!tooltip.contains(relatedTarget)) {
+          closeAllTooltips();
+        }
+      }
+    });
+  });
+
+  // Закрываем тултип при уходе с него
+  tooltips.forEach(tooltip => {
+    tooltip.addEventListener("mouseleave", () => {
+      closeAllTooltips();
+    });
+  });
+
+  // Закрываем все тултипы при скролле
+  document.addEventListener("scroll", () => {
+    closeAllTooltips();
+  });
+
+  // Закрываем все тултипы при клике вне
+  document.addEventListener("click", e => {
+    const target = e.target;
+    if (!target.closest(".methods__text span") && !target.closest(".methods__tooltip")) {
+      closeAllTooltips();
+    }
+  });
+};
+
+/***/ }),
+
 /***/ "./src/js/functions/burger.js":
 /*!************************************!*\
   !*** ./src/js/functions/burger.js ***!
@@ -11487,6 +11582,81 @@ const enableScroll = () => {
   _vars_js__WEBPACK_IMPORTED_MODULE_0__["default"].htmlEl.style.scrollBehavior = 'smooth';
 };
 
+/***/ }),
+
+/***/ "./src/js/modules/modals.js":
+/*!**********************************!*\
+  !*** ./src/js/modules/modals.js ***!
+  \**********************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   initModals: () => (/* binding */ initModals)
+/* harmony export */ });
+const initModals = () => {
+  // Получаем все кейсы
+  const cases = document.querySelectorAll(".optima__item");
+  const modals = document.querySelectorAll(".modal--case");
+  const closeButtons = document.querySelectorAll(".modal__close");
+  const nextButtons = document.querySelectorAll(".modal__next");
+
+  // Функция для открытия модального окна
+  const openModal = modalId => {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+      modal.classList.add("active");
+      document.body.style.overflow = "hidden";
+    }
+  };
+
+  // Функция для закрытия всех модальных окон
+  const closeAllModals = () => {
+    modals.forEach(modal => {
+      modal.classList.remove("active");
+    });
+    document.body.style.overflow = "";
+  };
+
+  // Добавляем обработчики для кейсов
+  cases.forEach((item, index) => {
+    item.addEventListener("click", () => {
+      openModal(`modal-${index + 1}`);
+    });
+  });
+
+  // Добавляем обработчики для кнопок закрытия
+  closeButtons.forEach(button => {
+    button.addEventListener("click", closeAllModals);
+  });
+
+  // Добавляем обработчики для кнопок "Следующий кейс"
+  nextButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      const nextModalId = button.dataset.next;
+      closeAllModals();
+      openModal(nextModalId);
+    });
+  });
+
+  // Закрытие по клику вне модального окна
+  modals.forEach(modal => {
+    modal.addEventListener("click", e => {
+      if (e.target === modal) {
+        closeAllModals();
+      }
+    });
+  });
+
+  // Закрытие по Escape
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape") {
+      closeAllModals();
+    }
+  });
+};
+
 /***/ })
 
 /******/ 	});
@@ -11569,6 +11739,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _functions_burger_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./functions/burger.js */ "./src/js/functions/burger.js");
 /* harmony import */ var _components_portfolio_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/portfolio.js */ "./src/js/components/portfolio.js");
 /* harmony import */ var _components_service_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/service.js */ "./src/js/components/service.js");
+/* harmony import */ var _modules_modals_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/modals.js */ "./src/js/modules/modals.js");
+/* harmony import */ var _components_tooltips_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/tooltips.js */ "./src/js/components/tooltips.js");
+
+
 
 
 
@@ -11582,6 +11756,8 @@ if (solItems.length > 0) {
 document.addEventListener("DOMContentLoaded", () => {
   (0,_components_portfolio_js__WEBPACK_IMPORTED_MODULE_2__.initPortfolioMore)();
   (0,_components_service_js__WEBPACK_IMPORTED_MODULE_3__.initServiceCards)();
+  (0,_modules_modals_js__WEBPACK_IMPORTED_MODULE_4__.initModals)();
+  (0,_components_tooltips_js__WEBPACK_IMPORTED_MODULE_5__.initTooltips)();
 });
 })();
 

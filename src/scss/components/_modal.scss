@@ -65,10 +65,80 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
+    z-index: 3;
     background-image: url("./../img/zay/cross.svg");
     background-size: 1.6rem 1.6rem;
     background-position: center;
     background-repeat: no-repeat;
+    cursor: pointer;
+  }
+}
+
+.modal--case {
+  .modal {
+    &__content {
+      position: relative;
+      max-width: 50rem;
+      width: 100%;
+      background-color: #fff;
+      padding: 2rem;
+    }
+    &__title {
+      margin: 0;
+      text-align: left;
+      margin-bottom: 1.6rem;
+      font-family: var(--second-family);
+      font-weight: 700;
+      font-size: 2rem;
+      line-height: 110%;
+      letter-spacing: -0.01em;
+      color: #1d1b1a;
+    }
+    &__close {
+      width: 1.7rem;
+      background-color: #1d1b1a;
+
+      background-image: url("./../img/white-cross.svg");
+      background-size: 75% 75%;
+    }
+    &__text {
+      font-family: var(--font-family);
+      font-weight: 400;
+      font-size: 1.4rem;
+      line-height: 130%;
+      letter-spacing: -0.01em;
+      color: #1d1b1a;
+      margin-bottom: 2rem;
+      ul {
+        li {
+          span {
+            display: block;
+            margin-bottom: 0.4rem;
+            font-weight: 500;
+            font-size: 1rem;
+            line-height: 110%;
+            letter-spacing: -0.01em;
+            color: #858585;
+          }
+          &:not(:last-child) {
+            margin-bottom: 1.6rem;
+          }
+        }
+      }
+    }
+
+    &__next {
+      border: none;
+      background: none;
+      cursor: pointer;
+      font-weight: 400;
+      font-size: 1.4rem;
+      line-height: 130%;
+      letter-spacing: -0.01em;
+      text-decoration: underline;
+      text-decoration-skip-ink: none;
+      text-align: center;
+      color: #b56d25;
+    }
   }
 }

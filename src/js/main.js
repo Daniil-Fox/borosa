@@ -2,6 +2,8 @@ import "./_components.js";
 import { burger } from "./functions/burger.js";
 import { initPortfolioMore } from "./components/portfolio.js";
 import { initServiceCards } from "./components/service.js";
+import { initModals } from "./modules/modals.js";
+import { initTooltips } from "./components/tooltips.js";
 
 const solItems = document.querySelectorAll(".solution__item");
 
@@ -14,4 +16,6 @@ if (solItems.length > 0) {
 document.addEventListener("DOMContentLoaded", () => {
   initPortfolioMore();
   initServiceCards();
+  initModals();
+  initTooltips();
 });

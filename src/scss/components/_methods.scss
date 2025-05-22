@@ -1,6 +1,7 @@
 .methods {
   padding: 7.8rem 0;
   position: relative;
+  overflow: hidden;
   @include mobile {
     padding: 6rem 0;
   }
@@ -18,7 +19,9 @@
       margin: 0;
     }
   }
-
+  &__wrapper {
+    position: relative;
+  }
   &__title {
     margin-top: -5rem;
     margin-bottom: 3rem;
@@ -173,6 +176,11 @@
     }
   }
 
+  &__content {
+    position: relative;
+    flex-grow: 1;
+  }
+
   &__text {
     margin: 0;
     font-weight: 400;
@@ -181,8 +189,77 @@
     letter-spacing: -0.03em;
     color: rgba(29, 27, 26, 0.8);
 
+    span:not(.methods__tooltip) {
+      position: relative;
+      display: inline-flex;
+
+      cursor: pointer;
+      @include mobile {
+        position: static;
+      }
+      img {
+        width: 16px;
+        height: 16px;
+      }
+
+      &:hover + .methods__tooltip {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+    }
+
     @include mobile {
       font-size: 1.2rem;
+    }
+  }
+
+  &__tooltip {
+    position: absolute;
+    bottom: calc(100% + 1rem);
+    right: -15rem;
+
+    width: 31rem;
+    padding: 1rem 2rem;
+    background: #ffffff;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 0.5rem;
+
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 130%;
+    color: #1d1b1a;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(-1rem);
+    transition: all 0.3s ease;
+    z-index: 10;
+
+    @include mobile {
+      font-size: 1.2rem;
+      width: 20rem;
+      right: -4rem;
+      padding: 1rem;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -0.8rem;
+      right: 50%;
+      width: 1.6rem;
+      height: 1.6rem;
+      background: #ffffff;
+      transform: rotate(45deg) translateX(50%) translateY(-50%);
+
+      @include mobile {
+        right: 2.5rem;
+      }
+    }
+
+    &:hover {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(50%) translateY(0);
     }
   }
 
