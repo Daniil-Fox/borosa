@@ -53,7 +53,7 @@
         margin-bottom: 1.8rem;
       }
 
-      max-width: 78rem;
+      max-width: 80rem;
       &:first-child {
         max-width: 100%;
       }
@@ -67,18 +67,18 @@
     z-index: -1;
     height: 64rem;
     bottom: 0;
-    right: -31.8rem;
+    right: -25%;
 
     @include tablet {
       height: 46rem;
-      right: -20rem;
+      right: -20%;
     }
     @include mobile {
       position: relative;
       right: 0;
       padding: 0 var(--container-offset);
 
-      height: 32.5rem;
+      height: 20rem;
       display: flex;
       flex-direction: row-reverse;
       justify-content: space-between;
@@ -86,13 +86,16 @@
     }
     img {
       height: 100%;
+      width: auto;
+      object-fit: contain;
       @include mobile {
         position: absolute;
-        height: 32.5rem;
-        width: 50.4rem;
-        top: 0;
+        height: 26.5rem;
+        width: 40.4rem;
+        top: 50%;
+        transform: translateY(-40%);
         z-index: -1;
-        right: -15rem;
+        right: -13rem;
       }
     }
   }
@@ -110,6 +113,9 @@
   &__block {
     max-width: 68rem;
     margin-bottom: 5.5rem;
+    @include mobile {
+      margin-bottom: 3rem;
+    }
   }
   &__icon {
     display: flex;
@@ -135,6 +141,10 @@
   &__row {
     &:not(:last-child) {
       margin-bottom: 2rem;
+    }
+
+    @include mobile {
+      text-align: center;
     }
   }
   &__link {

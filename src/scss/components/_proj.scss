@@ -31,6 +31,11 @@
       }
     }
   }
+  &__wrapper {
+    max-width: calc(120rem + var(--container-offset) * 2);
+    padding: 0 var(--container-offset);
+    margin: 0 auto;
+  }
   &__slider {
     margin-bottom: 3.6rem;
     @include mobile {
@@ -50,6 +55,7 @@
       text-align: center;
       order: -1;
       margin-bottom: 2rem;
+      margin-top: 2rem;
     }
     &::before {
       content: "";

@@ -107,12 +107,14 @@
   &__bottom {
     margin: 0;
     margin-bottom: 4rem;
-    max-width: 56rem;
+    max-width: 54rem;
     font-weight: 500;
     font-size: 1.8rem;
     line-height: 130%;
     color: #f5f5f5;
-
+    p {
+      margin: 0;
+    }
     @include mobile {
       max-width: 100%;
       font-size: 1.6rem;
@@ -123,9 +125,9 @@
   &__img {
     position: absolute;
     z-index: 1;
-    height: 83rem;
+    height: 76rem;
     bottom: -17rem;
-    right: -40rem;
+    right: -20%;
 
     &::after {
       content: "";
@@ -134,7 +136,7 @@
       bottom: 0;
       left: 0;
       width: 100%;
-      height: 50%;
+      height: 70%;
       background: linear-gradient(
         to top,
         #1d1b1a 0%,
@@ -159,16 +161,18 @@
 
   &__cta {
     position: absolute;
-    z-index: 4;
+    z-index: 9;
     right: 0;
-    bottom: 7.4rem;
+    bottom: 2.4rem;
     padding-right: 10.3rem;
-    padding-left: 59rem;
     font-weight: 400;
     font-size: 1.4rem;
     line-height: 130%;
     letter-spacing: -0.01em;
     color: rgba(245, 245, 245, 0.8);
+    p {
+      margin: 0;
+    }
     @include mobile {
       font-size: 1.2rem;
     }
@@ -211,7 +215,7 @@
   }
   &__fig {
     margin: 0;
-    margin-top: -3rem;
+    margin-top: -3.1rem;
     font-family: var(--font3);
     font-weight: 900;
     font-size: 4.9rem;

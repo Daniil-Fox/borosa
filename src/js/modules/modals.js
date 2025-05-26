@@ -23,9 +23,10 @@ export const initModals = () => {
   };
 
   // Добавляем обработчики для кейсов
-  cases.forEach((item, index) => {
+  cases.forEach((item) => {
     item.addEventListener("click", () => {
-      openModal(`modal-${index + 1}`);
+      const modalId = item.dataset.modalTarget;
+      openModal(modalId);
     });
   });
 

@@ -117,13 +117,30 @@
       font-size: 1.4rem;
       line-height: 130%;
       color: #312f2d;
-      &:not(:last-child) {
-        margin-bottom: 0.8rem;
-      }
+      opacity: 0;
+      transform: translateY(20px);
 
       @include mobile {
         font-size: 1.2rem;
       }
+
+      &:not(:last-child) {
+        margin-bottom: 0.8rem;
+      }
+
+      @for $i from 1 through 10 {
+        &:nth-child(#{$i}) {
+          transition: opacity 0.4s ease-out #{$i * 0.1 + 0.3}s,
+            transform 0.4s ease-out #{$i * 0.1 + 0.3}s;
+        }
+      }
+    }
+  }
+
+  &[data-aos].aos-animate &__list {
+    li {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 

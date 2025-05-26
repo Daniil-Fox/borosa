@@ -10,7 +10,7 @@
   </div>
 
   <div class="portfolio__container" data-aos="fade-up">
-    <div class="portfolio__item portfolio-item">
+    <div class="portfolio__item portfolio-item" data-modal-target="proj-modal-forest">
       <div class="portfolio-item__img">
         <picture>
           <source srcset="./img/portfolio/forest/01.webp" type="image/webp" />
@@ -234,3 +234,70 @@
     <button class="btn btn-reset btn--white portfolio__more">Показать ещё</button>
   </div>
 </section>
+
+<!-- Модальные окна проектов -->
+<div class="proj-modal" id="proj-modal-forest">
+  <div class="proj-modal__content">
+    <button class="btn-reset proj-modal__close"></button>
+    <div class="proj-modal__body">
+      <div class="proj-modal__slider swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <picture>
+              <source srcset="./img/portfolio/forest/01.webp" type="image/webp" />
+              <img loading="lazy" src="./img/portfolio/forest/01.jpg" class="image" width="" height="" alt="FOREST" />
+            </picture>
+          </div>
+          <div class="swiper-slide">
+            <picture>
+              <source srcset="./img/portfolio/forest/02.webp" type="image/webp" />
+              <img loading="lazy" src="./img/portfolio/forest/02.jpg" class="image" width="" height="" alt="FOREST" />
+            </picture>
+          </div>
+          <div class="swiper-slide">
+            <picture>
+              <source srcset="./img/portfolio/forest/03.webp" type="image/webp" />
+              <img loading="lazy" src="./img/portfolio/forest/03.jpg" class="image" width="" height="" alt="FOREST" />
+            </picture>
+          </div>
+        </div>
+        <div class="proj-modal__navigation">
+          <button class="btn-reset proj-modal__prev">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </button>
+          <button class="btn-reset proj-modal__next">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </button>
+        </div>
+        <div class="proj-modal__pagination"></div>
+      </div>
+      <div class="proj-modal__info">
+        <h2 class="proj-modal__title">FOREST</h2>
+        <ul class="list-reset proj-modal__specs">
+          <li>
+            <span>Площадь</span>
+            1500 м²
+          </li>
+          <li>
+            <span>Назначение</span>
+            2 этажа, 5 спален, бассейн, финская сауна, 3 кладовые
+          </li>
+          <li>
+            <span>Вспомогательные постройки</span>
+            Основная беседка, постройки, сад, парковка с навесом
+          </li>
+          <li>
+            <span>Статус</span>
+            Спроектирован и построен
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

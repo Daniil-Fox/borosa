@@ -4,12 +4,12 @@
   top: 0;
   width: 100%;
   height: 100%;
-
+  overflow: auto;
   background-color: #0000005e;
   backdrop-filter: blur(4px);
-
+  padding: 4rem;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   opacity: 0;
   z-index: -2;
@@ -18,15 +18,49 @@
     z-index: 1000;
     opacity: 1;
   }
+  @include mobile {
+    padding: 2rem 1rem;
+  }
+  &__wrapper {
+    margin-left: 3rem;
+    margin-right: 3rem;
+    border-left: 1px solid rgba(245, 245, 245, 0.2);
 
+    @include mobile {
+      margin: 0;
+      border: none;
+    }
+  }
   &__body {
     position: relative;
     padding: 3rem 2rem;
     background: #1d1b1a;
     width: 100%;
     max-width: 56rem;
-  }
 
+    @include mobile {
+      padding: 5rem 1rem;
+      max-width: 100%;
+    }
+  }
+  &__list {
+    margin-left: 4rem;
+    @include mobile {
+      margin-left: 5rem;
+      padding-left: 0;
+    }
+    li::before {
+      transform: translate(calc(-50% - 2rem), -50%);
+      @include mobile {
+        transform: translate(0, -50%);
+      }
+    }
+    li {
+      &:not(:last-child) {
+        margin-bottom: 1.6rem;
+      }
+    }
+  }
   &__images {
     display: flex;
     justify-content: center;
@@ -37,6 +71,9 @@
     width: 7rem;
     aspect-ratio: 1 / 1;
     flex-shrink: 0;
+    @include mobile {
+      width: 5rem;
+    }
     &:not(:last-child) {
       margin-right: -1rem;
     }
@@ -52,6 +89,25 @@
     letter-spacing: -0.01em;
     text-align: center;
     color: #f5f5f5;
+
+    @include mobile {
+      font-size: 1.8rem;
+    }
+
+    span {
+      display: inline-block;
+      font-family: var(--third-family);
+      font-weight: 500;
+      font-size: 6rem;
+      line-height: 20%;
+      letter-spacing: -0.01em;
+      color: #b56d25;
+      transform: rotate(-1deg) translate(1rem, 0.5rem);
+
+      @include mobile {
+        font-size: 3.2rem;
+      }
+    }
   }
 
   &__close {
@@ -71,6 +127,12 @@
     background-position: center;
     background-repeat: no-repeat;
     cursor: pointer;
+
+    @include mobile {
+      width: 3rem;
+      top: 0.5rem;
+      right: 0.5rem;
+    }
   }
 }
 

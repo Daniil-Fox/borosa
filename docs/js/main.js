@@ -10797,15 +10797,14 @@ const initBrowserScroll = () => {
   }
 
   // Получаем контейнер с элементами, который будем анимировать
-  const itemsContainer = browserContent.querySelector(".browser-content__wrapper");
+  const itemsContainer = browserContent.querySelector(".browser-content__items");
   if (!itemsContainer) {
-    console.log("Элемент .browser-content__wrapper не найден");
+    console.log("Элемент .browser-content__items не найден");
     return;
   }
 
   // Получаем настройки из атрибутов или используем значения по умолчанию
-  const scrollDuration = parseInt(browserContentContainer.dataset.scrollDuration) || 8000;
-  const pauseDuration = parseInt(browserContentContainer.dataset.pauseDuration) || 3000;
+  const scrollDuration = parseInt(browserContentContainer.dataset.scrollDuration) || 20000;
 
   // Флаг паузы анимации
   let isPaused = false;
@@ -10815,16 +10814,16 @@ const initBrowserScroll = () => {
   let animationTimer = null;
   // Текущая позиция трансформации
   let currentTransform = 0;
-  // Направление анимации (true - вниз, false - вверх)
-  let isMovingDown = true;
-  // Максимальное значение трансформации (вычисляется динамически)
-  let maxTransform = 0;
 
   // Подготавливаем контейнер для анимации
   const prepareContainer = () => {
+    // Клонируем содержимое для бесконечной прокрутки
+    const items = itemsContainer.querySelectorAll(".browser-content__item");
+    const clonedItems = Array.from(items).map(item => item.cloneNode(true));
+    clonedItems.forEach(item => itemsContainer.appendChild(item));
+
     // Устанавливаем стили для контейнера
     browserContent.style.overflow = "hidden";
-    itemsContainer.style.transition = "none";
     itemsContainer.style.willChange = "transform";
 
     // Сбрасываем начальную позицию
@@ -10834,149 +10833,57 @@ const initBrowserScroll = () => {
     browserContentContainer.classList.add("transform-scroll");
   };
 
-  // Вычисляем максимальное значение для трансформации
-  const calculateMaxTransform = () => {
-    const containerHeight = browserContent.clientHeight;
-    const contentHeight = itemsContainer.scrollHeight || itemsContainer.clientHeight;
-
-    // Если контент меньше контейнера, используем фиксированное значение
-    if (contentHeight <= containerHeight) {
-      return 300; // Минимальное значение для анимации
-    }
-    return contentHeight - containerHeight;
-  };
-
   // Функция для обновления текущей трансформации без анимации
   const updateTransformWithoutAnimation = value => {
     itemsContainer.style.transition = "none";
     itemsContainer.style.transform = `translateY(-${value}px)`;
     currentTransform = value;
-
-    // Форсируем перерисовку
     void itemsContainer.offsetHeight;
   };
 
   // Функция для обновления текущей трансформации с анимацией
   const updateTransformWithAnimation = (value, duration) => {
-    itemsContainer.style.transition = `transform ${duration}ms ease-in-out`;
+    itemsContainer.style.transition = `transform ${duration}ms linear`;
     itemsContainer.style.transform = `translateY(-${value}px)`;
     currentTransform = value;
   };
 
-  // Функция для анимации с использованием transform
-  const startTransformAnimation = (fromCurrentPosition = false) => {
+  // Функция для бесконечной анимации скролла
+  const startInfiniteScroll = () => {
     if (isPaused || document.hidden) {
-      animationTimer = setTimeout(() => startTransformAnimation(fromCurrentPosition), 1000);
+      animationTimer = setTimeout(startInfiniteScroll, 1000);
       return;
     }
-
-    // Обновляем максимальное значение трансформации
-    maxTransform = calculateMaxTransform();
-    console.log("Максимальное значение трансформации:", maxTransform);
-
-    // Устанавливаем флаг активной анимации
     isAnimating = true;
-
-    // Добавляем класс, указывающий на активную анимацию
     browserContentContainer.classList.add("is-scrolling");
 
-    // Если не продолжаем с текущей позиции, начинаем сначала
-    if (!fromCurrentPosition) {
-      updateTransformWithoutAnimation(0);
-      isMovingDown = true;
-    } else {
-      console.log("Продолжаем анимацию с текущей позиции:", currentTransform);
-    }
+    // Получаем высоту оригинального контента (половина общей высоты)
+    const itemsHeight = itemsContainer.scrollHeight / 2;
 
-    // Определяем, сколько осталось до конца в текущем направлении
-    const remainingDistance = isMovingDown ? maxTransform - currentTransform : currentTransform;
+    // Начинаем с начала
+    updateTransformWithoutAnimation(0);
 
-    // Вычисляем пропорциональную длительность анимации
-    const proportionalDuration = isMovingDown ? Math.max(1000, scrollDuration * (remainingDistance / maxTransform)) : Math.max(500, scrollDuration / 2 * (remainingDistance / maxTransform));
-    console.log(`Направление: ${isMovingDown ? "вниз" : "вверх"}, оставшееся расстояние: ${remainingDistance}, длительность: ${proportionalDuration}ms`);
+    // Запускаем анимацию до конца первой копии контента
+    requestAnimationFrame(() => {
+      updateTransformWithAnimation(itemsHeight, scrollDuration);
 
-    // Небольшая задержка перед началом анимации для применения стилей
-    setTimeout(() => {
-      // Плавное движение в текущем направлении
-      if (isMovingDown) {
-        // Движение вниз
-        updateTransformWithAnimation(maxTransform, proportionalDuration);
-        console.log("Начало/продолжение анимации вниз");
+      // Когда анимация достигает конца первой копии
+      animationTimer = setTimeout(() => {
+        // Мгновенно переносим в начало без анимации
+        updateTransformWithoutAnimation(0);
 
-        // После завершения анимации вниз
-        animationTimer = setTimeout(() => {
-          console.log("Анимация вниз завершена, пауза");
-
-          // Меняем направление
-          isMovingDown = false;
-
-          // Пауза перед возвратом наверх
-          animationTimer = setTimeout(() => {
-            if (isPaused) {
-              animationTimer = setTimeout(() => startTransformAnimation(true), 1000);
-              return;
-            }
-
-            // Плавное движение обратно вверх
-            console.log("Начало анимации вверх");
-            updateTransformWithAnimation(0, scrollDuration / 2);
-
-            // После завершения анимации вверх
-            animationTimer = setTimeout(() => {
-              console.log("Анимация вверх завершена, пауза перед новым циклом");
-              isAnimating = false;
-
-              // Меняем направление для следующего цикла
-              isMovingDown = true;
-
-              // Пауза перед следующим циклом
-              animationTimer = setTimeout(() => {
-                if (!isPaused) {
-                  startTransformAnimation(false); // Начинаем новый цикл сначала
-                }
-              }, pauseDuration);
-            }, scrollDuration / 2 + 100); // Добавляем небольшой запас времени
-          }, pauseDuration);
-        }, proportionalDuration + 100); // Добавляем небольшой запас времени
-      } else {
-        // Движение вверх
-        updateTransformWithAnimation(0, proportionalDuration);
-        console.log("Начало/продолжение анимации вверх");
-
-        // После завершения анимации вверх
-        animationTimer = setTimeout(() => {
-          console.log("Анимация вверх завершена, пауза перед новым циклом");
-          isAnimating = false;
-
-          // Меняем направление для следующего цикла
-          isMovingDown = true;
-
-          // Пауза перед следующим циклом
-          animationTimer = setTimeout(() => {
-            if (!isPaused) {
-              startTransformAnimation(false); // Начинаем новый цикл сначала
-            }
-          }, pauseDuration);
-        }, proportionalDuration + 100); // Добавляем небольшой запас времени
-      }
-    }, 50);
+        // Рекурсивно запускаем следующую анимацию
+        if (!isPaused) {
+          startInfiniteScroll();
+        }
+      }, scrollDuration);
+    });
   };
 
   // Функция для обработки события transitionend
   const handleTransitionEnd = e => {
     if (e.target !== itemsContainer || e.propertyName !== "transform") return;
     console.log("Transition завершен:", e.propertyName);
-
-    // Если это завершение анимации вниз
-    if (currentTransform >= maxTransform * 0.95) {
-      console.log("Завершена анимация вниз через event");
-      isMovingDown = false;
-    }
-    // Если это завершение анимации вверх
-    else if (currentTransform <= maxTransform * 0.05) {
-      console.log("Завершена анимация вверх через event");
-      isMovingDown = true;
-    }
   };
 
   // Добавляем обработчик события завершения анимации
@@ -10984,26 +10891,13 @@ const initBrowserScroll = () => {
 
   // Инициализация анимации
   const init = () => {
-    console.log("Инициализация transform-анимации");
-
-    // Подготавливаем контейнер
+    console.log("Инициализация бесконечной анимации скролла");
     prepareContainer();
-
-    // Обновляем максимальное значение трансформации
-    maxTransform = calculateMaxTransform();
 
     // Запускаем анимацию с небольшой задержкой
     setTimeout(() => {
-      startTransformAnimation(false);
+      startInfiniteScroll();
     }, 500);
-
-    // Дополнительные попытки запуска анимации
-    setTimeout(() => {
-      if (!isAnimating && !isPaused) {
-        console.log("Повторная попытка запуска анимации");
-        startTransformAnimation(false);
-      }
-    }, 2000);
   };
 
   // Запускаем инициализацию
@@ -11015,7 +10909,7 @@ const initBrowserScroll = () => {
   document.addEventListener("visibilitychange", () => {
     if (!document.hidden && !isAnimating && !isPaused) {
       console.log("Страница стала видимой - перезапуск анимации");
-      startTransformAnimation(false); // Всегда начинаем сначала
+      startInfiniteScroll();
     }
   });
 
@@ -11025,18 +10919,8 @@ const initBrowserScroll = () => {
       clearTimeout(animationTimer);
     }
     console.log("Изменение размера окна - перезапуск анимации");
-
-    // Обновляем максимальное значение трансформации
-    maxTransform = calculateMaxTransform();
-
-    // Если текущая позиция превышает новый максимум, корректируем её
-    if (currentTransform > maxTransform) {
-      updateTransformWithoutAnimation(maxTransform);
-    }
-
-    // Перезапускаем с небольшой задержкой
     setTimeout(() => {
-      startTransformAnimation(false); // Всегда начинаем сначала
+      startInfiniteScroll();
     }, 200);
   });
 
@@ -11052,12 +10936,8 @@ const initBrowserScroll = () => {
     isPaused = false;
     browserContentContainer.classList.remove("user-interaction");
     console.log("Возобновление анимации - уход курсора (mouseleave)");
-
-    // Если анимация не активна, запускаем ее снова с текущей позиции
     if (!isAnimating) {
-      animationTimer = setTimeout(() => {
-        startTransformAnimation(true); // Продолжаем с текущей позиции
-      }, 1000);
+      startInfiniteScroll();
     }
   });
 };
@@ -11162,18 +11042,59 @@ __webpack_require__.r(__webpack_exports__);
 const initPortfolioMore = () => {
   const portfolioContainer = document.querySelector(".portfolio__container");
   const moreButton = document.querySelector(".portfolio__more");
+  const ITEMS_PER_STEP = 3;
+  const INITIAL_ITEMS = 3;
+  const MOBILE_BREAKPOINT = 900;
   if (!portfolioContainer || !moreButton) return;
-  moreButton.addEventListener("click", () => {
-    const isExpanded = portfolioContainer.classList.contains("show-all");
-    if (isExpanded) {
-      portfolioContainer.classList.remove("show-all");
-      moreButton.textContent = "Показать ещё";
-      moreButton.classList.remove("portfolio__more--hide");
+  const portfolioItems = portfolioContainer.querySelectorAll(".portfolio__item");
+  let visibleItems = INITIAL_ITEMS;
+
+  // Функция для обновления видимости элементов
+  const updateItemsVisibility = () => {
+    // Проверяем ширину экрана
+    if (window.innerWidth <= MOBILE_BREAKPOINT) {
+      portfolioItems.forEach((item, index) => {
+        if (index < visibleItems) {
+          item.style.display = "block";
+        } else {
+          item.style.display = "none";
+        }
+      });
+
+      // Обновляем текст кнопки
+      if (visibleItems >= portfolioItems.length) {
+        moreButton.textContent = "Свернуть";
+      } else {
+        moreButton.textContent = "Показать ещё";
+      }
     } else {
-      portfolioContainer.classList.add("show-all");
-      moreButton.textContent = "Свернуть";
-      moreButton.classList.add("portfolio__more--hide");
+      // На десктопе показываем все элементы
+      portfolioItems.forEach(item => {
+        item.style.display = "";
+      });
     }
+  };
+
+  // Инициализация начального состояния
+  updateItemsVisibility();
+
+  // Обработчик клика по кнопке
+  moreButton.addEventListener("click", () => {
+    if (window.innerWidth <= MOBILE_BREAKPOINT) {
+      if (visibleItems >= portfolioItems.length) {
+        // Если все элементы видимы - сворачиваем до начального количества
+        visibleItems = INITIAL_ITEMS;
+      } else {
+        // Добавляем следующую порцию элементов
+        visibleItems = Math.min(visibleItems + ITEMS_PER_STEP, portfolioItems.length);
+      }
+      updateItemsVisibility();
+    }
+  });
+
+  // Обработчик изменения размера окна
+  window.addEventListener("resize", () => {
+    updateItemsVisibility();
   });
 };
 
@@ -11584,6 +11505,85 @@ const enableScroll = () => {
 
 /***/ }),
 
+/***/ "./src/js/modules/base-modals.js":
+/*!***************************************!*\
+  !*** ./src/js/modules/base-modals.js ***!
+  \***************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   initBaseModals: () => (/* binding */ initBaseModals)
+/* harmony export */ });
+const initBaseModals = () => {
+  // Находим все кнопки для открытия модальных окон
+  const modalButtons = document.querySelectorAll(".modal-btn");
+  if (!modalButtons.length) return;
+
+  // Находим все модальные окна (исключая modal--case)
+  const modals = document.querySelectorAll(".modal:not(.modal--case)");
+  if (!modals.length) return;
+
+  // Функция для открытия модального окна
+  const openModal = modalId => {
+    const modal = document.getElementById(modalId);
+    if (!modal || modal.classList.contains("modal--case")) return;
+
+    // Закрываем все открытые модальные окна
+    closeAllModals();
+
+    // Открываем нужное модальное окно
+    modal.classList.add("active");
+    document.body.style.overflow = "hidden";
+  };
+
+  // Функция для закрытия всех модальных окон
+  const closeAllModals = () => {
+    modals.forEach(modal => {
+      modal.classList.remove("active");
+    });
+    document.body.style.overflow = "";
+  };
+
+  // Добавляем обработчики для кнопок открытия
+  modalButtons.forEach(button => {
+    const modalId = button.dataset.modal;
+    if (!modalId) return;
+    button.addEventListener("click", () => openModal(modalId));
+  });
+
+  // Добавляем обработчики для кнопок закрытия
+  const closeButtons = document.querySelectorAll(".modal__close");
+  closeButtons.forEach(button => {
+    button.addEventListener("click", closeAllModals);
+  });
+
+  // Закрытие по клику вне модального окна
+  modals.forEach(modal => {
+    modal.addEventListener("click", e => {
+      if (e.target === modal) {
+        closeAllModals();
+      }
+    });
+  });
+
+  // Закрытие по Escape
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape") {
+      closeAllModals();
+    }
+  });
+
+  // Возвращаем методы для программного управления
+  return {
+    open: openModal,
+    closeAll: closeAllModals
+  };
+};
+
+/***/ }),
+
 /***/ "./src/js/modules/modals.js":
 /*!**********************************!*\
   !*** ./src/js/modules/modals.js ***!
@@ -11620,9 +11620,10 @@ const initModals = () => {
   };
 
   // Добавляем обработчики для кейсов
-  cases.forEach((item, index) => {
+  cases.forEach(item => {
     item.addEventListener("click", () => {
-      openModal(`modal-${index + 1}`);
+      const modalId = item.dataset.modalTarget;
+      openModal(modalId);
     });
   });
 
@@ -11638,6 +11639,95 @@ const initModals = () => {
       closeAllModals();
       openModal(nextModalId);
     });
+  });
+
+  // Закрытие по клику вне модального окна
+  modals.forEach(modal => {
+    modal.addEventListener("click", e => {
+      if (e.target === modal) {
+        closeAllModals();
+      }
+    });
+  });
+
+  // Закрытие по Escape
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape") {
+      closeAllModals();
+    }
+  });
+};
+
+/***/ }),
+
+/***/ "./src/js/modules/portfolio-modals.js":
+/*!********************************************!*\
+  !*** ./src/js/modules/portfolio-modals.js ***!
+  \********************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   initPortfolioModals: () => (/* binding */ initPortfolioModals)
+/* harmony export */ });
+/* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper */ "./node_modules/swiper/swiper.mjs");
+/* harmony import */ var swiper_modules__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! swiper/modules */ "./node_modules/swiper/modules/index.mjs");
+
+
+const initPortfolioModals = () => {
+  const portfolioItems = document.querySelectorAll(".portfolio-item");
+  const modals = document.querySelectorAll(".proj-modal");
+  const closeButtons = document.querySelectorAll(".proj-modal__close");
+
+  // Функция для открытия модального окна
+  const openModal = modalId => {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+      modal.classList.add("active");
+      document.body.style.overflow = "hidden";
+
+      // Инициализируем слайдер при открытии модального окна
+      const slider = modal.querySelector(".proj-modal__slider");
+      if (slider) {
+        new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](slider, {
+          modules: [swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Navigation, swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Pagination],
+          slidesPerView: 1,
+          spaceBetween: 0,
+          loop: true,
+          navigation: {
+            nextEl: modal.querySelector(".proj-modal__next"),
+            prevEl: modal.querySelector(".proj-modal__prev")
+          },
+          pagination: {
+            el: modal.querySelector(".proj-modal__pagination"),
+            type: "bullets",
+            clickable: true
+          }
+        });
+      }
+    }
+  };
+
+  // Функция для закрытия всех модальных окон
+  const closeAllModals = () => {
+    modals.forEach(modal => {
+      modal.classList.remove("active");
+    });
+    document.body.style.overflow = "";
+  };
+
+  // Добавляем обработчики для кнопок открытия
+  portfolioItems.forEach(button => {
+    button.addEventListener("click", () => {
+      const modalId = button.dataset.modalTarget;
+      openModal(modalId);
+    });
+  });
+
+  // Добавляем обработчики для кнопок закрытия
+  closeButtons.forEach(button => {
+    button.addEventListener("click", closeAllModals);
   });
 
   // Закрытие по клику вне модального окна
@@ -11741,6 +11831,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_service_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/service.js */ "./src/js/components/service.js");
 /* harmony import */ var _modules_modals_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/modals.js */ "./src/js/modules/modals.js");
 /* harmony import */ var _components_tooltips_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/tooltips.js */ "./src/js/components/tooltips.js");
+/* harmony import */ var _modules_portfolio_modals_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/portfolio-modals.js */ "./src/js/modules/portfolio-modals.js");
+/* harmony import */ var _modules_base_modals_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/base-modals.js */ "./src/js/modules/base-modals.js");
+
+
 
 
 
@@ -11758,6 +11852,8 @@ document.addEventListener("DOMContentLoaded", () => {
   (0,_components_service_js__WEBPACK_IMPORTED_MODULE_3__.initServiceCards)();
   (0,_modules_modals_js__WEBPACK_IMPORTED_MODULE_4__.initModals)();
   (0,_components_tooltips_js__WEBPACK_IMPORTED_MODULE_5__.initTooltips)();
+  (0,_modules_portfolio_modals_js__WEBPACK_IMPORTED_MODULE_6__.initPortfolioModals)();
+  (0,_modules_base_modals_js__WEBPACK_IMPORTED_MODULE_7__.initBaseModals)();
 });
 })();
 

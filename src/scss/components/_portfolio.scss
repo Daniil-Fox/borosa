@@ -45,6 +45,20 @@
       display: flex;
       flex-direction: column;
     }
+
+    .portfolio__item {
+      transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+
+      &[style*="display: none"] {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      &[style*="display: block"] {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   }
   &__mob {
     display: none;
@@ -60,6 +74,8 @@
     display: block;
     padding: 1.4rem;
     font-size: 1.4rem;
+    margin: 0 auto;
+    transition: opacity 0.3s ease-in-out;
     &--hide {
       color: #fff;
       border-color: #fff;

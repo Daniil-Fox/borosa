@@ -3,21 +3,24 @@
   overflow: hidden;
   @include mobile {
     padding: 6rem 0;
+    text-align: center;
   }
   &__sup-label {
     color: rgba(22, 22, 22, 0.5);
     border-color: rgba(22, 22, 22, 0.2);
   }
   &__title {
-    margin-top: -1rem;
+    margin-top: 2rem;
     margin-bottom: 3rem;
     @include mobile {
-      margin-top: 1rem;
       text-align: center;
       margin-bottom: 2rem;
     }
     span {
       transform: rotate(-1.6deg) translate(-1rem, 1.6rem);
+      @include mobile {
+        transform: rotate(-1.6deg) translate(-1rem, 0rem);
+      }
     }
   }
   &__desc {
@@ -32,6 +35,7 @@
     @include mobile {
       font-size: 1.6rem;
       margin-bottom: 3rem;
+      text-align: left;
     }
     b {
       font-weight: 500;
@@ -87,10 +91,13 @@
     margin: 0;
     font-size: 3rem;
     max-width: 96rem;
+    padding-left: 2rem;
+    border-left: 1px solid rgba(#1d1b1a, 0.2);
     @include tablet {
       font-size: 2.4rem;
     }
     @include mobile {
+      text-align: left;
       font-size: 1.8rem;
     }
     span {
@@ -111,6 +118,7 @@
   &__slider {
     margin-bottom: 5rem;
     @include mobile {
+      text-align: left;
       margin-bottom: 3rem;
     }
   }
@@ -131,12 +139,12 @@
 
   &__list {
     display: flex;
-    flex-wrap: wrap;
     gap: 1.2rem 2.5rem;
     padding: 1rem;
 
     @include mobile {
       gap: 1rem;
+      flex-direction: column;
     }
     li {
       font-weight: 400;

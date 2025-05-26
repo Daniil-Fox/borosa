@@ -1,6 +1,8 @@
 .before-after {
   position: relative;
   height: 59.3rem;
+
+  --cursor-position: 95%;
   @include tablet {
     height: 40rem;
   }
@@ -19,7 +21,7 @@
     left: 0;
     top: 0;
     overflow: hidden;
-    width: 50%;
+    width: var(--cursor-position);
     height: 100%;
     z-index: 2;
   }
@@ -30,7 +32,7 @@
   &__change {
     position: absolute;
     z-index: 5;
-    left: 50%;
+    left: var(--cursor-position);
     top: 0;
     width: 5px;
     background-color: #fff;
