@@ -232,6 +232,7 @@
   </div>
   <div class="portfolio__mob">
     <button class="btn btn-reset btn--white portfolio__more">Показать ещё</button>
+    <button class="btn btn-reset btn--white portfolio__hide is-hidden">Свернуть</button>
   </div>
 </section>
 
@@ -240,26 +241,32 @@
   <div class="proj-modal__content">
     <button class="btn-reset proj-modal__close"></button>
     <div class="proj-modal__body">
-      <div class="proj-modal__slider swiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <picture>
-              <source srcset="./img/portfolio/forest/01.webp" type="image/webp" />
-              <img loading="lazy" src="./img/portfolio/forest/01.jpg" class="image" width="" height="" alt="FOREST" />
-            </picture>
+      <div class="proj-modal__wrapper">
+        <div class="proj-modal__slider swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <picture>
+                <source srcset="./img/portfolio/forest/01.webp" type="image/webp" />
+                <img loading="lazy" src="./img/portfolio/forest/01.jpg" class="image" width="" height="" alt="FOREST" />
+              </picture>
+            </div>
+            <div class="swiper-slide">
+              <picture>
+                <source srcset="./img/portfolio/forest/02.webp" type="image/webp" />
+                <img loading="lazy" src="./img/portfolio/forest/02.jpg" class="image" width="" height="" alt="FOREST" />
+              </picture>
+            </div>
+            <div class="swiper-slide">
+              <picture>
+                <source srcset="./img/portfolio/forest/03.webp" type="image/webp" />
+                <img loading="lazy" src="./img/portfolio/forest/03.jpg" class="image" width="" height="" alt="FOREST" />
+              </picture>
+            </div>
           </div>
-          <div class="swiper-slide">
-            <picture>
-              <source srcset="./img/portfolio/forest/02.webp" type="image/webp" />
-              <img loading="lazy" src="./img/portfolio/forest/02.jpg" class="image" width="" height="" alt="FOREST" />
-            </picture>
-          </div>
-          <div class="swiper-slide">
-            <picture>
-              <source srcset="./img/portfolio/forest/03.webp" type="image/webp" />
-              <img loading="lazy" src="./img/portfolio/forest/03.jpg" class="image" width="" height="" alt="FOREST" />
-            </picture>
-          </div>
+
+          <div class="proj-modal__pagination"></div>
+
+
         </div>
         <div class="proj-modal__navigation">
           <button class="btn-reset proj-modal__prev">
@@ -275,7 +282,6 @@
             </svg>
           </button>
         </div>
-        <div class="proj-modal__pagination"></div>
       </div>
       <div class="proj-modal__info">
         <h2 class="proj-modal__title">FOREST</h2>
@@ -285,17 +291,18 @@
             1500 м²
           </li>
           <li>
-            <span>Назначение</span>
+            <span>Статус</span>
+            Спроектирован и построен
+          </li>
+          <li>
+            <span>Наполнение</span>
             2 этажа, 5 спален, бассейн, финская сауна, 3 кладовые
           </li>
           <li>
             <span>Вспомогательные постройки</span>
             Основная беседка, постройки, сад, парковка с навесом
           </li>
-          <li>
-            <span>Статус</span>
-            Спроектирован и построен
-          </li>
+
         </ul>
       </div>
     </div>

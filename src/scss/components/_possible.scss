@@ -1,15 +1,15 @@
 .possible {
-  padding: 8rem 0;
+  padding: 5rem 0;
   background-color: #f5f5f5;
   @include mobile {
-    padding: 6rem 0;
+    padding: 3rem 0;
   }
   &__title {
     max-width: 80rem;
     margin-bottom: 8rem;
     @include mobile {
       max-width: 100%;
-      margin-bottom: 3rem;
+      margin-bottom: 4rem;
     }
     span {
       line-height: 0;
@@ -45,6 +45,9 @@
       height: 1px;
       background-color: rgba(0, 0, 0, 0.2);
       transform-origin: left center;
+      @include mobile {
+        display: none;
+      }
     }
 
     @include mobile {
@@ -70,6 +73,7 @@
     z-index: 4;
     @include mobile {
       width: 3.5rem;
+      transform: translateY(-25%);
     }
 
     &::after {
@@ -98,6 +102,9 @@
   &__desc {
     b {
       display: block;
+      @include mobile {
+        font-weight: inherit;
+      }
     }
   }
 }

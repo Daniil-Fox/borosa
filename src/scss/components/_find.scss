@@ -1,7 +1,10 @@
 .find {
-  padding: 5rem 0 6.5rem;
+  padding: 0rem 0rem 4rem;
   background-color: #1d1b1a;
-
+  @include mobile {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
   &__title {
     margin-bottom: 5rem;
     span {

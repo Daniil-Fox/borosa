@@ -1,9 +1,9 @@
 .methods {
-  padding: 7.8rem 0;
+  padding: 4rem 0;
   position: relative;
   overflow: hidden;
   @include mobile {
-    padding: 6rem 0;
+    padding: 3rem 0;
   }
   &__container {
     max-width: 120rem;
@@ -21,19 +21,17 @@
   }
   &__wrapper {
     position: relative;
+    vertical-align: middle;
   }
   &__title {
     margin-top: -5rem;
     margin-bottom: 3rem;
     @include mobile {
-      margin-top: 1rem;
-      margin-bottom: 5rem;
+      margin-top: 0rem;
     }
     span {
       transform: rotate(-1.6deg) translateY(1rem);
       @include mobile {
-        display: block;
-        line-height: 0;
         transform: rotate(-1.6deg) translateY(0.5rem);
       }
     }
@@ -65,20 +63,21 @@
   &__img {
     position: absolute;
     z-index: -1;
-    height: 64rem;
-    bottom: 0;
-    right: -25%;
+    height: 60rem;
+    bottom: -2rem;
+    right: -18%;
 
     @include tablet {
       height: 46rem;
       right: -20%;
+      bottom: 0;
     }
     @include mobile {
       position: relative;
       right: 0;
       padding: 0 var(--container-offset);
 
-      height: 20rem;
+      height: 31rem;
       display: flex;
       flex-direction: row-reverse;
       justify-content: space-between;
@@ -90,12 +89,12 @@
       object-fit: contain;
       @include mobile {
         position: absolute;
-        height: 26.5rem;
-        width: 40.4rem;
+        height: 34.5rem;
+        width: 46.4rem;
         top: 50%;
-        transform: translateY(-40%);
+        transform: scale(1.1) translateY(-40%);
         z-index: -1;
-        right: -13rem;
+        right: -17rem;
       }
     }
   }
@@ -156,7 +155,7 @@
     text-decoration: underline;
     text-decoration-skip-ink: none;
     color: #b56d25;
-
+    cursor: pointer;
     @include mobile {
       font-size: 1.4rem;
     }
@@ -202,7 +201,8 @@
     span:not(.methods__tooltip) {
       position: relative;
       display: inline-flex;
-
+      vertical-align: middle;
+      margin-bottom: 0.1rem;
       cursor: pointer;
       @include mobile {
         position: static;
@@ -226,57 +226,67 @@
 
   &__tooltip {
     position: absolute;
-    bottom: calc(100% + 1rem);
-    right: -15rem;
-
     width: 31rem;
     padding: 1rem 2rem;
     background: #ffffff;
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
     border-radius: 0.5rem;
-
     font-weight: 400;
     font-size: 1.4rem;
     line-height: 130%;
     color: #1d1b1a;
     opacity: 0;
     visibility: hidden;
-    transform: translateX(-50%) translateY(-1rem);
-    transition: all 0.3s ease;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
     z-index: 10;
 
     @include mobile {
       font-size: 1.2rem;
       width: 20rem;
-      right: -4rem;
       padding: 1rem;
     }
+
     &::before {
       content: "";
       position: absolute;
-      bottom: -0.8rem;
-      right: 50%;
       width: 1.6rem;
       height: 1.6rem;
       background: #ffffff;
-      transform: rotate(45deg) translateX(50%) translateY(-50%);
+      z-index: -1;
+      bottom: -0.8rem;
+      left: 50%;
+      transform: rotate(45deg) translateX(-50%);
+      [data-popper-placement^="top"] & {
+        bottom: -0.8rem;
+      }
 
-      @include mobile {
-        right: 2.5rem;
+      [data-popper-placement^="bottom"] & {
+        top: -0.8rem;
+      }
+
+      [data-popper-placement^="left"] & {
+        right: -0.8rem;
+      }
+
+      [data-popper-placement^="right"] & {
+        left: -0.8rem;
+      }
+
+      @media (max-width: 450px) {
+        // display: none;
       }
     }
 
     &:hover {
       opacity: 1;
       visibility: visible;
-      transform: translateX(50%) translateY(0);
     }
   }
 
   &__extra {
     position: absolute;
     bottom: 0;
-    right: 9rem;
+    right: 14rem;
     max-width: 47.2rem;
     width: 100%;
     margin: 0;
@@ -296,7 +306,11 @@
       font-size: 1.2rem;
       display: none;
       max-width: 20rem;
-      position: static;
+      bottom: 9.5rem;
+      right: unset;
+      left: 1rem;
+      line-height: 140%;
+      // position: static;
     }
     b {
       margin-bottom: 0.5rem;
@@ -307,6 +321,9 @@
         font-size: 1.9rem;
       }
     }
+    p {
+      margin: 0;
+    }
     a {
       text-decoration: underline;
       text-decoration-skip-ink: none;
@@ -315,10 +332,10 @@
 
     svg {
       position: absolute;
-      bottom: 100%;
+      bottom: 40%;
       width: 8.8rem;
       height: 18rem;
-      left: 13rem;
+      left: 16rem;
       transform: rotate(70deg);
 
       @include tablet {

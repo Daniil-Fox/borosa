@@ -1,75 +1,98 @@
+import { createPopper } from "@popperjs/core";
+
 export const initTooltips = () => {
-  const tooltipTriggers = document.querySelectorAll(".methods__text span");
+  // Ищем все триггеры тултипов на странице
+  const tooltipTriggers = document.querySelectorAll(
+    ".methods__wrpaper > span:first-child"
+  );
   const tooltips = document.querySelectorAll(".methods__tooltip");
 
   console.log("Найдено триггеров:", tooltipTriggers.length);
   console.log("Найдено тултипов:", tooltips.length);
+
+  // Массив для хранения экземпляров Popper
+  const popperInstances = [];
 
   // Закрываем все тултипы
   const closeAllTooltips = () => {
     tooltips.forEach((tooltip) => {
       tooltip.style.opacity = "0";
       tooltip.style.visibility = "hidden";
-      tooltip.style.transform = "translateY(-10px)";
     });
   };
 
   // Обработчик для каждого триггера
   tooltipTriggers.forEach((trigger, index) => {
-    // При наведении на иконку
-    trigger.addEventListener("mouseenter", () => {
-      closeAllTooltips();
-      const tooltip = trigger
-        .closest(".methods__content")
-        .querySelector(".methods__tooltip");
-      console.log("Наведение на триггер:", index, "Найден тултип:", !!tooltip);
+    const tooltip = trigger
+      .closest(".methods__wrpaper")
+      .querySelector(".methods__tooltip");
 
-      if (tooltip) {
+    if (tooltip) {
+      // Создаем экземпляр Popper для каждого тултипа
+      const popperInstance = createPopper(trigger, tooltip, {
+        placement: "top",
+        modifiers: [
+          {
+            name: "offset",
+            options: {
+              offset: [0, 10],
+            },
+          },
+          {
+            name: "preventOverflow",
+            options: {
+              boundary: window,
+              padding: 20,
+            },
+          },
+          {
+            name: "flip",
+            options: {
+              fallbackPlacements: ["bottom"],
+            },
+          },
+          {
+            name: "arrow",
+            options: {
+              element: tooltip.querySelector("::before"),
+              padding: 5,
+            },
+          },
+        ],
+      });
+
+      popperInstances.push(popperInstance);
+
+      // При наведении на иконку
+      trigger.addEventListener("mouseenter", () => {
+        closeAllTooltips();
+        console.log(
+          "Наведение на триггер:",
+          index,
+          "Найден тултип:",
+          !!tooltip
+        );
+
         tooltip.style.opacity = "1";
         tooltip.style.visibility = "visible";
-        tooltip.style.transform = "translateX(50%) translateY(0);";
 
-        // Проверяем, не выходит ли тултип за пределы экрана
-        const tooltipRect = tooltip.getBoundingClientRect();
-        const offset = 20;
+        // Обновляем позицию тултипа
+        popperInstance.update();
+      });
 
-        // Проверяем выход за правый край
-        if (tooltipRect.right > window.innerWidth - offset) {
-          const overflow = tooltipRect.right - (window.innerWidth - offset);
-          tooltip.style.transform = `translateX(-${overflow}px)`;
-        }
-
-        // Проверяем выход за верхний край
-        if (tooltipRect.top < offset) {
-          // Если тултип выходит за верхний край экрана, показываем его снизу
-          tooltip.style.bottom = "auto";
-          tooltip.style.top = "calc(100% + 10px)";
-          tooltip.style.transform = "translateX(50%) translateY(0);";
-          tooltip.querySelector("::before").style.bottom = "auto";
-          tooltip.querySelector("::before").style.top = "-8px";
-        }
-      }
-    });
-
-    // При уходе курсора
-    trigger.addEventListener("mouseleave", (e) => {
-      const tooltip = trigger
-        .closest(".methods__content")
-        .querySelector(".methods__tooltip");
-      if (tooltip) {
+      // При уходе курсора
+      trigger.addEventListener("mouseleave", (e) => {
         const relatedTarget = e.relatedTarget;
-        if (!tooltip.contains(relatedTarget)) {
+        if (!relatedTarget || !tooltip.contains(relatedTarget)) {
           closeAllTooltips();
         }
-      }
-    });
-  });
+      });
 
-  // Закрываем тултип при уходе с него
-  tooltips.forEach((tooltip) => {
-    tooltip.addEventListener("mouseleave", () => {
-      closeAllTooltips();
-    });
+      // Закрываем тултип при уходе с него
+      tooltip.addEventListener("mouseleave", () => {
+        closeAllTooltips();
+      });
+    }
   });
 
   // Закрываем все тултипы при скролле
@@ -81,10 +104,15 @@ export const initTooltips = () => {
   document.addEventListener("click", (e) => {
     const target = e.target;
     if (
-      !target.closest(".methods__text span") &&
+      !target.closest(".methods__wrpaper > span:first-child") &&
       !target.closest(".methods__tooltip")
     ) {
       closeAllTooltips();
     }
+  });
+
+  // Обновляем позиции тултипов при ресайзе окна
+  window.addEventListener("resize", () => {
+    popperInstances.forEach((instance) => instance.update());
   });
 };

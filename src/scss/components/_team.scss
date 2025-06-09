@@ -1,7 +1,11 @@
 .team {
-  padding: 7rem 0;
+  padding: 4rem 0;
   background-color: #1d1b1a;
   overflow: hidden;
+  @include mobile {
+    padding-top: 4rem;
+    padding-bottom: 3rem;
+  }
   &__sup-label {
     color: #c9c9c9;
     border-color: rgba(245, 245, 245, 0.2);
@@ -17,6 +21,11 @@
       @include tablet {
         transform: rotate(-1deg) translateY(0.6rem);
       }
+    }
+  }
+  @include mobile {
+    .build__hint {
+      margin-top: 2rem;
     }
   }
   &__capture {
@@ -41,11 +50,8 @@
 
   &__container {
     display: flex;
-    gap: 5rem;
+    gap: 4.2rem;
 
-    max-width: calc(116rem + var(--container-offset) * 2);
-    padding: 0 var(--container-offset);
-    margin: 0 auto;
     margin-bottom: 3rem;
     @include tablet {
       flex-direction: column;
@@ -84,6 +90,9 @@
       max-width: 100%;
       margin-bottom: 3rem;
     }
+    @include mobile {
+      height: 38rem;
+    }
     img {
       position: absolute;
       left: 0;
@@ -93,9 +102,60 @@
       @include tablet {
         position: static;
       }
+      @include mobile {
+        object-position: bottom;
+      }
     }
   }
+  &__control {
+    position: absolute;
+    z-index: 6;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 120rem;
+    @include mobile {
+      display: none;
+    }
 
+    &--portfolio {
+      display: none;
+      @include tablet {
+        display: flex;
+        padding: 0;
+      }
+      .team__arr {
+        width: 3rem;
+        height: 3rem;
+
+        svg {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+  &__arr {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 4rem;
+    height: 7rem;
+
+    svg {
+      width: 100%;
+    }
+
+    &--next {
+      transform: rotateZ(180deg);
+    }
+  }
   &__capture-name {
     position: absolute;
     right: 1.2rem;

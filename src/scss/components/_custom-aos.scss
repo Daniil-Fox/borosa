@@ -7,10 +7,29 @@
   .avoid-item__fig {
     transition-delay: inherit;
     transition-duration: inherit;
+    transition-timing-function: linear;
     span {
       transform: translateY(0);
       transition-delay: inherit;
-      transition-duration: inherit;
+      transition-duration: 0.6s;
+    }
+  }
+}
+[data-aos="gc-number"] {
+  .gc-item__fig {
+    overflow: hidden;
+    span {
+      display: block;
+      transform: translateY(100%);
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      transition-delay: inherit;
+    }
+  }
+}
+[data-aos="gc-number"].aos-animate {
+  .gc-item__fig {
+    span {
+      transform: translateY(0);
     }
   }
 }
@@ -34,82 +53,88 @@
   .optima__slide {
     &--1 {
       .optima__slide-line::after {
-        transform: translateX(-40%) translateY(-13.4rem);
+        transform: translateX(-50%) translateY(-15rem);
 
         @include tablet {
-          transform: translateX(-40%) translateY(-14.4rem);
+          transform: translateX(-50%) translateY(-16.4rem);
         }
         @include mobile {
-          transform: translateX(-40%) translateY(-7.5rem);
+          transform: translateX(-50%) translateY(-9.5rem);
         }
       }
     }
     &--2 {
       .optima__slide-line::after {
-        transform: translateX(-40%) translateY(-15rem);
+        transform: translateX(-50%) translateY(-9rem);
         transition-delay: 0.1s;
 
         @include tablet {
-          transform: translateX(-40%) translateY(-16.4rem);
+          transform: translateX(-50%) translateY(-10.4rem);
         }
         @include mobile {
-          transform: translateX(-40%) translateY(-8.5rem);
+          transform: translateX(-50%) translateY(-6rem);
         }
       }
     }
     &--3 {
       .optima__slide-line::after {
-        transform: translateX(-40%) translateY(-5.2rem);
+        transform: translateX(-50%) translateY(-9.6rem);
         transition-delay: 0.2s;
 
         @include tablet {
-          transform: translateX(-40%) translateY(-8rem);
+          transform: translateX(-50%) translateY(-11.2rem);
         }
         @include mobile {
-          transform: translateX(-40%) translateY(-3rem);
+          transform: translateX(-50%) translateY(-6.6rem);
         }
       }
     }
     &--4 {
       .optima__slide-line::after {
-        transform: translateX(-40%) translateY(-19.7rem);
+        transform: translateX(-50%) translateY(-19.7rem);
         transition-delay: 0.3s;
-
+        @include tablet {
+          transform: translateX(-50%) translateY(-21rem);
+        }
         @include mobile {
-          transform: translateX(-40%) translateY(-11rem);
+          transform: translateX(-50%) translateY(-12rem);
         }
       }
     }
     &--5 {
       .optima__slide-line::after {
-        transform: translateX(-40%) translateY(-8.7rem);
+        transform: translateX(-50%) translateY(-6.7rem);
         transition-delay: 0.4s;
-
+        @include tablet {
+          transform: translateX(-50%) translateY(-8rem);
+        }
         @include mobile {
-          transform: translateX(-40%) translateY(-4.8rem);
+          transform: translateX(-50%) translateY(-4.8rem);
         }
       }
     }
     &--6 {
       .optima__slide-line::after {
-        transform: translateX(-40%) translateY(-19.2rem);
+        transform: translateX(-50%) translateY(-14.2rem);
         transition-delay: 0.5s;
-
+        @include tablet {
+          transform: translateX(-50%) translateY(-16.4rem);
+        }
         @include mobile {
-          transform: translateX(-40%) translateY(-10.7rem);
+          transform: translateX(-50%) translateY(-9.3rem);
         }
       }
     }
     &--7 {
       .optima__slide-line::after {
-        transform: translateX(-40%) translateY(-12.2rem);
+        transform: translateX(-50%) translateY(-7.2rem);
         transition-delay: 0.6s;
 
         @include tablet {
-          transform: translateX(-40%) translateY(-13.4rem);
+          transform: translateX(-50%) translateY(-8.4rem);
         }
         @include mobile {
-          transform: translateX(-40%) translateY(-6.8rem);
+          transform: translateX(-50%) translateY(-5rem);
         }
       }
     }
@@ -231,5 +256,28 @@
       opacity: 1;
       transform: translateY(0);
     }
+  }
+}
+
+[data-aos="move-right-left"] {
+  transition: transform 0.6s ease-out;
+}
+
+[data-aos="move-right-left"].aos-animate {
+  animation: moveRightLeft 1.2s ease-in;
+}
+
+@keyframes moveRightLeft {
+  0% {
+    transform: translateX(0);
+  }
+  33% {
+    transform: translateX(-2rem);
+  }
+  66% {
+    transform: translateX(2rem);
+  }
+  100% {
+    transform: translateX(0);
   }
 }

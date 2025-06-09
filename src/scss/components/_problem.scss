@@ -1,9 +1,9 @@
 .problem {
-  padding: 8rem 0;
+  padding: 6rem 0;
   background-color: #1d1b1a;
 
   @include tablet {
-    padding: 6rem 0;
+    padding: 3rem 0 4rem;
   }
   &__title {
     margin-top: -2rem;

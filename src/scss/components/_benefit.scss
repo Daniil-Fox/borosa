@@ -4,11 +4,12 @@
   background-repeat: no-repeat;
   background-position: bottom;
 
-  padding: 4rem 0 10rem;
+  padding: 0rem 0 4rem;
   position: relative;
   overflow: hidden;
   @include mobile {
-    padding: 6rem 0;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
   }
 
   &::before {
@@ -44,13 +45,14 @@
     }
   }
   &__title {
+    margin-top: -2rem;
     font-size: 15rem;
     @include tablet {
       font-size: 10rem;
     }
     @include mobile {
       position: relative;
-      margin-bottom: 3rem;
+      margin-bottom: 2rem;
     }
     span {
       font-size: 20.9rem;
@@ -61,12 +63,12 @@
         font-size: 12rem;
       }
       @include mobile {
-        position: absolute;
-        margin-left: 0;
-        left: 50%;
-        top: 50%;
-        transform: rotate(-3deg) translate(-50%, -70%);
+        transform: rotate(-3deg) translate(0%, 0%);
+        display: block;
+        margin: 0 auto;
+        text-align: center;
         line-height: 1;
+        margin-top: -8rem;
       }
     }
   }
@@ -80,6 +82,9 @@
     }
     @include mobile {
       font-size: 2.2rem;
+      max-width: 90%;
+      margin: 0 auto;
+      margin-bottom: 2rem;
     }
   }
 

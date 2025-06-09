@@ -1,0 +1,103 @@
+.thankyou {
+  padding: 15rem 0;
+  background-color: #1d1b1a;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  &__title,
+  &__subtitle,
+  &__desc {
+    color: #fff;
+  }
+
+  &__title {
+    margin-bottom: 2rem;
+    span {
+      transform: rotate(-2deg) translateY(2rem);
+    }
+
+    @include mobile {
+      font-size: 2.5rem;
+      margin: 0 1rem;
+      text-align: right;
+      margin-bottom: 3rem;
+      span {
+        text-align: center;
+        display: block;
+        transform: rotate(-2deg);
+        font-size: 8.5rem;
+      }
+    }
+  }
+
+  &__images {
+    margin-bottom: 2rem;
+    .modal__img {
+      border-radius: 100%;
+      border: 2px solid rgba(245, 245, 245, 0.452);
+
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  &__subtitle {
+    max-width: 44rem;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    font-size: 2.2rem;
+    line-height: 120%;
+    letter-spacing: -0.03em;
+    text-align: center;
+    color: #f5f5f5;
+    @include mobile {
+      font-size: 1.6rem;
+    }
+  }
+  &__desc {
+    max-width: 40rem;
+    margin: 0 auto;
+    margin-bottom: 4rem;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 130%;
+    letter-spacing: -0.01em;
+    text-align: center;
+    color: rgba(245, 245, 245, 0.8);
+
+    a {
+      text-decoration: underline;
+      text-decoration-skip-ink: none;
+      color: #b56d25;
+    }
+
+    @include mobile {
+      font-size: 1.2rem;
+    }
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.4rem 1.8rem;
+    border: 1px solid rgba(245, 245, 245, 0.5);
+    border-radius: 0.5rem;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 120%;
+    color: rgba(245, 245, 245, 0.8);
+
+    @include mobile {
+      font-size: 1.2rem;
+      padding: 1.2rem 1.8rem;
+    }
+  }
+}

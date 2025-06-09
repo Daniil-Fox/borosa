@@ -1,15 +1,15 @@
 .avoid {
   background-color: #1d1b1a;
-  padding: 10rem 0 8.5rem;
+  padding: 4rem 0 6rem;
   position: relative;
 
   @include tablet {
-    padding-top: 6rem;
+    padding-top: 3rem;
     padding-bottom: 4rem;
   }
   @include mobile {
-    padding-top: 5rem;
-    padding-bottom: 2.5rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
   }
   &__wrapper {
     max-width: 120rem;
@@ -38,6 +38,14 @@
   &__container {
     margin-bottom: 3rem;
     @include tablet {
+      margin: 0;
+    }
+  }
+  .methods__wrpaper > span {
+    vertical-align: middle;
+    display: inline-block;
+    margin-bottom: 1rem;
+    @include mobile {
       margin: 0;
     }
   }
@@ -214,8 +222,7 @@
   }
 
   @include mobile {
-    padding-top: 1.6rem;
-    padding-bottom: 5rem;
+    padding: 4rem 0;
   }
   &__supertitle {
     max-width: 76rem;

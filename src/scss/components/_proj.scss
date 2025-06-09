@@ -1,5 +1,8 @@
 .proj {
-  padding: 4rem 0;
+  padding: 0rem 0 4rem;
+  @include mobile {
+    padding: 2rem 0 1rem;
+  }
   .container {
     @include mobile {
       display: flex;
@@ -12,7 +15,7 @@
       text-align: center;
       white-space: nowrap;
       order: -2;
-      margin-bottom: 2rem;
+      margin-bottom: 3rem;
     }
     div {
       display: inline;
@@ -27,7 +30,7 @@
       color: #b56d25;
 
       @include mobile {
-        transform: translateY(0.6rem);
+        transform: translateY(0.2rem) rotate(-2deg);
       }
     }
   }
@@ -54,9 +57,10 @@
       font-size: 0.8rem;
       text-align: center;
       order: -1;
-      margin-bottom: 2rem;
+      margin-bottom: 3rem;
       margin-top: 2rem;
     }
+
     &::before {
       content: "";
       display: block;

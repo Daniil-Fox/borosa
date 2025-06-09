@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru" class="page">
+@include('partials/head.html')
+
+<body class="page__body">
+  <div class="site-container">
+    @include('partials/header.html')
+    <main class="main" style="background-color: #1d1b1a;">
+      <section class="thankyou">
+        <div class="container">
+          <h1 class="title2 thankyou__title">
+            <span>Спасибо</span> за заявку!
+          </h1>
+          <div class="modal__images thankyou__images">
+            <div class="modal__img">
+              <picture>
+                <source srcset="./img/zay/01.webp" type="image/webp" />
+                <img loading="lazy" src="./img/zay/01.png" class="image" width="" height="" alt="" />
+              </picture>
+            </div>
+            <div class="modal__img">
+              <picture>
+                <source srcset="./img/zay/02.webp" type="image/webp" />
+                <img loading="lazy" src="./img/zay/02.png" class="image" width="" height="" alt="" />
+              </picture>
+            </div>
+            <div class="modal__img">
+              <picture>
+                <source srcset="./img/zay/03.webp" type="image/webp" />
+                <img loading="lazy" src="./img/zay/03.png" class="image" width="" height="" alt="" />
+              </picture>
+            </div>
+            <div class="modal__img">
+              <picture>
+                <source srcset="./img/zay/04.webp" type="image/webp" />
+                <img loading="lazy" src="./img/zay/04.png" class="image" width="" height="" alt="" />
+              </picture>
+            </div>
+            <div class="modal__img">
+              <picture>
+                <source srcset="./img/zay/05.webp" type="image/webp" />
+                <img loading="lazy" src="./img/zay/05.png" class="image" width="" height="" alt="" />
+              </picture>
+            </div>
+            <div class="modal__img">
+              <picture>
+                <source srcset="./img/zay/06.webp" type="image/webp" />
+                <img loading="lazy" src="./img/zay/06.png" class="image" width="" height="" alt="" />
+              </picture>
+            </div>
+          </div>
+          <p class="thankyou__subtitle">
+            Мы свяжемся с&nbsp;вами в рабочее время по&nbsp;выбранному каналу связи
+          </p>
+          <p class="thankyou__desc">
+            Получите проверенные стратегии и знания в&nbsp;нашем <a href="#" target="_blank">Телеграм-канале!</a>
+          </p>
+          <a href="#" target="_blank" class="thankyou__link btn-reset">Перейти в Телеграм</a>
+        </div>
+      </section>
+    </main>
+    @include('partials/footer.html')
+  </div>
+</body>
+
+</html>

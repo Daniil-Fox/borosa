@@ -25,11 +25,6 @@ export const initPortfolioModals = () => {
             nextEl: modal.querySelector(".proj-modal__next"),
             prevEl: modal.querySelector(".proj-modal__prev"),
           },
-          pagination: {
-            el: modal.querySelector(".proj-modal__pagination"),
-            type: "bullets",
-            clickable: true,
-          },
         });
       }
     }
@@ -43,13 +38,15 @@ export const initPortfolioModals = () => {
     document.body.style.overflow = "";
   };
 
-  // Добавляем обработчики для кнопок открытия
-  portfolioItems.forEach((button) => {
-    button.addEventListener("click", () => {
-      const modalId = button.dataset.modalTarget;
-      openModal(modalId);
+  if (window.innerWidth > 600) {
+    // Добавляем обработчики для кнопок открытия
+    portfolioItems.forEach((button) => {
+      button.addEventListener("click", () => {
+        const modalId = button.dataset.modalTarget;
+        openModal(modalId);
+      });
     });
-  });
+  }
 
   // Добавляем обработчики для кнопок закрытия
   closeButtons.forEach((button) => {

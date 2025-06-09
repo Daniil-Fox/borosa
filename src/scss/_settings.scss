@@ -25,9 +25,24 @@ html {
 
 .page__body {
   margin: 0;
-  min-width: 360px;
+  min-width: 320px;
   min-height: 100%;
   font-size: 16px;
+
+  @include mobile {
+    &.menu-active {
+      .header__logo {
+        img {
+          &:first-child {
+            opacity: 0;
+          }
+          &:last-child {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
 }
 
 img {
@@ -110,4 +125,23 @@ a {
 
 .page--ios .dis-scroll {
   position: relative;
+}
+.just-validate-error-label {
+  position: absolute;
+  top: 100%;
+  font-size: 1rem;
+  display: none;
+}
+.just-validate-error-field {
+  border-color: red !important;
+
+  & + .form__check {
+    border-color: red !important;
+  }
+}
+
+button:disabled {
+  background-color: #7c7c7c !important;
+  color: #d8d8d8 !important;
+  cursor: default !important;
 }

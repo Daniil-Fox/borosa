@@ -6,12 +6,13 @@ new Swiper(".build__slider", {
   slidesPerView: "auto",
   spaceBetween: 5,
   centeredSlides: true,
-  speed: 6000,
-  autoplay: {
-    delay: 0,
-    disableOnInteraction: false,
-  },
+  speed: 600,
+
   loop: true,
+  navigation: {
+    prevEl: ".build-prev",
+    nextEl: ".build-next",
+  },
 });
 
 new Swiper(".princeps__slider", {
@@ -33,6 +34,7 @@ teamSliders.forEach((slider) => {
   new Swiper(slider, {
     slidesPerView: 4,
     spaceBetween: 20,
+    loop: true,
     navigation: {
       prevEl: sliderPrev,
       nextEl: sliderNext,
@@ -56,11 +58,7 @@ new Swiper(".find__slider", {
   spaceBetween: 10,
   speed: 2000,
   loop: true,
-
-  autoplay: {
-    delay: 0,
-    disableOnInteraction: false,
-  },
+  centeredSlides: true,
 });
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -114,5 +112,20 @@ window.addEventListener("DOMContentLoaded", () => {
   resizableSwiper("(max-width: 600px)", ".service__slider", {
     spaceBetween: 0,
     slidesPerView: "auto",
+  });
+
+  const portfolioSliders = document.querySelectorAll(".portfolio-item__mob");
+  portfolioSliders.forEach((el) => {
+    const prevEl = el.querySelector(".portfolio-prev");
+    const nextEl = el.querySelector(".portfolio-next");
+    resizableSwiper("(max-width: 600px)", el, {
+      spaceBetween: 10,
+      slidesPerView: 1,
+      loop: true,
+      navigation: {
+        prevEl,
+        nextEl,
+      },
+    });
   });
 });

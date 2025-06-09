@@ -1,8 +1,8 @@
 .solution {
-  padding: 8rem 0;
+  padding: 4rem 0;
   background: #1d1b1a;
   @include mobile {
-    padding: 6rem 0;
+    padding: 3rem 0;
   }
   &__title {
     margin-top: -1rem;
@@ -156,7 +156,7 @@
   &__capture {
     text-align: center;
     color: rgba(245, 245, 245, 0.9);
-
+    line-height: 120%;
     @include mobile {
       font-size: 1.2rem;
     }

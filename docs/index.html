@@ -96,14 +96,10 @@
   <div class="header__container">
     <a href="./" class="header__logo">
       <img src="./img/logo-main.webp" alt="" />
+      <img src="./img/footer-logo.webp" alt="" />
     </a>
 
-    <button
-      class="btn-reset burger header__burger"
-      aria-label="Открыть меню"
-      aria-expanded="false"
-      data-burger
-    >
+    <button class="btn-reset burger header__burger" aria-label="Открыть меню" aria-expanded="false" data-burger>
       <span class="burger__line"></span>
     </button>
   </div>
@@ -142,7 +138,6 @@
   </div>
 </section>
 </header>
-
       <main class="main">
         <section class="hero">
   <div class="hero__container">
@@ -199,6 +194,20 @@
   <div class="hero__marquee">
     <div class="hero__marquee-capture">
       Работали в&nbsp;премиальных посёлках
+    </div>
+    <div class="hero__marquee--grad">
+      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewBox="0 0 2800 1800" preserveAspectRatio="xMinYMin meet">
+        <defs>
+          <rect width="100%" height="100%" fill="url(#Grad)" />
+          <!-- Градиент осуществляет переход от чёрного цвета к белому в маске  -->
+          <linearGradient id="Grad" y1="0%" x2="100%" y2="0%" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="black" />
+            <stop offset="100%" stop-color="white" />
+          </linearGradient>
+        </defs>
+
+      </svg>
     </div>
     <div class="marquee">
       <div class="marquee__row">
@@ -417,6 +426,15 @@
               <b>Integrated Project Optimization</b>
               &mdash;&nbsp;оптимизированные и&nbsp;интегрированные проекты
               с&nbsp;полной ответственностью генерального проектировщика
+              <span class="methods__wrpaper">
+                <span>
+                  <img src="./img/info-orange.svg" alt="">
+                </span>
+                <span class="methods__tooltip">
+                  Генеральный проектировщик: один ответственный за проект. Координируем специалистов, контролируем
+                  документацию, стыкуем системы. Результат? Ваш дом работает как идеально настроенный механизм.
+                </span>
+              </span>
             </p>
             <p>
               <b>Делаем стройку управляемой, оптимизируем бюджет
@@ -483,7 +501,6 @@
     </div>
   </div>
 </section>
-
         <section class="proj before-after-wrapper">
   <div class="container">
     <h2 class="title2 title2--dark proj__title" data-aos="fade-up">
@@ -491,20 +508,36 @@
       и&nbsp;построено.<br />
       <div>Ни&nbsp;сантиметра в&nbsp;сторону</div>
     </h2>
-
+    <div class="proj__bottom proj__bottom--mob desc3">
+      Двигайте вертикальную линию,<br />чтобы увидеть разницу
+    </div>
   </div>
   <div class="proj__wrapper">
     <div class="proj__slider before-after">
       <div class="before-after__before">
         <picture>
           <source srcset="./img/before.webp" type="image/webp" />
-          <img loading="lazy" src="./img/before.jpg" class="image" width="" height="" alt="" />
+          <img
+            loading="lazy"
+            src="./img/before.jpg"
+            class="image"
+            width=""
+            height=""
+            alt=""
+          />
         </picture>
       </div>
       <div class="before-after__after">
         <picture>
           <source srcset="./img/after.webp" type="image/webp" />
-          <img loading="lazy" src="./img/after.jpg" class="image" width="" height="" alt="" />
+          <img
+            loading="lazy"
+            src="./img/after.jpg"
+            class="image"
+            width=""
+            height=""
+            alt=""
+          />
         </picture>
       </div>
       <div class="before-after__change">
@@ -516,9 +549,13 @@
       Двигайте вертикальную линию,<br />чтобы увидеть разницу
     </div>
   </div>
-</section> <section class="optima">
+</section>
+ <section class="optima">
   <div class="container">
-    <h2 class="title2 optima__title" data-text="Без потери премиального комфорта и&nbsp;качества">
+    <h2
+      class="title2 optima__title"
+      data-text="Без потери премиального комфорта и&nbsp;качества"
+    >
       В&nbsp;IPO <span>расширенные </span>
       возможности для оптимизации бюджета стройки
     </h2>
@@ -547,7 +584,11 @@
           </div>
           <div class="optima__lvl optima__lvl--wrong">Ущерб качеству</div>
         </div>
-        <div class="optima__slides" data-aos="slides-lvl" data-aos-duration="3000">
+        <div
+          class="optima__slides"
+          data-aos="slides-lvl"
+          data-aos-duration="3000"
+        >
           <div class="optima__slide optima__slide--1">
             <div class="optima__slide-line"></div>
             <div class="optima__capture">Материалы</div>
@@ -588,7 +629,12 @@
 
       <div class="swiper optima__slider">
         <div class="optima__items swiper-wrapper">
-          <div class="optima__item swiper-slide" data-aos="fade-right" data-aos-delay="100" data-modal-target="modal-1">
+          <div
+            class="optima__item swiper-slide"
+            data-aos="fade-right"
+            data-aos-delay="100"
+            data-modal-target="modal-1"
+          >
             <div class="optima__icon">
               <svg class="">
                 <use xlink:href="img/sprite.svg#backpack"></use>
@@ -599,7 +645,12 @@
               панорамное остекление 3,8&nbsp;м&nbsp;без компромиссов
             </p>
           </div>
-          <div class="optima__item swiper-slide" data-aos="fade-right" data-aos-delay="200" data-modal-target="modal-2">
+          <div
+            class="optima__item swiper-slide"
+            data-aos="fade-right"
+            data-aos-delay="200"
+            data-modal-target="modal-2"
+          >
             <div class="optima__icon">
               <svg class="">
                 <use xlink:href="img/sprite.svg#backpack"></use>
@@ -610,7 +661,12 @@
               нашли решение: бассейн за&nbsp;38,5&nbsp;млн. вместо 60&nbsp;млн.
             </p>
           </div>
-          <div class="optima__item swiper-slide" data-aos="fade-right" data-aos-delay="300" data-modal-target="modal-3">
+          <div
+            class="optima__item swiper-slide"
+            data-aos="fade-right"
+            data-aos-delay="300"
+            data-modal-target="modal-3"
+          >
             <div class="optima__icon">
               <svg class="">
                 <use xlink:href="img/sprite.svg#backpack"></use>
@@ -621,7 +677,12 @@
               предотвратив дорогостоящее подвальное решение
             </p>
           </div>
-          <div class="optima__item swiper-slide" data-aos="fade-right" data-aos-delay="400" data-modal-target="modal-4">
+          <div
+            class="optima__item swiper-slide"
+            data-aos="fade-right"
+            data-aos-delay="400"
+            data-modal-target="modal-4"
+          >
             <div class="optima__icon">
               <svg class="">
                 <use xlink:href="img/sprite.svg#backpack"></use>
@@ -633,7 +694,12 @@
               и&nbsp;прочности
             </p>
           </div>
-          <div class="optima__item swiper-slide" data-aos="fade-right" data-aos-delay="500" data-modal-target="modal-5">
+          <div
+            class="optima__item swiper-slide"
+            data-aos="fade-right"
+            data-aos-delay="500"
+            data-modal-target="modal-5"
+          >
             <div class="optima__icon">
               <svg class="">
                 <use xlink:href="img/sprite.svg#backpack"></use>
@@ -653,23 +719,28 @@
   <div class="modal modal--case" id="modal-1">
     <div class="modal__content">
       <button class="modal__close"></button>
+
+      <div class="modal__case">Кейс №1</div>
       <h3 class="modal__title">Сохранили 70 млн. руб.</h3>
       <div class="modal__text">
         <ul class="list-reset">
           <li>
             <span>Задача/замысел</span>
-            Панорамное остекление высотой 3,8&nbsp;м.&nbsp;с&nbsp;персональными сценариями пользования (открывание,
-            раздвигание, фурнитура и&nbsp;т.д.)
+            Панорамное остекление высотой 3,8&nbsp;м.&nbsp;с&nbsp;персональными
+            сценариями пользования (открывание, раздвигание, фурнитура
+            и&nbsp;т.д.)
           </li>
           <li>
             <span>Сложность</span>
-            90% производителей предлагают раздвижные окна
-            высотой 2,5&ndash;3&nbsp;м, добавляя значительную наценку за&nbsp;кастомные решения. Бюджет крупных игроков
-            рынка&nbsp;&mdash; от&nbsp;120 млн руб.
+            90% производителей предлагают раздвижные окна высотой
+            2,5&ndash;3&nbsp;м, добавляя значительную наценку за&nbsp;кастомные
+            решения. Бюджет крупных игроков рынка&nbsp;&mdash; от&nbsp;120 млн
+            руб.
           </li>
           <li>
             <span>Решение</span>
-            Объединили продукцию 3-х производителей в&nbsp;единое системное решение. Бюджет 50&nbsp;млн.руб.
+            Объединили продукцию 3-х производителей в&nbsp;единое системное
+            решение. Бюджет 50&nbsp;млн.руб.
           </li>
           <li>
             <span>Эффект</span>
@@ -691,18 +762,21 @@
         <ul class="list-reset">
           <li>
             <span>Задача/замысел</span>
-            Панорамное остекление высотой 3,8&nbsp;м.&nbsp;с&nbsp;персональными сценариями пользования (открывание,
-            раздвигание, фурнитура и&nbsp;т.д.)
+            Панорамное остекление высотой 3,8&nbsp;м.&nbsp;с&nbsp;персональными
+            сценариями пользования (открывание, раздвигание, фурнитура
+            и&nbsp;т.д.)
           </li>
           <li>
             <span>Сложность</span>
-            90% производителей предлагают раздвижные окна
-            высотой 2,5&ndash;3&nbsp;м, добавляя значительную наценку за&nbsp;кастомные решения. Бюджет крупных игроков
-            рынка&nbsp;&mdash; от&nbsp;120 млн руб.
+            90% производителей предлагают раздвижные окна высотой
+            2,5&ndash;3&nbsp;м, добавляя значительную наценку за&nbsp;кастомные
+            решения. Бюджет крупных игроков рынка&nbsp;&mdash; от&nbsp;120 млн
+            руб.
           </li>
           <li>
             <span>Решение</span>
-            Объединили продукцию 3-х производителей в&nbsp;единое системное решение. Бюджет 50&nbsp;млн.руб.
+            Объединили продукцию 3-х производителей в&nbsp;единое системное
+            решение. Бюджет 50&nbsp;млн.руб.
           </li>
           <li>
             <span>Эффект</span>
@@ -724,18 +798,21 @@
         <ul class="list-reset">
           <li>
             <span>Задача/замысел</span>
-            Панорамное остекление высотой 3,8&nbsp;м.&nbsp;с&nbsp;персональными сценариями пользования (открывание,
-            раздвигание, фурнитура и&nbsp;т.д.)
+            Панорамное остекление высотой 3,8&nbsp;м.&nbsp;с&nbsp;персональными
+            сценариями пользования (открывание, раздвигание, фурнитура
+            и&nbsp;т.д.)
           </li>
           <li>
             <span>Сложность</span>
-            90% производителей предлагают раздвижные окна
-            высотой 2,5&ndash;3&nbsp;м, добавляя значительную наценку за&nbsp;кастомные решения. Бюджет крупных игроков
-            рынка&nbsp;&mdash; от&nbsp;120 млн руб.
+            90% производителей предлагают раздвижные окна высотой
+            2,5&ndash;3&nbsp;м, добавляя значительную наценку за&nbsp;кастомные
+            решения. Бюджет крупных игроков рынка&nbsp;&mdash; от&nbsp;120 млн
+            руб.
           </li>
           <li>
             <span>Решение</span>
-            Объединили продукцию 3-х производителей в&nbsp;единое системное решение. Бюджет 50&nbsp;млн.руб.
+            Объединили продукцию 3-х производителей в&nbsp;единое системное
+            решение. Бюджет 50&nbsp;млн.руб.
           </li>
           <li>
             <span>Эффект</span>
@@ -757,18 +834,21 @@
         <ul class="list-reset">
           <li>
             <span>Задача/замысел</span>
-            Панорамное остекление высотой 3,8&nbsp;м.&nbsp;с&nbsp;персональными сценариями пользования (открывание,
-            раздвигание, фурнитура и&nbsp;т.д.)
+            Панорамное остекление высотой 3,8&nbsp;м.&nbsp;с&nbsp;персональными
+            сценариями пользования (открывание, раздвигание, фурнитура
+            и&nbsp;т.д.)
           </li>
           <li>
             <span>Сложность</span>
-            90% производителей предлагают раздвижные окна
-            высотой 2,5&ndash;3&nbsp;м, добавляя значительную наценку за&nbsp;кастомные решения. Бюджет крупных игроков
-            рынка&nbsp;&mdash; от&nbsp;120 млн руб.
+            90% производителей предлагают раздвижные окна высотой
+            2,5&ndash;3&nbsp;м, добавляя значительную наценку за&nbsp;кастомные
+            решения. Бюджет крупных игроков рынка&nbsp;&mdash; от&nbsp;120 млн
+            руб.
           </li>
           <li>
             <span>Решение</span>
-            Объединили продукцию 3-х производителей в&nbsp;единое системное решение. Бюджет 50&nbsp;млн.руб.
+            Объединили продукцию 3-х производителей в&nbsp;единое системное
+            решение. Бюджет 50&nbsp;млн.руб.
           </li>
           <li>
             <span>Эффект</span>
@@ -790,18 +870,21 @@
         <ul class="list-reset">
           <li>
             <span>Задача/замысел</span>
-            Панорамное остекление высотой 3,8&nbsp;м.&nbsp;с&nbsp;персональными сценариями пользования (открывание,
-            раздвигание, фурнитура и&nbsp;т.д.)
+            Панорамное остекление высотой 3,8&nbsp;м.&nbsp;с&nbsp;персональными
+            сценариями пользования (открывание, раздвигание, фурнитура
+            и&nbsp;т.д.)
           </li>
           <li>
             <span>Сложность</span>
-            90% производителей предлагают раздвижные окна
-            высотой 2,5&ndash;3&nbsp;м, добавляя значительную наценку за&nbsp;кастомные решения. Бюджет крупных игроков
-            рынка&nbsp;&mdash; от&nbsp;120 млн руб.
+            90% производителей предлагают раздвижные окна высотой
+            2,5&ndash;3&nbsp;м, добавляя значительную наценку за&nbsp;кастомные
+            решения. Бюджет крупных игроков рынка&nbsp;&mdash; от&nbsp;120 млн
+            руб.
           </li>
           <li>
             <span>Решение</span>
-            Объединили продукцию 3-х производителей в&nbsp;единое системное решение. Бюджет 50&nbsp;млн.руб.
+            Объединили продукцию 3-х производителей в&nbsp;единое системное
+            решение. Бюджет 50&nbsp;млн.руб.
           </li>
           <li>
             <span>Эффект</span>
@@ -812,6 +895,7 @@
     </div>
   </div>
 </section>
+
         <section class="possible">
   <div class="container">
     <h2 class="title2 title2--dark possible__title" data-aos="fade-up">
@@ -1062,12 +1146,23 @@
   </div>
   <div class="solution__slider swiper">
     <div class="solution__items swiper-wrapper">
-      <div class="solution__item swiper-slide sol-item" data-aos="fade-up" data-aos-delay="100">
+      <div
+        class="solution__item swiper-slide sol-item"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
         <div class="sol-item__fig">01</div>
         <div class="sol-item__img">
           <picture>
             <source srcset="./img/solution/01.webp" type="image/webp" />
-            <img loading="lazy" src="./img/solution/01.jpg" class="image" width="" height="" alt="" />
+            <img
+              loading="lazy"
+              src="./img/solution/01.jpg"
+              class="image"
+              width=""
+              height=""
+              alt=""
+            />
           </picture>
         </div>
         <p class="sol-item__capture desc2">
@@ -1075,12 +1170,23 @@
         </p>
       </div>
 
-      <div class="solution__item swiper-slide sol-item" data-aos="fade-up" data-aos-delay="200">
+      <div
+        class="solution__item swiper-slide sol-item"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
         <div class="sol-item__fig">02</div>
         <div class="sol-item__img">
           <picture>
             <source srcset="./img/solution/02.webp" type="image/webp" />
-            <img loading="lazy" src="./img/solution/02.jpg" class="image" width="" height="" alt="" />
+            <img
+              loading="lazy"
+              src="./img/solution/02.jpg"
+              class="image"
+              width=""
+              height=""
+              alt=""
+            />
           </picture>
         </div>
         <p class="sol-item__capture desc2">
@@ -1089,12 +1195,23 @@
         </p>
       </div>
 
-      <div class="solution__item swiper-slide sol-item" data-aos="fade-up" data-aos-delay="300">
+      <div
+        class="solution__item swiper-slide sol-item"
+        data-aos="fade-up"
+        data-aos-delay="300"
+      >
         <div class="sol-item__fig">03</div>
         <div class="sol-item__img">
           <picture>
             <source srcset="./img/solution/03.webp" type="image/webp" />
-            <img loading="lazy" src="./img/solution/03.jpg" class="image" width="" height="" alt="" />
+            <img
+              loading="lazy"
+              src="./img/solution/03.jpg"
+              class="image"
+              width=""
+              height=""
+              alt=""
+            />
           </picture>
         </div>
         <p class="sol-item__capture desc2">
@@ -1103,12 +1220,23 @@
         </p>
       </div>
 
-      <div class="solution__item swiper-slide sol-item" data-aos="fade-up" data-aos-delay="400">
+      <div
+        class="solution__item swiper-slide sol-item"
+        data-aos="fade-up"
+        data-aos-delay="400"
+      >
         <div class="sol-item__fig">04</div>
         <div class="sol-item__img">
           <picture>
             <source srcset="./img/solution/04.webp" type="image/webp" />
-            <img loading="lazy" src="./img/solution/04.jpg" class="image" width="" height="" alt="" />
+            <img
+              loading="lazy"
+              src="./img/solution/04.jpg"
+              class="image"
+              width=""
+              height=""
+              alt=""
+            />
           </picture>
         </div>
         <p class="sol-item__capture desc2">
@@ -1118,12 +1246,23 @@
         </p>
       </div>
 
-      <div class="solution__item swiper-slide sol-item" data-aos="fade-up" data-aos-delay="500">
+      <div
+        class="solution__item swiper-slide sol-item"
+        data-aos="fade-up"
+        data-aos-delay="500"
+      >
         <div class="sol-item__fig">05</div>
         <div class="sol-item__img">
           <picture>
             <source srcset="./img/solution/05.webp" type="image/webp" />
-            <img loading="lazy" src="./img/solution/05.jpg" class="image" width="" height="" alt="" />
+            <img
+              loading="lazy"
+              src="./img/solution/05.jpg"
+              class="image"
+              width=""
+              height=""
+              alt=""
+            />
           </picture>
         </div>
         <p class="sol-item__capture desc2">
@@ -1133,12 +1272,23 @@
         </p>
       </div>
 
-      <div class="solution__item swiper-slide sol-item" data-aos="fade-up" data-aos-delay="600">
+      <div
+        class="solution__item swiper-slide sol-item"
+        data-aos="fade-up"
+        data-aos-delay="600"
+      >
         <div class="sol-item__fig">06</div>
         <div class="sol-item__img">
           <picture>
             <source srcset="./img/solution/06.webp" type="image/webp" />
-            <img loading="lazy" src="./img/solution/06.jpg" class="image" width="" height="" alt="" />
+            <img
+              loading="lazy"
+              src="./img/solution/06.jpg"
+              class="image"
+              width=""
+              height=""
+              alt=""
+            />
           </picture>
         </div>
         <p class="sol-item__capture desc2">
@@ -1147,12 +1297,23 @@
         </p>
       </div>
 
-      <div class="solution__item swiper-slide sol-item" data-aos="fade-up" data-aos-delay="700">
+      <div
+        class="solution__item swiper-slide sol-item"
+        data-aos="fade-up"
+        data-aos-delay="700"
+      >
         <div class="sol-item__fig">07</div>
         <div class="sol-item__img">
           <picture>
             <source srcset="./img/solution/07.webp" type="image/webp" />
-            <img loading="lazy" src="./img/solution/07.jpg" class="image" width="" height="" alt="" />
+            <img
+              loading="lazy"
+              src="./img/solution/07.jpg"
+              class="image"
+              width=""
+              height=""
+              alt=""
+            />
           </picture>
         </div>
         <p class="sol-item__capture desc2">
@@ -1162,7 +1323,13 @@
       </div>
     </div>
   </div>
+  <div class="build__bottom">
+    <div class="build__hint build__hint--white">
+      Двигайте галерею, чтобы увидеть больше примеров
+    </div>
+  </div>
 </section>
+
         <section class="build" id="video">
   <div class="container">
     <h2 class="title2 title2--dark build__title" data-aos="fade-up">
@@ -1200,28 +1367,28 @@
   <div class="swiper build__slider">
     <div class="swiper-wrapper">
       <div class="swiper-slide build__video">
-        <video src=""></video>
+        <iframe src="" frameborder="0"></iframe>
       </div>
       <div class="swiper-slide build__video">
-        <video src=""></video>
+        <iframe src="" frameborder="0"></iframe>
       </div>
       <div class="swiper-slide build__video">
-        <video src=""></video>
+        <iframe src="" frameborder="0"></iframe>
       </div>
       <div class="swiper-slide build__video">
-        <video src=""></video>
+        <iframe src="" frameborder="0"></iframe>
       </div>
       <div class="swiper-slide build__video">
-        <video src=""></video>
+        <iframe src="" frameborder="0"></iframe>
       </div>
       <div class="swiper-slide build__video">
-        <video src=""></video>
+        <iframe src="" frameborder="0"></iframe>
       </div>
       <div class="swiper-slide build__video">
-        <video src=""></video>
+        <iframe src="" frameborder="0"></iframe>
       </div>
       <div class="swiper-slide build__video">
-        <video src=""></video>
+        <iframe src="" frameborder="0"></iframe>
       </div>
     </div>
   </div>
@@ -1243,15 +1410,15 @@
       <div class="get-consult__content">
         <div class="get-consult__wrap">
           <div class="get-consult__items">
-            <div class="get-consult__item gc-item" data-aos="fade-up" data-aos-delay="100">
-              <div class="gc-item__fig">01</div>
+            <div class="get-consult__item gc-item" data-aos="gc-number">
+              <div class="gc-item__fig"><span>01</span></div>
               <p class="gc-item__desc">
                 Реальный бюджет вашего дома&nbsp;&mdash; с&nbsp;учётом
                 архитектуры, инженерии, отделки и&nbsp;особенностей участка
               </p>
             </div>
-            <div class="get-consult__item gc-item" data-aos="fade-up" data-aos-delay="200">
-              <div class="gc-item__fig">02</div>
+            <div class="get-consult__item gc-item" data-aos="gc-number">
+              <div class="gc-item__fig"><span>02</span></div>
               <p class="gc-item__desc">
                 Риски, которые всплывают на&nbsp;стройке &mdash;&nbsp;и&nbsp;как
                 избежать пустой переплаты в&nbsp;миллионы рублей
@@ -1260,17 +1427,15 @@
           </div>
 
           <div class="get-consult__items">
-            <div class="get-consult__item gc-item" data-aos="fade-up" data-aos-delay="300"
-              data-aos-anchor-placement="bottom-bottom">
-              <div class="gc-item__fig">03</div>
+            <div class="get-consult__item gc-item" data-aos="gc-number">
+              <div class="gc-item__fig"><span>03</span></div>
               <p class="gc-item__desc">
                 Как обернуть ограничения участка в&nbsp;архитектурные
                 преимущества&nbsp;&mdash; вместо компромиссов
               </p>
             </div>
-            <div class="get-consult__item gc-item" data-aos="fade-up" data-aos-delay="400"
-              data-aos-anchor-placement="bottom-bottom">
-              <div class="gc-item__fig">04</div>
+            <div class="get-consult__item gc-item" data-aos="gc-number">
+              <div class="gc-item__fig"><span>04</span></div>
               <p class="gc-item__desc">
                 Варианты оптимизации, которые используют дальновидные
                 &mdash;&nbsp;без&nbsp;потерь в&nbsp;качестве и&nbsp;комфорте
@@ -1319,6 +1484,7 @@
     </div>
   </div>
 </section>
+
         <section class="princeps">
   <div class="container">
     <div class="sup-label princeps__sup-label">Принципы архитектуры</div>
@@ -1691,6 +1857,7 @@
   </div>
   <div class="portfolio__mob">
     <button class="btn btn-reset btn--white portfolio__more">Показать ещё</button>
+    <button class="btn btn-reset btn--white portfolio__hide is-hidden">Свернуть</button>
   </div>
 </section>
 
@@ -1699,26 +1866,32 @@
   <div class="proj-modal__content">
     <button class="btn-reset proj-modal__close"></button>
     <div class="proj-modal__body">
-      <div class="proj-modal__slider swiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <picture>
-              <source srcset="./img/portfolio/forest/01.webp" type="image/webp" />
-              <img loading="lazy" src="./img/portfolio/forest/01.jpg" class="image" width="" height="" alt="FOREST" />
-            </picture>
+      <div class="proj-modal__wrapper">
+        <div class="proj-modal__slider swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <picture>
+                <source srcset="./img/portfolio/forest/01.webp" type="image/webp" />
+                <img loading="lazy" src="./img/portfolio/forest/01.jpg" class="image" width="" height="" alt="FOREST" />
+              </picture>
+            </div>
+            <div class="swiper-slide">
+              <picture>
+                <source srcset="./img/portfolio/forest/02.webp" type="image/webp" />
+                <img loading="lazy" src="./img/portfolio/forest/02.jpg" class="image" width="" height="" alt="FOREST" />
+              </picture>
+            </div>
+            <div class="swiper-slide">
+              <picture>
+                <source srcset="./img/portfolio/forest/03.webp" type="image/webp" />
+                <img loading="lazy" src="./img/portfolio/forest/03.jpg" class="image" width="" height="" alt="FOREST" />
+              </picture>
+            </div>
           </div>
-          <div class="swiper-slide">
-            <picture>
-              <source srcset="./img/portfolio/forest/02.webp" type="image/webp" />
-              <img loading="lazy" src="./img/portfolio/forest/02.jpg" class="image" width="" height="" alt="FOREST" />
-            </picture>
-          </div>
-          <div class="swiper-slide">
-            <picture>
-              <source srcset="./img/portfolio/forest/03.webp" type="image/webp" />
-              <img loading="lazy" src="./img/portfolio/forest/03.jpg" class="image" width="" height="" alt="FOREST" />
-            </picture>
-          </div>
+
+          <div class="proj-modal__pagination"></div>
+
+
         </div>
         <div class="proj-modal__navigation">
           <button class="btn-reset proj-modal__prev">
@@ -1734,7 +1907,6 @@
             </svg>
           </button>
         </div>
-        <div class="proj-modal__pagination"></div>
       </div>
       <div class="proj-modal__info">
         <h2 class="proj-modal__title">FOREST</h2>
@@ -1744,17 +1916,18 @@
             1500 м²
           </li>
           <li>
-            <span>Назначение</span>
+            <span>Статус</span>
+            Спроектирован и построен
+          </li>
+          <li>
+            <span>Наполнение</span>
             2 этажа, 5 спален, бассейн, финская сауна, 3 кладовые
           </li>
           <li>
             <span>Вспомогательные постройки</span>
             Основная беседка, постройки, сад, парковка с навесом
           </li>
-          <li>
-            <span>Статус</span>
-            Спроектирован и построен
-          </li>
+
         </ul>
       </div>
     </div>
@@ -1785,6 +1958,8 @@
           участок позволил воплотить всё важное
           <b>&mdash;&nbsp;без компромиссов</b>
         </p>
+
+
       </div>
 
       <div class="methods__block">
@@ -1930,7 +2105,7 @@
       строители
     </h2>
   </div>
-  <div class="team__container">
+  <div class="container team__container">
     <div class="team__img" data-aos="fade-right" data-aos-duration="700">
       <picture>
         <source srcset="./img/team/01.webp" type="image/webp" />
@@ -2115,6 +2290,23 @@
             <p class="desc3 person__prof">Аналитик земельных участков</p>
           </div>
         </div>
+      </div>
+
+      <div class="team__control">
+        <button class="team-prev btn-reset team__arr team__arr--prev">
+          <svg width="38" height="70" viewBox="0 0 38 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M35.3652 69.4395C35.9531 69.4395 36.5547 69.207 37.0059 68.7559C37.9082 67.8535 37.9082 66.377 37.0059 65.4746L6.12109 34.5898L36.5547 4.15625C37.457 3.2539 37.457 1.77734 36.5547 0.874998C35.6523 -0.0273453 34.1758 -0.0273452 33.2734 0.874999L1.18555 32.9492C0.283202 33.8516 0.283202 35.3281 1.18555 36.2305L33.7109 68.7559C34.1758 69.2207 34.7636 69.4395 35.3652 69.4395Z"
+              fill="white" />
+          </svg>
+        </button>
+        <button class="team-next btn-reset team__arr team__arr--next">
+          <svg width="38" height="70" viewBox="0 0 38 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M35.3652 69.4395C35.9531 69.4395 36.5547 69.207 37.0059 68.7559C37.9082 67.8535 37.9082 66.377 37.0059 65.4746L6.12109 34.5898L36.5547 4.15625C37.457 3.2539 37.457 1.77734 36.5547 0.874998C35.6523 -0.0273453 34.1758 -0.0273452 33.2734 0.874999L1.18555 32.9492C0.283202 33.8516 0.283202 35.3281 1.18555 36.2305L33.7109 68.7559C34.1758 69.2207 34.7636 69.4395 35.3652 69.4395Z"
+              fill="white" />
+          </svg>
+        </button>
       </div>
     </div>
 
@@ -2361,9 +2553,14 @@
         </div>
       </div>
     </div>
+
+    <div class="build__bottom">
+      <div class="build__hint build__hint--white">
+        Двигайте галерею, чтобы увидеть всю команду
+      </div>
+    </div>
   </div>
 </section>
-
         <section class="service" id="price">
   <div class="container">
     <div class="sup-label service__sup-label">Услуги и стоимость</div>
@@ -2373,7 +2570,11 @@
     </h2>
 
     <div class="service__items">
-      <div class="service__item service-item" data-aos="number-slide-up" data-aos-delay="100">
+      <div
+        class="service__item service-item"
+        data-aos="number-slide-up"
+        data-aos-delay="100"
+      >
         <div class="service-item__header">
           <div class="service-item__fig">01</div>
           <p class="service-item__title">
@@ -2416,7 +2617,11 @@
         <button class="btn-reset btn service-item__more">Подробнее</button>
       </div>
 
-      <div class="service__item service-item" data-aos="number-slide-up" data-aos-delay="200">
+      <div
+        class="service__item service-item"
+        data-aos="number-slide-up"
+        data-aos-delay="200"
+      >
         <div class="service-item__header">
           <div class="service-item__fig">02</div>
           <p class="service-item__title">
@@ -2464,7 +2669,11 @@
         <button class="btn-reset btn service-item__more">Подробнее</button>
       </div>
 
-      <div class="service__item service-item" data-aos="number-slide-up" data-aos-delay="300">
+      <div
+        class="service__item service-item"
+        data-aos="number-slide-up"
+        data-aos-delay="300"
+      >
         <div class="service-item__header">
           <div class="service-item__fig">03</div>
           <p class="service-item__title">Полный рабочий проект</p>
@@ -2502,7 +2711,11 @@
         <button class="btn-reset btn service-item__more">Подробнее</button>
       </div>
 
-      <div class="service__item service-item" data-aos="number-slide-up" data-aos-delay="400">
+      <div
+        class="service__item service-item"
+        data-aos="number-slide-up"
+        data-aos-delay="400"
+      >
         <div class="service-item__header">
           <div class="service-item__fig">04</div>
           <p class="service-item__title">Дом под ключ</p>
@@ -2568,8 +2781,12 @@
         </li>
       </ul>
     </div>
+    <div class="build__bottom">
+      <div class="build__hint">Двигайте галерею, чтобы увидеть больше</div>
+    </div>
   </div>
-</section> <section class="benefit">
+</section>
+ <section class="benefit">
   <div class="container">
     <div class="benefit__content">
       <h2 class="title2 benefit__title" data-aos="fade-up">1,5 <span>месяца</span></h2>
@@ -2591,7 +2808,114 @@
     </div>
   </div>
 </section>
-        <section class="find">
+        <section class="cta">
+  <div class="container">
+    <div class="sup-label cta__sup-label">Свяжитесь с&nbsp;нами</div>
+    <div class="cta__title title2 title2--dark">
+      Узнайте <span>главное</span> &mdash;&nbsp;до того, как вложите миллионы
+    </div>
+    <div class="cta__row">
+      <div class="modal__images cta__images">
+        <div class="modal__img">
+          <img src="./img/zay/01.webp" alt="" />
+        </div>
+        <div class="modal__img">
+          <img src="./img/zay/02.webp" alt="" />
+        </div>
+        <div class="modal__img">
+          <img src="./img/zay/03.webp" alt="" />
+        </div>
+      </div>
+
+      <p class="cta__capture">
+        Заполните форму — и получите ответы от экспертов на ключевые вопросы
+        о&nbsp;проекте, стройке и участке
+      </p>
+    </div>
+
+    <form action="#" class="form form--dark cta__form">
+      <div class="cta__left">
+        <div class="form__field">
+          <div class="form__row">
+            <label class="form__item">
+              <input type="checkbox" name="Какая стоимость проекта моего дома?" value="Да" class="visually-hidden"
+                checked />
+              <div class="form__check"></div>
+              <span>Какая стоимость проекта моего дома?</span>
+            </label>
+          </div>
+          <div class="form__row">
+            <label class="form__item">
+              <input type="checkbox" name="Какая стоимость стройки моего дома?" value="Да" class="visually-hidden" />
+              <div class="form__check"></div>
+              <span>Какая стоимость стройки моего дома?</span>
+            </label>
+          </div>
+          <div class="form__row">
+            <label class="form__item">
+              <input type="checkbox" name="Как скоро смогу начать стройку?" value="Да" class="visually-hidden" />
+              <div class="form__check"></div>
+              <span>Как скоро смогу начать стройку?</span>
+            </label>
+          </div>
+          <div class="form__row">
+            <label class="form__item">
+              <input type="checkbox" name="Какой срок строительства моего дома?" value="Да" class="visually-hidden" />
+              <div class="form__check"></div>
+              <span>Какой срок строительства моего дома?</span>
+            </label>
+          </div>
+          <div class="form__row">
+            <label class="form__item">
+              <input type="checkbox" name="Какие аргументы для снижения цены на участок?" value="Да"
+                class="visually-hidden" />
+              <div class="form__check"></div>
+              <span>Какие аргументы для снижения цены на участок?</span>
+            </label>
+          </div>
+          <div class="form__row">
+            <label class="form__item">
+              <input type="checkbox" name="Какие точки оптимизации бюджета строительства без ущерба для качества?"
+                value="Да" class="visually-hidden" />
+              <div class="form__check"></div>
+              <span>Какие точки оптимизации бюджета строительства без ущерба
+                для&nbsp;качества?</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta__right">
+        <div class="form__field">
+          <input type="text" name="Имя" id="form-name-cta" class="form__input input-name" />
+          <label class="form__label" for="form-name-cta">Как к Вам обращаться?</label>
+        </div>
+        <div class="form__field">
+          <input type="tel" id="form-tel-cta" name="Телефон" class="form__input input-tel" />
+          <label class="form__label" for="form-tel-cta">Телефон*</label>
+        </div>
+        <div class="form__field">
+          <input type="number" id="form-sq-pl-cta" name="Площадь участка" class="form__input input-tel" />
+          <label class="form__label" for="form-sq-pl-cta">Площадь участка</label>
+        </div>
+        <div class="form__field">
+          <input type="number" id="form-sq-cta" name="Площадь участка" class="form__input input-tel" />
+          <label class="form__label" for="form-sq-cta">Площадь дома</label>
+        </div>
+      </div>
+      <div class="cta__buttons">
+        <button class="btn btn-reset btn--dark form__btn">
+          Получить Ответы
+        </button>
+        <label class="form__agree form__item checkbox-group">
+          <input type="checkbox" name="Согласен с политикой" value="Да" class="visually-hidden" />
+          <div class="form__check"></div>
+          <span>Согласен с&nbsp;<a href="#" target="_blank">Политикой конфиденциальности</a></span>
+        </label>
+      </div>
+    </form>
+  </div>
+</section> <section class="find">
   <div class="container">
     <div class="find__container">
       <h2 class="title2 find__title" data-aos="fade-up">
@@ -2600,7 +2924,7 @@
       </h2>
     </div>
   </div>
-  <div class="find__slider swiper">
+  <div class="find__slider swiper" data-aos="move-right-left" data-aos-anchor-placement="bottom-bottom">
     <div class="swiper-wrapper">
       <div class="swiper-slide find__item find-item">
         <div class="find-item__img">
@@ -3017,12 +3341,79 @@
           </div>
         </div>
         <div class="form__field">
-          <input type="text" name="Имя" id="form-name" class="form__input input-name" />
-          <label class="form__label" for="form-name">Имя</label>
+          <input type="text" name="Имя" id="form-name-m" class="form__input input-name" />
+          <label class="form__label" for="form-name-m">Имя</label>
         </div>
         <div class="form__field">
-          <input type="text" id="form-tel" name="Телефон" class="form__input input-tel" />
-          <label class="form__label" for="form-tel">Телефон</label>
+          <input type="text" id="form-tel-m" name="Телефон" class="form__input input-tel" />
+          <label class="form__label" for="form-tel-m">Телефон</label>
+        </div>
+        <button class="btn btn-reset btn--white form__btn">
+          Получить консультацию
+        </button>
+        <label class="form__agree form__item">
+          <input type="checkbox" class="visually-hidden" />
+          <div class="form__check"></div>
+          <span>Согласен с&nbsp;<a href="#" target="_blank">Политикой конфиденциальности</a></span>
+        </label>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="modal modal--cta " id="modal-cta">
+  <div class="modal__body">
+    <button class="btn-reset modal__close"></button>
+    <div class="modal__header">
+      <div class="modal__images">
+        <div class="modal__img">
+          <picture>
+            <source srcset="./img/zay/01.webp" type="image/webp" />
+            <img loading="lazy" src="./img/zay/01.png" class="image" width="" height="" alt="" />
+          </picture>
+        </div>
+        <div class="modal__img">
+          <picture>
+            <source srcset="./img/zay/02.webp" type="image/webp" />
+            <img loading="lazy" src="./img/zay/02.png" class="image" width="" height="" alt="" />
+          </picture>
+        </div>
+        <div class="modal__img">
+          <picture>
+            <source srcset="./img/zay/03.webp" type="image/webp" />
+            <img loading="lazy" src="./img/zay/03.png" class="image" width="" height="" alt="" />
+          </picture>
+        </div>
+        <div class="modal__img">
+          <picture>
+            <source srcset="./img/zay/04.webp" type="image/webp" />
+            <img loading="lazy" src="./img/zay/04.png" class="image" width="" height="" alt="" />
+          </picture>
+        </div>
+        <div class="modal__img">
+          <picture>
+            <source srcset="./img/zay/05.webp" type="image/webp" />
+            <img loading="lazy" src="./img/zay/05.png" class="image" width="" height="" alt="" />
+          </picture>
+        </div>
+        <div class="modal__img">
+          <picture>
+            <source srcset="./img/zay/06.webp" type="image/webp" />
+            <img loading="lazy" src="./img/zay/06.png" class="image" width="" height="" alt="" />
+          </picture>
+        </div>
+      </div>
+      <p class="modal__title">
+        Заполните форму<br>
+        и мы вам перезвоним
+      </p>
+      <form action="#" class="form modal__form">
+        <div class="form__field">
+          <input type="text" name="Имя" id="form-name-cta" class="form__input input-name" />
+          <label class="form__label" for="form-name-cta">Имя</label>
+        </div>
+        <div class="form__field">
+          <input type="text" id="form-tel-cta" name="Телефон" class="form__input input-tel" />
+          <label class="form__label" for="form-tel-cta">Телефон</label>
         </div>
         <button class="btn btn-reset btn--white form__btn">
           Получить консультацию
@@ -3096,7 +3487,7 @@
       </div>
 
       <div class="footer__col">
-        <button class="btn-reset btn btn--stroke footer__btn modal-btn">
+        <button class="btn-reset btn btn--stroke footer__btn modal-btn" data-modal="modal-cta">
           Обратный звонок
         </button>
         <a href="tel:+7 (900)  000-00-00" class="footer__text desc3">+7 (900) 000-00-00</a>
