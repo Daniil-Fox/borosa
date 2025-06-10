@@ -1,0 +1,48 @@
+.photo-text {
+  padding: 6rem 0;
+  background-color: #fff;
+  margin-bottom: 12rem;
+  &__container {
+    display: flex;
+    gap: 2.5rem;
+  }
+
+  &__img {
+    margin: 0;
+    width: 100%;
+    max-width: 47.5rem;
+    flex-shrink: 0;
+  }
+
+  &__desc {
+    flex-grow: 1;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    h7 {
+      margin: 0;
+      margin-bottom: 1.5rem;
+      font-family: var(--second-family);
+      font-weight: 600;
+      font-size: 5rem;
+      line-height: 110%;
+      letter-spacing: -0.01em;
+      color: #1d1b1a;
+    }
+
+    p {
+      margin: 0;
+      font-weight: 400;
+      font-size: 1.8rem;
+      color: #1d1b1a;
+
+      &:not(:last-child) {
+        margin-bottom: 1.6em;
+      }
+    }
+  }
+}

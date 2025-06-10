@@ -1,7 +1,13 @@
 import { Swiper } from "swiper";
-import { Autoplay, Navigation } from "swiper/modules";
+import {
+  Autoplay,
+  EffectFade,
+  Navigation,
+  Pagination,
+  Thumbs,
+} from "swiper/modules";
 
-Swiper.use([Autoplay, Navigation]);
+Swiper.use([Autoplay, Navigation, Thumbs, EffectFade, Pagination]);
 new Swiper(".build__slider", {
   slidesPerView: "auto",
   spaceBetween: 5,
@@ -129,3 +135,72 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+const vericalSliderContainer = document.querySelectorAll(".vertical-wrapper");
+
+if (vericalSliderContainer.length > 0) {
+  vericalSliderContainer.forEach((el) => {
+    let thumbsS = null;
+    const mainSlider = el.querySelector(".vertical-slider-main");
+    const thumbsSlider = el.querySelector(".vertical-slider-thumbs");
+
+    const nextBtn = el.querySelector(".vertical-slider-next");
+    if (thumbsSlider) {
+      thumbsS = new Swiper(thumbsSlider, {
+        slidesPerView: 3,
+        direction: "vertical",
+        spaceBetween: 20,
+        loop: true,
+        navigation: {
+          nextEl: nextBtn ?? null,
+        },
+      });
+    }
+    const generalSlider = new Swiper(mainSlider, {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      effect: "fade",
+      fadeEffect: {
+        crossFade: true,
+      },
+      thumbs: {
+        swiper: thumbsS,
+      },
+    });
+  });
+}
+
+const listalkaWrapper = document.querySelectorAll(".listalka__wrapper");
+if (listalkaWrapper.length > 0) {
+  listalkaWrapper.forEach((wrap) => {
+    const slider = wrap.querySelector(".listalka__slider");
+    const btnPrev = wrap.querySelector(".listalka__arr--prev");
+    const btnNext = wrap.querySelector(".listalka__arr--next");
+    const pagination = wrap.querySelector(".listalka__pagination") ?? null;
+
+    const sliderrr = new Swiper(slider, {
+      slidesPerView: 1,
+      spaceBetween: 20,
+
+      navigation: {
+        prevEl: btnPrev,
+        nextEl: btnNext,
+      },
+
+      on: {
+        slideChange: (swiper) => updateCustomPagination(swiper),
+        afterInit: (swiper) => updateCustomPagination(swiper),
+      },
+    });
+
+    function updateCustomPagination(swiper) {
+      const slidesCount = slider.querySelectorAll(".swiper-slide").length;
+      const percent = 100 / slidesCount;
+      pagination.style.setProperty("--pagination-len", percent + "%");
+      pagination.style.setProperty(
+        "--pagination-offset",
+        percent * swiper.realIndex + "%"
+      );
+    }
+  });
+}

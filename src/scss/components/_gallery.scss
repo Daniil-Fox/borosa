@@ -1,0 +1,23 @@
+.gallery-section {
+  padding: 6rem 0;
+  &__row {
+    .wp-block-gallery {
+      display: flex;
+      gap: 1rem;
+      figure {
+        flex: 1;
+      }
+    }
+  }
+
+  figure {
+    margin: 0;
+    display: block;
+    width: 100%;
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

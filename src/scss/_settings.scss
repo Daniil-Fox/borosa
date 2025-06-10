@@ -28,7 +28,8 @@ html {
   min-width: 320px;
   min-height: 100%;
   font-size: 16px;
-
+  display: flex;
+  flex-direction: column;
   @include mobile {
     &.menu-active {
       .header__logo {
@@ -58,6 +59,13 @@ a {
 .site-container {
   background: #f5f5f5;
   overflow: hidden; // если используете на сайте position: sticky - уберите эту настройку
+
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.main {
+  flex-grow: 1;
 }
 
 .is-hidden {
@@ -107,6 +115,14 @@ a {
   margin: 0 auto;
   padding: 0 var(--container-offset);
   max-width: var(--container-width);
+
+  &--sec {
+    max-width: 116rem;
+  }
+
+  &--prime {
+    max-width: 96rem;
+  }
 }
 
 .centered {
@@ -141,7 +157,7 @@ a {
 }
 
 button:disabled {
-  background-color: #7c7c7c !important;
+  background-color: #7c7c7c;
   color: #d8d8d8 !important;
   cursor: default !important;
 }

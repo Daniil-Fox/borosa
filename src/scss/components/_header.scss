@@ -78,3 +78,39 @@
     color: #1d1b1a;
   }
 }
+
+.header--sec {
+  background-color: #1d1b1a;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  .header__right {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+  .header__logo {
+    img {
+      &:first-child {
+        opacity: 1;
+      }
+    }
+  }
+
+  .menu__link {
+    color: #fff;
+  }
+
+  .menu__tg {
+    color: #1d1b1a;
+    background-color: #fff;
+    padding: 1rem 1.6rem;
+    border-color: #fff;
+    svg {
+      fill: currentColor;
+    }
+
+    @include hover {
+      background-color: #1d1b1a;
+      color: #fff;
+    }
+  }
+}
