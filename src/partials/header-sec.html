@@ -2,6 +2,7 @@
   <div class="container--sec">
     <div class="header__container">
       <a href="./" class="header__logo">
+        <img src="./img/logo-main.webp" alt="" />
         <img src="./img/footer-logo.webp" alt="" />
       </a>
       <nav class="nav header__nav">
@@ -41,6 +42,13 @@
           Задать вопрос
         </a>
       </div>
+
+      <div class="header__mob">
+        <button class="btn-reset burger header__burger" aria-label="Открыть меню" aria-expanded="false" data-burger>
+          <span class="burger__line"></span>
+        </button>
+      </div>
     </div>
   </div>
+  @include('./menu.html')
 </header>

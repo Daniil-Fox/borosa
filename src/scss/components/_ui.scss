@@ -239,4 +239,8 @@
 
 .wrap100 {
   height: 100vh;
+
+  @include tablet {
+    height: auto;
+  }
 }

@@ -1,0 +1,81 @@
+.small-head {
+  padding: 6rem 0;
+  background-color: #fff;
+  &:not(:last-child) {
+    margin-bottom: 12rem;
+    @include tablet {
+      margin-bottom: 6rem;
+    }
+  }
+
+  @include tablet {
+    padding: 3rem 0;
+  }
+  &__container {
+    &.centered {
+      p {
+        margin: 0 auto;
+      }
+    }
+  }
+  h3,
+  h4,
+  h5,
+  h6,
+  h7 {
+    margin: 0;
+    margin-bottom: 2rem;
+
+    font-family: var(--second-family);
+    font-weight: 500;
+    font-size: 3rem;
+    line-height: 120%;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: #1d1b1a;
+
+    @include tablet {
+      font-size: 2.4rem;
+    }
+    @include mobile {
+      font-size: 2.2rem;
+    }
+  }
+  h1,
+  h2 {
+    margin: 0;
+    margin-bottom: 2rem;
+    font-family: var(--second-family);
+    font-weight: 600;
+    font-size: 5rem;
+    line-height: 110%;
+    letter-spacing: -0.01em;
+    text-align: center;
+    color: #1d1b1a;
+
+    @include tablet {
+      font-size: 3.2rem;
+    }
+    @include mobile {
+      font-size: 2.5rem;
+    }
+  }
+  p {
+    margin: 0;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 1.8rem;
+    color: #1d1b1a;
+    max-width: 60rem;
+    &:not(:last-child) {
+      margin-bottom: 1em;
+    }
+
+    @include tablet {
+      font-size: 1.4rem;
+    }
+    @include mobile {
+      font-size: 1.2rem;
+    }
+  }
+}

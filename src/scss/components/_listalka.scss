@@ -1,13 +1,21 @@
 .listalka {
   padding: 6rem 0;
-
+  @include mobile {
+    padding: 3rem 0;
+  }
   &:not(:last-child) {
     margin-bottom: 12rem;
+    @include tablet {
+      margin-bottom: 6rem;
+    }
   }
 
   &__wrapper {
     padding: 0 5rem;
     position: relative;
+    @include tablet {
+      padding: 0;
+    }
   }
   &__pagination {
     --pagination-len: 10%;
@@ -19,7 +27,12 @@
     margin: 0 auto;
     margin-top: 3rem;
     background-color: rgba(#1d1b1a, 0.2);
-
+    @include tablet {
+      max-width: 24rem;
+    }
+    @include mobile {
+      max-width: 12rem;
+    }
     &::after {
       content: "";
       position: absolute;
@@ -49,6 +62,10 @@
     &--next {
       right: 0;
     }
+
+    @include tablet {
+      display: none;
+    }
   }
 }
 
@@ -56,6 +73,10 @@
   display: flex;
   align-items: center;
   gap: 1rem;
+
+  @include tablet {
+    flex-direction: column;
+  }
   &__images {
     width: 100%;
     max-width: 56rem;
@@ -63,7 +84,9 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
-
+    @include tablet {
+      max-width: 100%;
+    }
     figure {
       margin: 0;
       display: block;
@@ -97,6 +120,12 @@
       letter-spacing: -0.02em;
       text-align: center;
       color: #1d1b1a;
+      @include tablet {
+        font-size: 2.4rem;
+      }
+      @include small-tablet {
+        font-size: 2.2rem;
+      }
     }
 
     p {
@@ -107,6 +136,25 @@
       line-height: 120%;
       text-align: center;
       color: #1d1b1a;
+      @include tablet {
+        font-size: 1.4rem;
+      }
+      @include small-tablet {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+.listalka-once {
+  padding: 6rem 0;
+  @include tablet {
+    padding: 3rem 0;
+  }
+  &:not(:last-child) {
+    margin-bottom: 12rem;
+    @include tablet {
+      margin-bottom: 6rem;
     }
   }
 }
