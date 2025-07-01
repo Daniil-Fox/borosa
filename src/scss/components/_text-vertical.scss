@@ -1,10 +1,6 @@
 .text-vertical {
-  margin-bottom: 12rem;
   padding: 6rem 0;
   background-color: #fff;
-  @include tablet {
-    margin-bottom: 6rem;
-  }
   @include mobile {
     padding: 3rem 0;
   }
@@ -17,6 +13,11 @@
     gap: 2rem;
     height: 100%;
 
+    &--reverse {
+      .text-vertical__content {
+        order: 10;
+      }
+    }
     @include small-tablet {
       flex-direction: column-reverse;
       align-items: stretch;
@@ -26,7 +27,7 @@
 
   &__content {
     width: 100%;
-    max-width: 32rem;
+    max-width: 40rem;
     flex-shrink: 0;
     @include small-tablet {
       margin: 0 auto;
@@ -94,34 +95,36 @@
   }
   &__main-slider {
     flex: 3;
-    height: calc(100% - 5rem);
-    @include mobile {
-      height: calc(100% - 3rem);
-    }
+    height: 100%;
+    height: 100%;
   }
   &__thumbs {
-    height: calc(100% - 5rem);
+    height: 100%;
     margin: 0;
-    @include mobile {
-      height: calc(100% - 3rem);
-    }
+    // padding-bottom: 1rem;
     .swiper-slide {
       position: relative;
-
+      // height: 17.8rem;
+      height: 17.6rem;
+      @include mobile {
+        // height: 8.6rem;
+      }
       &::after {
         content: "";
         position: absolute;
         top: calc(100% + 0.5rem);
         left: 0;
-        height: 1px;
+        height: 2px;
         width: 10%;
         opacity: 0;
+        z-index: -1;
         background-color: #1d1b1a;
         transition: width 0.3s ease-in, opacity 0.3s ease-in;
         will-change: width;
       }
       &.swiper-slide-thumb-active {
         &::after {
+          z-index: 3;
           width: 100%;
           opacity: 1;
         }
@@ -131,7 +134,7 @@
   &__wrapper {
     height: 100%;
     flex: 1;
-
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -146,14 +149,31 @@
     max-width: 100%;
   }
   &__btn {
-    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-grow: 0;
-    width: 4rem;
-    height: 4rem;
+    width: 100%;
+    height: 3.4rem;
     margin: 0 auto;
-    svg {
-      width: 100%;
+    user-select: none;
+    transition: opacity 0.3s ease-in;
+    svg,
+    img {
+      width: 3.4rem;
       height: 100%;
+      user-select: none;
+    }
+
+    &:disabled {
+      background: none;
+    }
+
+    &.hide {
+      opacity: 0;
     }
 
     @include small-tablet {
@@ -163,6 +183,22 @@
     @include mobile {
       width: 2.4rem;
       height: 2.4rem;
+    }
+
+    &.vertical-slider-prev {
+      transform: rotate(180deg) translateX(50%);
+      bottom: calc(100% + 0.1rem);
+    }
+
+    &.vertical-slider-next {
+      top: calc(100% + 0.1rem);
+    }
+
+    &:active {
+      box-shadow: 0 0 5px rgba(#000, 0.7);
+    }
+    &:focus {
+      box-shadow: 0 0 5px rgba(#000, 0.7);
     }
   }
   .swiper {
@@ -178,3 +214,13 @@
     }
   }
 }
+
+// .text-vertical--square {
+//   .text-vertical {
+//     &__main-slider {
+//       flex: 2.8;
+//       height: 100%;
+//       padding-bottom: 1rem;
+//     }
+//   }
+// }

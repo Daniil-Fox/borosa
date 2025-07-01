@@ -31,10 +31,6 @@ export const initBrowserScroll = () => {
   const scrollDuration =
     parseInt(browserContentContainer.dataset.scrollDuration) || 20000;
 
-  // Флаг паузы анимации
-  let isPaused = false;
-  // Флаг активности анимации
-  let isAnimating = false;
   // Идентификатор таймера
   let animationTimer = null;
   // Текущая позиция трансформации
@@ -75,33 +71,15 @@ export const initBrowserScroll = () => {
 
   // Функция для бесконечной анимации скролла
   const startInfiniteScroll = () => {
-    if (isPaused || document.hidden) {
-      animationTimer = setTimeout(startInfiniteScroll, 1000);
-      return;
-    }
-
-    isAnimating = true;
+    clearTimeout(animationTimer);
     browserContentContainer.classList.add("is-scrolling");
-
-    // Получаем высоту оригинального контента (половина общей высоты)
     const itemsHeight = itemsContainer.scrollHeight / 2;
-
-    // Начинаем с начала
     updateTransformWithoutAnimation(0);
-
-    // Запускаем анимацию до конца первой копии контента
     requestAnimationFrame(() => {
       updateTransformWithAnimation(itemsHeight, scrollDuration);
-
-      // Когда анимация достигает конца первой копии
       animationTimer = setTimeout(() => {
-        // Мгновенно переносим в начало без анимации
         updateTransformWithoutAnimation(0);
-
-        // Рекурсивно запускаем следующую анимацию
-        if (!isPaused) {
-          startInfiniteScroll();
-        }
+        startInfiniteScroll(); // всегда запускаем следующий цикл
       }, scrollDuration);
     });
   };
@@ -119,7 +97,6 @@ export const initBrowserScroll = () => {
   const init = () => {
     console.log("Инициализация бесконечной анимации скролла");
     prepareContainer();
-
     // Запускаем анимацию с небольшой задержкой
     setTimeout(() => {
       startInfiniteScroll();
@@ -129,43 +106,14 @@ export const initBrowserScroll = () => {
   // Запускаем инициализацию
   init();
 
-  // Обработчики событий для паузы/возобновления анимации
-
-  // При изменении видимости страницы
-  document.addEventListener("visibilitychange", () => {
-    if (!document.hidden && !isAnimating && !isPaused) {
-      console.log("Страница стала видимой - перезапуск анимации");
-      startInfiniteScroll();
-    }
-  });
-
   // При изменении размера окна
   window.addEventListener("resize", () => {
     if (animationTimer) {
       clearTimeout(animationTimer);
     }
-
     console.log("Изменение размера окна - перезапуск анимации");
     setTimeout(() => {
       startInfiniteScroll();
     }, 200);
-  });
-
-  // Пауза при наведении мыши
-  browserContent.addEventListener("mouseenter", () => {
-    isPaused = true;
-    browserContentContainer.classList.add("user-interaction");
-    console.log("Пауза анимации - наведение курсора (mouseenter)");
-  });
-
-  // Возобновление при уходе мыши
-  browserContent.addEventListener("mouseleave", () => {
-    isPaused = false;
-    browserContentContainer.classList.remove("user-interaction");
-    console.log("Возобновление анимации - уход курсора (mouseleave)");
-
-    if (!isAnimating) {
-      startInfiniteScroll();
-    }
   });
 };

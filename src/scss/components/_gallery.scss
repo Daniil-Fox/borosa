@@ -1,8 +1,6 @@
 .gallery-section {
-  padding: 6rem 0;
-  @include mobile {
-    padding: 3rem 0;
-  }
+  padding-bottom: 6rem;
+
   &__row {
     .wp-block-gallery {
       display: flex;
@@ -22,5 +20,12 @@
       width: 100%;
       height: 100%;
     }
+  }
+
+  &--10 {
+    padding-bottom: 1rem;
+  }
+  &--120 {
+    padding-bottom: 12rem;
   }
 }

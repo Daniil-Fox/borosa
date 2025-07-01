@@ -1,0 +1,39 @@
+.article-other {
+  padding: 6rem 0;
+  &__title {
+    margin-bottom: 2rem;
+
+    a {
+      &::after {
+        content: "";
+        display: inline-block;
+        width: 1.6rem;
+        height: 1.6rem;
+        background-image: url("./../img/svg/arr-right.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        transition: transform 0.3s ease-in;
+      }
+
+      @include hover {
+        &::after {
+          transform: translateX(1rem);
+        }
+      }
+    }
+  }
+  &__container {
+    max-width: calc(1920px + var(--container-offset) * 2);
+  }
+  &__slider {
+    padding: 0 var(--container-offset);
+    .swiper-slide {
+      width: auto;
+    }
+  }
+
+  &__item {
+    width: 25rem;
+  }
+}

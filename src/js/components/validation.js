@@ -98,9 +98,9 @@ if (document.querySelector("#modal-cta")) {
     afterForm
   );
 }
-if (document.querySelector("#modal-cons")) {
+if (document.querySelector(".modal--cons")) {
   validateForms(
-    "#modal-cons form",
+    ".modal--cons .form",
     rules3,
     [
       {

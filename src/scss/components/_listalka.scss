@@ -4,9 +4,9 @@
     padding: 3rem 0;
   }
   &:not(:last-child) {
-    margin-bottom: 12rem;
+    // margin-bottom: 12rem;
     @include tablet {
-      margin-bottom: 6rem;
+      // margin-bottom: 6rem;
     }
   }
 
@@ -73,7 +73,9 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-
+  &--reverse {
+    flex-direction: row-reverse;
+  }
   @include tablet {
     flex-direction: column;
   }
@@ -141,6 +143,25 @@
       }
       @include small-tablet {
         font-size: 1.2rem;
+      }
+    }
+  }
+
+  &--only {
+    .listalka-item__images {
+      grid-template-columns: 1fr;
+      max-width: 44rem;
+      figure {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+      }
+    }
+    .listalka-item__content {
+      font-size: 1.8rem;
+
+      p {
+        max-width: 35rem;
+        margin: 0 auto;
       }
     }
   }

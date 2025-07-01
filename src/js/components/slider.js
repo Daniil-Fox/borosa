@@ -24,13 +24,65 @@ new Swiper(".build__slider", {
 new Swiper(".princeps__slider", {
   slidesPerView: 1,
   spaceBetween: 30,
-  loop: true,
   speed: 500,
   navigation: {
     prevEl: ".princeps__btn--prev",
     nextEl: ".princeps__btn--next",
   },
 });
+
+new Swiper(".cases__slider", {
+  slidesPerView: "auto",
+  spaceBetween: 20,
+  speed: 500,
+});
+
+const articleOtherSliders = document.querySelectorAll(".article-other__slider");
+
+articleOtherSliders.forEach((slider) => {
+  new Swiper(slider, {
+    slidesPerView: "auto",
+    spaceBetween: 20,
+    speed: 500,
+  });
+});
+
+const galInfo = document.querySelectorAll(".gal-info");
+
+if (galInfo.length > 0) {
+  galInfo.forEach((gal) => {
+    const thumbs = gal.querySelector(".gal-info__thumbs");
+    const mainSlider = gal.querySelector(".gal-info__slider");
+    const prevBtn = gal.querySelector(".gal-info__arr--prev");
+    const nextBtn = gal.querySelector(".gal-info__arr--next");
+
+    const galInfoThumbs = new Swiper(thumbs, {
+      slidesPerView: "auto",
+      spaceBetween: 12,
+      speed: 500,
+    });
+
+    const galInfoSlider = new Swiper(mainSlider, {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      speed: 500,
+      thumbs: {
+        swiper: galInfoThumbs,
+      },
+      navigation: {
+        prevEl: prevBtn,
+        nextEl: nextBtn,
+      },
+    });
+
+    galInfoSlider.on("slideChange", function () {
+      if (window.innerWidth <= 1024) {
+        const activeIndex = galInfoSlider.realIndex;
+        galInfoThumbs.slideTo(activeIndex);
+      }
+    });
+  });
+}
 
 const teamSliders = document.querySelectorAll(".team__slider");
 
@@ -143,29 +195,80 @@ if (vericalSliderContainer.length > 0) {
     let thumbsS = null;
     const mainSlider = el.querySelector(".vertical-slider-main");
     const thumbsSlider = el.querySelector(".vertical-slider-thumbs");
-
+    const len = thumbsSlider.querySelectorAll(".swiper-slide").length - 1;
     const nextBtn = el.querySelector(".vertical-slider-next");
+    const prevBtn = el.querySelector(".vertical-slider-prev");
     if (thumbsSlider) {
       thumbsS = new Swiper(thumbsSlider, {
         slidesPerView: 3,
         direction: "vertical",
         spaceBetween: 20,
-        loop: true,
-        navigation: {
-          nextEl: nextBtn ?? null,
+        speed: 500,
+        on: {
+          slideChange: () => {
+            if (generalSlider.activeIndex == len) {
+              nextBtn.classList.add("hide");
+            } else {
+              nextBtn.classList.remove("hide");
+            }
+
+            if (generalSlider.activeIndex == 0) {
+              prevBtn.classList.add("hide");
+            } else {
+              prevBtn.classList.remove("hide");
+            }
+          },
         },
       });
     }
     const generalSlider = new Swiper(mainSlider, {
       slidesPerView: 1,
       spaceBetween: 20,
-      effect: "fade",
-      fadeEffect: {
-        crossFade: true,
-      },
+      speed: 500,
       thumbs: {
         swiper: thumbsS,
       },
+
+      on: {
+        afterInit: () => {
+          prevBtn?.classList.add("hide");
+        },
+        slideChange: () => {
+          if (generalSlider.activeIndex == len) {
+            nextBtn.classList.add("hide");
+          } else {
+            nextBtn.classList.remove("hide");
+          }
+
+          if (generalSlider.activeIndex == 0) {
+            prevBtn?.classList.add("hide");
+          } else {
+            prevBtn?.classList.remove("hide");
+          }
+        },
+      },
+    });
+
+    nextBtn?.addEventListener("click", (e) => {
+      e.preventDefault();
+      thumbsS.slideNext();
+      generalSlider.slideNext();
+      if (generalSlider.activeIndex == len) {
+        nextBtn.classList.add("hide");
+      } else {
+        nextBtn.classList.remove("hide");
+      }
+    });
+
+    prevBtn?.addEventListener("click", (e) => {
+      e.preventDefault();
+      thumbsS.slidePrev();
+      generalSlider.slidePrev();
+      if (generalSlider.activeIndex == 0) {
+        prevBtn.classList.add("hide");
+      } else {
+        prevBtn.classList.remove("hide");
+      }
     });
   });
 }
@@ -176,7 +279,7 @@ if (listalkaWrapper.length > 0) {
     const slider = wrap.querySelector(".listalka__slider");
     const btnPrev = wrap.querySelector(".listalka__arr--prev");
     const btnNext = wrap.querySelector(".listalka__arr--next");
-    const pagination = wrap.querySelector(".listalka__pagination") ?? null;
+    const pagination = wrap.querySelector(".listalka-pag") ?? null;
 
     const sliderrr = new Swiper(slider, {
       slidesPerView: 1,
@@ -196,8 +299,123 @@ if (listalkaWrapper.length > 0) {
     function updateCustomPagination(swiper) {
       const slidesCount = slider.querySelectorAll(".swiper-slide").length;
       const percent = 100 / slidesCount;
-      pagination.style.setProperty("--pagination-len", percent + "%");
-      pagination.style.setProperty(
+      pagination?.style.setProperty("--pagination-len", percent + "%");
+      pagination?.style.setProperty(
+        "--pagination-offset",
+        percent * swiper.realIndex + "%"
+      );
+    }
+  });
+}
+
+const descriptSlider = document.querySelectorAll(".descript__slider");
+if (descriptSlider.length > 0) {
+  descriptSlider.forEach((wrap) => {
+    const slider = wrap;
+    const btnPrev = wrap.querySelector(".descript__arr--prev");
+    const btnNext = wrap.querySelector(".descript__arr--next");
+    const pagination = wrap.querySelector(".descript-pag") ?? null;
+
+    const sliderrr = new Swiper(slider, {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      loop: true,
+      navigation: {
+        prevEl: btnPrev ?? null,
+        nextEl: btnNext ?? null,
+      },
+
+      on: {
+        slideChange: (swiper) => updateCustomPagination(swiper),
+        afterInit: (swiper) => updateCustomPagination(swiper),
+      },
+    });
+
+    function updateCustomPagination(swiper) {
+      const slidesCount = slider.querySelectorAll(".swiper-slide").length;
+      const percent = 100 / slidesCount;
+      pagination?.style.setProperty("--pagination-len", percent + "%");
+      pagination?.style.setProperty(
+        "--pagination-offset",
+        percent * swiper.realIndex + "%"
+      );
+    }
+  });
+}
+
+const othersSlider = document.querySelectorAll(".others__wrapper");
+if (othersSlider.length > 0) {
+  othersSlider.forEach((wrap) => {
+    const slider = wrap.querySelector(".others__slider");
+    const btnPrev = wrap.querySelector(".others__arr--prev");
+    const btnNext = wrap.querySelector(".others__arr--next");
+    const pagination = wrap.querySelector(".others-pag") ?? null;
+
+    const sliderrr = new Swiper(slider, {
+      slidesPerView: 4,
+      spaceBetween: 20,
+      loop: true,
+      navigation: {
+        prevEl: btnPrev,
+        nextEl: btnNext,
+      },
+
+      on: {
+        slideChange: (swiper) => updateCustomPagination(swiper),
+        afterInit: (swiper) => updateCustomPagination(swiper),
+      },
+
+      breakpoints: {
+        320: {
+          slidesPerView: "auto",
+          spaceBetween: 10,
+        },
+        577: {
+          slidesPerView: 4,
+          spaceBetween: 20,
+        },
+      },
+    });
+
+    function updateCustomPagination(swiper) {
+      const slidesCount = slider.querySelectorAll(".swiper-slide").length;
+      const percent = 100 / slidesCount;
+      pagination?.style.setProperty("--pagination-len", percent + "%");
+      pagination?.style.setProperty(
+        "--pagination-offset",
+        percent * swiper.realIndex + "%"
+      );
+    }
+  });
+}
+
+const shareCont = document.querySelectorAll(".share__wrapper");
+if (shareCont.length > 0) {
+  shareCont.forEach((cont) => {
+    const pagination = cont.querySelector(".share-pag") ?? null;
+    const btnPrev = cont.querySelector(".share__arr--prev");
+    const btnNext = cont.querySelector(".share__arr--next");
+    const slider = cont.querySelector(".share__slider");
+
+    new Swiper(slider, {
+      slidesPerView: 4,
+      spaceBetween: 20,
+      speed: 500,
+      navigation: {
+        prevEl: btnPrev,
+        nextEl: btnNext,
+      },
+      on: {
+        slideChange: (swiper) => updateCustomPagination(swiper),
+        afterInit: (swiper) => updateCustomPagination(swiper),
+      },
+    });
+
+    function updateCustomPagination(swiper) {
+      const slidesCount = slider.querySelectorAll(".swiper-slide").length;
+      const percent = 100 / slidesCount;
+      pagination?.style.setProperty("--pagination-len", percent + "%");
+      pagination?.style.setProperty(
         "--pagination-offset",
         percent * swiper.realIndex + "%"
       );

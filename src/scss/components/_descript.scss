@@ -1,0 +1,116 @@
+.descript {
+  padding: 6rem 0;
+  // margin-bottom: 12rem;
+  background-color: #fff;
+
+  @include tablet {
+    padding: 3rem 0;
+    // margin-bottom: 6rem;
+  }
+
+  &__title {
+    margin-bottom: 7rem;
+    @include tablet {
+      margin-bottom: 4rem;
+    }
+    @include mobile {
+      margin-bottom: 3rem;
+    }
+    span {
+      transform: rotate(-2deg) translateY(2rem);
+      @include mobile {
+        transform: rotate(-2deg) translateY(1rem);
+      }
+    }
+  }
+
+  &__slider {
+    margin-bottom: 1.5rem;
+  }
+
+  &__pagination {
+    max-width: 100%;
+  }
+
+  &__arr {
+    position: absolute;
+    z-index: 5;
+    top: 30%;
+    width: 2.8rem;
+    height: 5rem;
+    user-select: none;
+    @include tablet {
+      height: 4rem;
+      width: 2rem;
+    }
+    @include mobile {
+      display: none;
+    }
+    svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      user-select: none;
+    }
+    &--prev {
+      left: 1rem;
+    }
+
+    &--next {
+      right: 1rem;
+      transform: rotateY(180deg);
+    }
+  }
+}
+
+.descript-item {
+  &__img {
+    height: 54rem;
+    margin-bottom: 1.5rem;
+    @include tablet {
+      height: 45rem;
+    }
+    @include mobile {
+      height: 37.5rem;
+      margin-bottom: 1rem;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__desc {
+    @include tablet {
+      font-size: 1.4rem;
+    }
+    @include mobile {
+      text-align: center;
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.descript--dark {
+  background-color: #1d1b1a;
+
+  .descript {
+    &__title {
+      color: #fff;
+    }
+
+    &-item {
+      &__desc {
+        color: #fff;
+      }
+    }
+
+    &__pagination {
+      background-color: rgba(#fff, 0.2);
+
+      &::after {
+        background-color: #fff;
+      }
+    }
+  }
+}

@@ -67,3 +67,13 @@ try {
 } catch (Exception $e) {
   $status = "Сообщение не было отправлено. Причина ошибки: {$mail->ErrorInfo}";
 }
+
+$token = "7222764429:AAFb1K9q3DSRHIrG7L3oX0f9hs50pQFTcqU";
+$chat_id = "-4937042882";
+$txt = '';
+foreach ( $_POST as $key => $value ) {
+  if ( $value != "" && $key != "project_name" && $key != "admin_email" && $key != "form_subject" ) {
+     $txt .= "<b>".$key."</b> ".$value."%0A";
+  }
+}
+$sendToTelegram = fopen("https://api.telegram.org/bot{$token}/sendMessage?chat_id={$chat_id}&parse_mode=html&text={$txt}","r");

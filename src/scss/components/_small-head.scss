@@ -2,9 +2,9 @@
   padding: 6rem 0;
   background-color: #fff;
   &:not(:last-child) {
-    margin-bottom: 12rem;
+    // margin-bottom: 12rem;
     @include tablet {
-      margin-bottom: 6rem;
+      // margin-bottom: 6rem;
     }
   }
 

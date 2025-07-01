@@ -25,6 +25,7 @@
   line-height: 110%;
   letter-spacing: -0.01em;
   color: #fff;
+
   @include tablet {
     font-size: 3rem;
   }
@@ -43,6 +44,9 @@
     line-height: 79%;
     color: #b56d25;
     user-select: none;
+    &:not(:last-of-type) {
+      margin-right: 1rem;
+    }
     @include tablet {
       font-size: 8rem;
     }
@@ -58,8 +62,38 @@
   font-size: 3rem;
   line-height: 110%;
   color: #fff;
+  &--dark {
+    color: #000;
+  }
+  a {
+    color: inherit;
+  }
+  span {
+    display: inline-block;
+    font-family: var(--third-family);
+    font-weight: 500;
+    font-size: 11rem;
+    line-height: 79%;
+    color: #b56d25;
+    user-select: none;
+    &:not(:last-of-type) {
+      margin-right: 1rem;
+    }
+    @include tablet {
+      font-size: 8rem;
+    }
+    @include mobile {
+      font-size: 4.6rem;
+    }
+  }
 }
-
+.title5 {
+  margin: 0;
+  font-weight: 500;
+  font-size: 2.5rem;
+  line-height: 120%;
+  color: #000;
+}
 .capture1 {
   margin: 0;
   font-weight: 500;
@@ -243,4 +277,12 @@
   @include tablet {
     height: auto;
   }
+}
+
+.mb-60 {
+  padding: 12rem 0 !important;
+}
+
+.mb-10 {
+  padding: 1rem 0 !important;
 }

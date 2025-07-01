@@ -65,7 +65,7 @@
     z-index: -1;
     height: 60rem;
     bottom: -2rem;
-    right: -18%;
+    right: -22%;
 
     @include tablet {
       height: 46rem;
@@ -285,7 +285,7 @@
 
   &__extra {
     position: absolute;
-    bottom: 0;
+    bottom: -2rem;
     right: 14rem;
     max-width: 47.2rem;
     width: 100%;

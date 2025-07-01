@@ -2,7 +2,7 @@
   background-color: #1d1b1a;
   padding: 4rem 0 6rem;
   position: relative;
-
+  overflow: hidden;
   @include tablet {
     padding-top: 3rem;
     padding-bottom: 4rem;
