@@ -1,7 +1,9 @@
 .cases {
   padding: 6rem 0;
   background: #1d1b1a;
-
+  @include small-tablet {
+    padding: 3rem 0;
+  }
   &__title {
     margin-bottom: 2rem;
     font-size: 3.5rem;
@@ -9,11 +11,19 @@
     line-height: 120%;
     padding-bottom: 1rem;
     border-bottom: 1px solid #d9d9d9;
+    @include small-tablet {
+      font-size: 2.4rem;
+      padding-bottom: 0.5rem;
+    }
     div {
       max-width: 70rem;
     }
     span {
       transform: rotate(-1deg) translateY(1.5rem);
+
+      @include mobile {
+        transform: rotate(-1deg) translateY(0.5rem);
+      }
     }
   }
 
@@ -22,6 +32,10 @@
       calc((100% - var(--container-width)) / 2 + var(--container-offset));
     .swiper-slide {
       width: auto;
+    }
+
+    @include small-tablet {
+      padding: 0 var(--container-offset);
     }
   }
 }
@@ -34,19 +48,53 @@
   box-shadow: 16px 16px 24px 0 rgba(0, 0, 0, 0.3);
   background: #232120;
   padding: 2rem;
+
+  @include small-tablet {
+    width: 42rem;
+    padding: 1.2rem;
+  }
+  @include mobile {
+    width: 25rem;
+    flex-direction: column;
+  }
   &__cover {
     width: 100%;
     max-width: 19rem;
     flex-shrink: 0;
     border: 1px solid rgba(255, 255, 255, 0.2);
+
+    @include small-tablet {
+      max-width: 15rem;
+    }
+    @include mobile {
+      max-width: 100%;
+    }
   }
   &__img {
     min-height: 22.5rem;
-
+    @include small-tablet {
+      min-height: 18rem;
+    }
+    @include mobile {
+      min-height: 0;
+      height: 24rem;
+    }
     img {
       display: block;
       width: 100%;
       height: 100%;
+    }
+  }
+
+  &__btn {
+    @include small-tablet {
+      font-size: 1.2rem;
+      padding: 1rem 1.5rem;
+    }
+    @include mobile {
+      display: flex;
+      width: 100%;
+      text-align: center;
     }
   }
 
@@ -75,5 +123,12 @@
     font-size: 1.8rem;
     text-transform: uppercase;
     color: #fff;
+
+    @include small-tablet {
+      font-size: 1.4rem;
+    }
+    @include mobile {
+      font-size: 1.2rem;
+    }
   }
 }

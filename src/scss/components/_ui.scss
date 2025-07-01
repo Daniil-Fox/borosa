@@ -86,6 +86,13 @@
       font-size: 4.6rem;
     }
   }
+
+  @include small-tablet {
+    font-size: 2.5rem;
+  }
+  @include mobile {
+    font-size: 2.2rem;
+  }
 }
 .title5 {
   margin: 0;
@@ -93,6 +100,13 @@
   font-size: 2.5rem;
   line-height: 120%;
   color: #000;
+
+  @include small-tablet {
+    font-size: 2.2rem;
+  }
+  @include mobile {
+    font-size: 2rem;
+  }
 }
 .capture1 {
   margin: 0;

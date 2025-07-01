@@ -1,5 +1,8 @@
 .article-other {
   padding: 6rem 0;
+  @include small-tablet {
+    padding: 3rem 0;
+  }
   &__title {
     margin-bottom: 2rem;
 

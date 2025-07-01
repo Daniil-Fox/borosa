@@ -405,6 +405,19 @@ if (shareCont.length > 0) {
         prevEl: btnPrev,
         nextEl: btnNext,
       },
+      breakpoints: {
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 10,
+        },
+        601: {
+          slidesPerView: 3,
+          spaceBetween: 20,
+        },
+        901: {
+          slidesPerView: 4,
+        },
+      },
       on: {
         slideChange: (swiper) => updateCustomPagination(swiper),
         afterInit: (swiper) => updateCustomPagination(swiper),

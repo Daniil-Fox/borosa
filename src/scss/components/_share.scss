@@ -1,9 +1,14 @@
 .share {
   padding: 6rem 0;
-
+  @include small-tablet {
+    padding: 3rem 0;
+  }
   &__wrapper {
     position: relative;
     padding: 0 5rem;
+    @include small-tablet {
+      padding: 0;
+    }
   }
   &__slider {
     min-width: 0;
@@ -15,7 +20,9 @@
     top: 50%;
     width: 4rem;
     height: 4rem;
-
+    @include small-tablet {
+      display: none;
+    }
     svg {
       width: 100%;
       height: 100%;
@@ -51,14 +58,17 @@
 
       background-image: linear-gradient(
           to top,
-          transparent 50%,
-          #000 55%,
+          transparent 48%,
+          #000 52%,
           transparent 55%
         ),
         url("./../img/svg/arr-right-slim.svg");
       background-size: 99.5%, 1.5rem 1.5rem;
       background-position: left, right;
       background-repeat: no-repeat;
+      @include mobile {
+        background-size: 99%, 1.5rem 1.5rem;
+      }
     }
   }
 
