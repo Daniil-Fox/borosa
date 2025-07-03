@@ -6,9 +6,12 @@
     margin-bottom: 6rem;
   }
   &__title {
-    margin-bottom: 3rem;
+    font-size: 3rem;
+    font-family: var(--font-family);
+    font-weight: 400;
+    margin-bottom: 2rem;
     @include mobile {
-      margin-bottom: 2rem;
+      font-size: 2.4rem;
     }
   }
   &__wrapper {
@@ -28,6 +31,10 @@
     z-index: 5;
     @include mobile {
       display: none;
+    }
+    &:disabled {
+      background: none;
+      opacity: 0.5;
     }
     svg {
       width: 100%;

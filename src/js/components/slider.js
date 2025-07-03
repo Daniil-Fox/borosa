@@ -40,10 +40,16 @@ new Swiper(".cases__slider", {
 const articleOtherSliders = document.querySelectorAll(".article-other__slider");
 
 articleOtherSliders.forEach((slider) => {
+  const prevBtn = slider.querySelector(".article-other__btn--prev");
+  const nextBtn = slider.querySelector(".article-other__btn--next");
   new Swiper(slider, {
     slidesPerView: "auto",
     spaceBetween: 20,
     speed: 500,
+    navigation: {
+      prevEl: prevBtn,
+      nextEl: nextBtn,
+    },
   });
 });
 
@@ -188,7 +194,7 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-const vericalSliderContainer = document.querySelectorAll(".vertical-wrapper");
+const vericalSliderContainer = document.querySelectorAll(".text-vertical");
 
 if (vericalSliderContainer.length > 0) {
   vericalSliderContainer.forEach((el) => {
@@ -198,6 +204,8 @@ if (vericalSliderContainer.length > 0) {
     const len = thumbsSlider.querySelectorAll(".swiper-slide").length - 1;
     const nextBtn = el.querySelector(".vertical-slider-next");
     const prevBtn = el.querySelector(".vertical-slider-prev");
+
+    const contentable = el.querySelector(".text-vertical__contentable");
     if (thumbsSlider) {
       thumbsS = new Swiper(thumbsSlider, {
         slidesPerView: 3,
@@ -221,6 +229,32 @@ if (vericalSliderContainer.length > 0) {
         },
       });
     }
+    const contentSlider = new Swiper(contentable, {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      speed: 500,
+      effect: "fade",
+      fadeEffect: {
+        crossFade: true,
+      },
+      on: {
+        slideChange: () => {
+          thumbsS?.slideTo(contentSlider.activeIndex);
+          generalSlider?.slideTo(contentSlider.activeIndex);
+          if (generalSlider.activeIndex == len) {
+            nextBtn.classList.add("hide");
+          } else {
+            nextBtn.classList.remove("hide");
+          }
+
+          if (generalSlider.activeIndex == 0) {
+            prevBtn?.classList.add("hide");
+          } else {
+            prevBtn?.classList.remove("hide");
+          }
+        },
+      },
+    });
     const generalSlider = new Swiper(mainSlider, {
       slidesPerView: 1,
       spaceBetween: 20,
@@ -234,6 +268,8 @@ if (vericalSliderContainer.length > 0) {
           prevBtn?.classList.add("hide");
         },
         slideChange: () => {
+          contentSlider?.slideTo(generalSlider.activeIndex);
+          thumbsS?.slideTo(generalSlider.activeIndex);
           if (generalSlider.activeIndex == len) {
             nextBtn.classList.add("hide");
           } else {
@@ -291,20 +327,12 @@ if (listalkaWrapper.length > 0) {
       },
 
       on: {
-        slideChange: (swiper) => updateCustomPagination(swiper),
-        afterInit: (swiper) => updateCustomPagination(swiper),
+        slideChange: (swiper) =>
+          updateCustomPagination(swiper, slider, pagination),
+        afterInit: (swiper) =>
+          updateCustomPagination(swiper, slider, pagination),
       },
     });
-
-    function updateCustomPagination(swiper) {
-      const slidesCount = slider.querySelectorAll(".swiper-slide").length;
-      const percent = 100 / slidesCount;
-      pagination?.style.setProperty("--pagination-len", percent + "%");
-      pagination?.style.setProperty(
-        "--pagination-offset",
-        percent * swiper.realIndex + "%"
-      );
-    }
   });
 }
 
@@ -326,20 +354,12 @@ if (descriptSlider.length > 0) {
       },
 
       on: {
-        slideChange: (swiper) => updateCustomPagination(swiper),
-        afterInit: (swiper) => updateCustomPagination(swiper),
+        slideChange: (swiper) =>
+          updateCustomPagination(swiper, slider, pagination),
+        afterInit: (swiper) =>
+          updateCustomPagination(swiper, slider, pagination),
       },
     });
-
-    function updateCustomPagination(swiper) {
-      const slidesCount = slider.querySelectorAll(".swiper-slide").length;
-      const percent = 100 / slidesCount;
-      pagination?.style.setProperty("--pagination-len", percent + "%");
-      pagination?.style.setProperty(
-        "--pagination-offset",
-        percent * swiper.realIndex + "%"
-      );
-    }
   });
 }
 
@@ -354,15 +374,17 @@ if (othersSlider.length > 0) {
     const sliderrr = new Swiper(slider, {
       slidesPerView: 4,
       spaceBetween: 20,
-      loop: true,
+      // loop: true,
       navigation: {
         prevEl: btnPrev,
         nextEl: btnNext,
       },
 
       on: {
-        slideChange: (swiper) => updateCustomPagination(swiper),
-        afterInit: (swiper) => updateCustomPagination(swiper),
+        slideChange: (swiper) =>
+          updateCustomPagination(swiper, slider, pagination),
+        afterInit: (swiper) =>
+          updateCustomPagination(swiper, slider, pagination),
       },
 
       breakpoints: {
@@ -376,16 +398,6 @@ if (othersSlider.length > 0) {
         },
       },
     });
-
-    function updateCustomPagination(swiper) {
-      const slidesCount = slider.querySelectorAll(".swiper-slide").length;
-      const percent = 100 / slidesCount;
-      pagination?.style.setProperty("--pagination-len", percent + "%");
-      pagination?.style.setProperty(
-        "--pagination-offset",
-        percent * swiper.realIndex + "%"
-      );
-    }
   });
 }
 
@@ -419,19 +431,69 @@ if (shareCont.length > 0) {
         },
       },
       on: {
-        slideChange: (swiper) => updateCustomPagination(swiper),
-        afterInit: (swiper) => updateCustomPagination(swiper),
+        slideChange: (swiper) =>
+          updateCustomPagination(swiper, slider, pagination),
+        afterInit: (swiper) =>
+          updateCustomPagination(swiper, slider, pagination),
       },
     });
-
-    function updateCustomPagination(swiper) {
-      const slidesCount = slider.querySelectorAll(".swiper-slide").length;
-      const percent = 100 / slidesCount;
-      pagination?.style.setProperty("--pagination-len", percent + "%");
-      pagination?.style.setProperty(
-        "--pagination-offset",
-        percent * swiper.realIndex + "%"
-      );
-    }
   });
+}
+
+// --- Общая функция для обновления кастомной пагинации ---
+function updateCustomPagination(swiper, slider, pagination) {
+  // Получаем реальное количество слайдов (без клонов)
+  let slidesCount;
+  if (swiper.params.loop && swiper.originalSlides) {
+    slidesCount = swiper.originalSlides.length;
+  } else {
+    slidesCount = swiper.slides.length;
+  }
+
+  let slidesPerView = swiper.params.slidesPerView;
+  if (slidesPerView === "auto") {
+    // Для auto можно попробовать взять swiper.params.breakpoints или swiper.slidesPerViewDynamic(),
+    // но для универсальности оставим 1 (или доработать под твой кейс)
+    slidesPerView = 1;
+  }
+  slidesPerView = Number(slidesPerView) || 1;
+
+  if (slidesCount <= slidesPerView) {
+    pagination?.style.setProperty("--pagination-len", "100%");
+    pagination?.style.setProperty("--pagination-offset", "0%");
+    return;
+  }
+
+  const len = (slidesPerView / slidesCount) * 100;
+  const maxIndex = slidesCount - slidesPerView;
+  let offset = 0;
+
+  if (swiper.params.loop) {
+    // Если активный слайд — клон первого (в начале)
+    if (swiper.activeIndex < (swiper.loopedSlides || slidesPerView)) {
+      offset = 0;
+    }
+    // Если активный слайд — клон последнего (в конце)
+    else if (
+      swiper.activeIndex >=
+      slidesCount + (swiper.loopedSlides || slidesPerView)
+    ) {
+      offset = 100 - len;
+    } else {
+      const currentIndex = Math.min(swiper.realIndex, maxIndex);
+      offset = maxIndex > 0 ? (currentIndex / maxIndex) * (100 - len) : 0;
+    }
+  } else {
+    if (maxIndex === 0) {
+      offset = 0;
+    } else if (maxIndex === 1) {
+      offset = swiper.realIndex === 0 ? 0 : 100 - len;
+    } else {
+      const currentIndex = Math.min(swiper.realIndex, maxIndex);
+      offset = (currentIndex / maxIndex) * (100 - len);
+    }
+  }
+
+  pagination?.style.setProperty("--pagination-len", len + "%");
+  pagination?.style.setProperty("--pagination-offset", offset + "%");
 }

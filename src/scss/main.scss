@@ -51,3 +51,27 @@
 @import "./components/article-other";
 @import "./components/cases";
 @import "./components/share";
+
+.title55 {
+  font-size: 2rem;
+  font-family: var(--font-family);
+  font-weight: 400;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #d9d9d9;
+  @include mobile {
+    font-size: 1.8rem;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+    margin-bottom: inherit;
+  }
+}

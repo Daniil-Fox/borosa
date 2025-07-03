@@ -55,21 +55,14 @@
       transform: translateY(-50%);
       height: 2rem;
       width: 100%;
-
-      background-image: linear-gradient(
-          to top,
-          transparent 48%,
-          #000 52%,
-          transparent 55%
-        ),
-        url("./../img/svg/arr-right-slim.svg");
-      background-size: 99.5%, 1.5rem 1.5rem;
-      background-position: left, right;
+      background-image: url("./../img/svg/long-arr.svg");
       background-repeat: no-repeat;
-      @include mobile {
-        background-size: 99%, 1.5rem 1.5rem;
-      }
+      background-position: right;
+      background-repeat: no-repeat;
     }
+  }
+  .listalka__pagination {
+    max-width: 100%;
   }
 
   &--long {
