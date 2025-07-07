@@ -51,27 +51,37 @@
 @import "./components/article-other";
 @import "./components/cases";
 @import "./components/share";
+@import "./components/ban";
+@import "./components/people";
+@import "./components/blog";
+@import "./components/f-bens";
 
-.title55 {
-  font-size: 2rem;
-  font-family: var(--font-family);
+h1.title55,
+h2.title55,
+h3.title55,
+h4.title55,
+h5.title55,
+h6.title55 {
+  margin: 0;
+  margin-bottom: 1.5rem;
+
   font-weight: 400;
-  margin-bottom: 2rem;
+  font-size: 2rem;
+  line-height: 110%;
+  letter-spacing: -0.01em;
+  color: #1d1b1a;
+
   padding-bottom: 1rem;
   border-bottom: 1px solid #d9d9d9;
+
+  &--light {
+    color: #fff;
+  }
+  &--noborder {
+    border: none;
+    padding-bottom: 0;
+  }
   @include mobile {
     font-size: 1.8rem;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-size: inherit;
-    font-family: inherit;
-    font-weight: inherit;
-    margin-bottom: inherit;
   }
 }

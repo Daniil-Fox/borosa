@@ -47,7 +47,25 @@
       }
     }
   }
+  &__tt {
+    border: none !important;
 
+    position: relative;
+    padding-bottom: 1.7rem;
+    &::after {
+      content: "";
+      position: absolute;
+      height: 1.7rem;
+      top: 100%;
+      transform: translateY(-50%);
+      left: 0;
+      width: 100%;
+      background-image: url("./../img/svg/long-arr-white.svg");
+      background-size: 100% 100%;
+      background-position: right;
+      background-repeat: no-repeat;
+    }
+  }
   &__container {
     display: flex;
     gap: 4.2rem;
@@ -60,9 +78,14 @@
       gap: 0;
     }
   }
-  &__list {
+  &__block {
+    &:not(:last-child) {
+      margin-bottom: 6rem;
+    }
   }
-
+  &__supercontainer {
+    max-width: calc(116rem + var(--container-offset) * 2);
+  }
   &__content {
     padding-left: 4.6rem;
     position: relative;
@@ -304,6 +327,14 @@
     @include hover {
       opacity: 1;
     }
+  }
+}
+
+.team__slider--wide {
+  padding: 0 var(--container-offset);
+
+  .person {
+    width: 25rem;
   }
 }
 

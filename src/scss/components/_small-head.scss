@@ -13,6 +13,7 @@
   }
   &__container {
     &.centered {
+      margin: 0 auto;
       p {
         margin: 0 auto;
       }
@@ -76,6 +77,19 @@
     }
     @include mobile {
       font-size: 1.2rem;
+    }
+  }
+
+  &--dark {
+    background-color: #1d1b1a;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+      color: #fff;
     }
   }
 }

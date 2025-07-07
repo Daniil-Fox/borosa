@@ -90,7 +90,10 @@ if (galInfo.length > 0) {
   });
 }
 
-const teamSliders = document.querySelectorAll(".team__slider");
+const teamSliders = document.querySelectorAll(
+  ".team__slider:not(.team__slider--wide)"
+);
+const teamSlidersWide = document.querySelectorAll(".team__slider--wide");
 
 teamSliders.forEach((slider) => {
   const sliderPrev = slider.querySelector(".team-prev");
@@ -114,6 +117,13 @@ teamSliders.forEach((slider) => {
         slidesPerView: 4,
       },
     },
+  });
+});
+
+teamSlidersWide.forEach((slider) => {
+  new Swiper(slider, {
+    slidesPerView: "auto",
+    spaceBetween: 20,
   });
 });
 

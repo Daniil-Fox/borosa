@@ -1,0 +1,10 @@
+.ban {
+  padding: 8rem 0 6rem;
+  background-color: #1d1b1a;
+
+  &__title {
+    span {
+      transform: rotate(-1deg) translateY(2rem);
+    }
+  }
+}

@@ -64,7 +64,11 @@
   .listalka__pagination {
     max-width: 100%;
   }
-
+  &--60 {
+    .container {
+      max-width: calc(108rem + var(--container-offset) * 2);
+    }
+  }
   &--long {
     .container {
       max-width: calc(108rem + var(--container-offset) * 2);

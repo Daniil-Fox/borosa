@@ -20508,7 +20508,8 @@ if (galInfo.length > 0) {
     });
   });
 }
-const teamSliders = document.querySelectorAll(".team__slider");
+const teamSliders = document.querySelectorAll(".team__slider:not(.team__slider--wide)");
+const teamSlidersWide = document.querySelectorAll(".team__slider--wide");
 teamSliders.forEach(slider => {
   const sliderPrev = slider.querySelector(".team-prev");
   const sliderNext = slider.querySelector(".team-next");
@@ -20531,6 +20532,12 @@ teamSliders.forEach(slider => {
         slidesPerView: 4
       }
     }
+  });
+});
+teamSlidersWide.forEach(slider => {
+  new swiper__WEBPACK_IMPORTED_MODULE_0__.Swiper(slider, {
+    slidesPerView: "auto",
+    spaceBetween: 20
   });
 });
 new swiper__WEBPACK_IMPORTED_MODULE_0__.Swiper(".find__slider", {

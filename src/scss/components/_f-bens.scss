@@ -1,0 +1,33 @@
+.f-bens {
+  padding: 6rem 0;
+  background-color: #1d1b1a;
+
+  &__row {
+    display: flex;
+    gap: 4rem;
+  }
+
+  &__item {
+    flex: 1;
+  }
+
+  &__capture {
+    margin-bottom: 1rem;
+    color: #fff;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #fff;
+  }
+
+  &__desc {
+    margin: 0;
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 130%;
+    letter-spacing: -0.01em;
+    color: #fff;
+
+    p {
+      margin: 0;
+    }
+  }
+}

@@ -45,7 +45,7 @@
     color: #b56d25;
     user-select: none;
     &:not(:last-of-type) {
-      margin-right: 1rem;
+      margin-right: 2rem;
     }
     @include tablet {
       font-size: 8rem;
