@@ -17,6 +17,33 @@
       margin-bottom: 1.2rem;
     }
   }
+  &__tt {
+    margin: 0;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    font-family: var(--second-family);
+    font-weight: 500;
+    font-size: 3rem;
+    line-height: 110%;
+    letter-spacing: -0.01em;
+    color: #fff;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 0;
+      transform: translateY(-50%);
+      height: 1.7rem;
+      width: 100%;
+      background-image: url("./../img/svg/long-arr-white.svg");
+      background-repeat: no-repeat;
+      background-position: right;
+      background-repeat: no-repeat;
+      background-size: auto 100%;
+    }
+  }
   &__subtitle {
     margin: 0;
     margin-bottom: 3.5rem;
@@ -48,7 +75,9 @@
       display: flex;
       flex-direction: column;
     }
-
+    &--header {
+      display: block;
+    }
     .portfolio__item {
       transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 

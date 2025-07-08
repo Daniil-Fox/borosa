@@ -1,0 +1,122 @@
+.projects {
+  padding: 6rem 0;
+  background-color: #1d1b1a;
+
+  &__title {
+    margin: 0;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    font-family: var(--second-family);
+    font-weight: 500;
+    font-size: 3rem;
+    line-height: 110%;
+    letter-spacing: -0.01em;
+    color: #fff;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 0;
+      transform: translateY(-50%);
+      height: 1.7rem;
+      width: 100%;
+      background-image: url("./../img/svg/long-arr-white.svg");
+      background-repeat: no-repeat;
+      background-position: right;
+      background-repeat: no-repeat;
+      background-size: auto 100%;
+    }
+  }
+
+  &__container {
+    max-width: calc(108rem + var(--container-offset) * 2);
+  }
+
+  &__slider {
+    margin: 0 auto;
+    padding: 0
+      calc(
+        (100% - 108rem - var(--container-offset) * 2) / 2 +
+          var(--container-offset)
+      );
+    .swiper-slide {
+      width: auto;
+    }
+  }
+  &__bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__hint {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    color: rgba(255, 255, 255, 0.8);
+    &::before {
+      content: "";
+      display: block;
+      width: 2.5rem;
+      aspect-ratio: 1 / 1;
+      -ms-flex-negative: 0;
+      flex-shrink: 0;
+      background-image: url(./../img/slide-white.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      -webkit-animation: slider 4s ease-in-out infinite;
+      animation: slider 4s ease-in-out infinite;
+    }
+  }
+}
+
+.pr-item {
+  height: 46rem;
+  width: 34rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  &__link {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+  }
+  &__img {
+    flex-grow: 1;
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &__info {
+    flex-shrink: 0;
+    padding: 1rem;
+  }
+
+  &__title {
+    margin: 0;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 1.4rem;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: #fff;
+  }
+
+  &__more {
+    padding: 1.2rem 2rem;
+    font-size: 1.4rem;
+  }
+
+  &--more {
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

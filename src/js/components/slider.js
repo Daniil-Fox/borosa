@@ -53,6 +53,64 @@ articleOtherSliders.forEach((slider) => {
   });
 });
 
+const projectsSliders = document.querySelectorAll(".projects__slider");
+
+projectsSliders.forEach((slider) => {
+  const prevBtn = slider.querySelector(".projects__btn--prev");
+  const nextBtn = slider.querySelector(".projects__btn--next");
+  const slides = slider.querySelectorAll(".swiper-slide");
+  // Находим слайд с кнопкой
+  const moreSlide = slider
+    .querySelector(".swiper-slide .pr-item__more")
+    ?.closest(".swiper-slide");
+  let visibleSlides = 6;
+
+  // Скрываем все слайды, кроме первых 6 и слайда с кнопкой "Показать еще"
+  slides.forEach((slide, idx) => {
+    if (idx < visibleSlides || slide === moreSlide) {
+      slide.style.display = "";
+    } else {
+      slide.style.display = "none";
+    }
+  });
+
+  let swiper = new Swiper(slider, {
+    slidesPerView: "auto",
+    spaceBetween: 20,
+    speed: 500,
+    navigation: {
+      prevEl: prevBtn,
+      nextEl: nextBtn,
+    },
+  });
+
+  // Обработчик кнопки "Показать еще"
+  if (moreSlide) {
+    const moreBtn = moreSlide.querySelector(".pr-item__more");
+    moreBtn?.addEventListener("click", () => {
+      visibleSlides += 6;
+      slides.forEach((slide, idx) => {
+        // Открываем очередные 6 слайдов, но последний слайд с кнопкой оставляем видимым до конца
+        if (idx < visibleSlides || slide === moreSlide) {
+          slide.style.display = "";
+        }
+      });
+      swiper.update();
+
+      // Если все слайды показаны (кроме слайда с кнопкой), скрываем слайд с кнопкой
+      if (visibleSlides >= slides.length - 1) {
+        moreSlide.style.display = "none";
+        swiper.update();
+      }
+    });
+
+    // Если слайдов <= 6 + 1 (слайд с кнопкой), сразу скрываем слайд с кнопкой
+    if (slides.length <= visibleSlides + 1) {
+      moreSlide.style.display = "none";
+    }
+  }
+});
+
 const galInfo = document.querySelectorAll(".gal-info");
 
 if (galInfo.length > 0) {
