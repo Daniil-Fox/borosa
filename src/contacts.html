@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru" class="page">
+  @include('partials/head.html')
+
+  <body class="page__body">
+    <div class="site-container">
+      @include('partials/header-sec.html')
+      <main class="main">
+        <section class="ban">
+          <div class="container">
+            <h2 class="title2 ban__title">
+              Все <span>новое</span><span>и</span><span>важное</span><br />
+              от наших ведущих специалистов
+            </h2>
+          </div>
+        </section>
+        <section class="contacts">
+          <div class="container">
+            <h2 class="title2 title2--dark contacts__title">Наши конакты</h2>
+
+            <div class="contacts__items">
+              <address class="contacts__address contacts__address--main add">
+                <div class="add__header">
+                  <div class="add__img">
+                    <img src="./img/svg/user.svg" alt="" />
+                  </div>
+                  <p class="add__for">Для Клиентов:</p>
+                </div>
+                <div class="add__body">
+                  <ul class="add__list list-reset">
+                    <li class="add__item">
+                      <div class="add__capture">Почта:</div>
+                      <div class="add__value">
+                        <a href="mailto:hello@borosa.ru">hello@borosa.ru</a>
+                      </div>
+                    </li>
+                    <li class="add__item">
+                      <div class="add__capture">Телефон:</div>
+                      <div class="add__value">
+                        <a href="tel:+79000000000">+7 (900) 000-00-00</a>
+                      </div>
+                    </li>
+                  </ul>
+                  <ul class="add__list list-reset">
+                    <li class="add__item add__item--big">
+                      <div class="add__capture">Мы на связи:</div>
+                      <div class="add__row">
+                        <a href="#" class="add__soc">
+                          <svg class="">
+                            <use xlink:href="img/sprite.svg#whatsapp"></use>
+                          </svg>
+                        </a>
+                        <a href="#" class="add__soc">
+                          <svg class="">
+                            <use xlink:href="img/sprite.svg#tg"></use>
+                          </svg>
+                        </a>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </address>
+              <address class="contacts__address add">
+                <div class="add__header">
+                  <div class="add__img">
+                    <img src="./img/svg/hands.svg" alt="" />
+                  </div>
+                  <p class="add__for">Для партнеров:</p>
+                </div>
+                <div class="add__body">
+                  <ul class="add__list list-reset">
+                    <li class="add__item">
+                      <div class="add__capture">Почта:</div>
+                      <div class="add__value">
+                        <a href="mailto:hello@borosa.ru">hello@borosa.ru</a>
+                      </div>
+                    </li>
+                    <li class="add__item add__item--big">
+                      <div class="add__capture">Мессенджер:</div>
+                      <div class="add__value">
+                        <a href="#" class="add__soc add__soc--small">
+                          <svg class="">
+                            <use xlink:href="img/sprite.svg#whatsapp"></use>
+                          </svg>
+                        </a>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </address>
+              <address class="contacts__address add">
+                <div class="add__header">
+                  <div class="add__img">
+                    <img src="./img/svg/lupa.svg" alt="" />
+                  </div>
+                  <p class="add__for">Для соискателей:</p>
+                </div>
+                <div class="add__body">
+                  <ul class="add__list list-reset">
+                    <li class="add__item">
+                      <div class="add__capture">Почта:</div>
+                      <div class="add__value">
+                        <a href="mailto:hello@borosa.ru">hello@borosa.ru</a>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </address>
+            </div>
+          </div>
+        </section>
+
+        <section class="map">
+          <div class="container">
+            <div class="map__container">
+              <div id="map" class="map__map"></div>
+
+              <div class="map__content">
+                <address class="add">
+                  <div class="add__header">
+                    <div class="add__img">
+                      <img src="./img/svg/map-icon.svg" alt="" />
+                    </div>
+                    <p class="add__for">Для Клиентов:</p>
+                  </div>
+                  <div class="add__body">
+                    <ul class="add__list list-reset">
+                      <li class="add__item add__item--big">
+                        <div class="add__capture">Офис:</div>
+                        <div class="add__value">
+                          117105, Москва, Новоданиловская наб. 12, эт. 15, оф.
+                          15.11
+                        </div>
+                      </li>
+                      <li class="add__item add__item--big">
+                        <div class="add__capture">Метро:</div>
+                        <div class="add__value">
+                          <span class="grey">9</span> Тульская,
+                          <span class="red">14</span> Верхние Котлы
+                        </div>
+                      </li>
+                      <li class="add__item add__item--big">
+                        <div class="add__capture">Офис:</div>
+                        <div class="add__value">10:00 до 20:00</div>
+                      </li>
+                    </ul>
+                  </div>
+                </address>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        @include('partials/cta-white.html')
+      </main>
+      @include('partials/footer.html')
+    </div>
+  </body>
+</html>
