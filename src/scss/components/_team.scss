@@ -52,6 +52,12 @@
 
     position: relative;
     padding-bottom: 1.7rem;
+    font-family: var(--second-family);
+    font-weight: 500;
+    font-size: 3rem;
+    line-height: 110%;
+    letter-spacing: -0.01em;
+    color: #fff;
     &::after {
       content: "";
       position: absolute;
@@ -61,7 +67,7 @@
       left: 0;
       width: 100%;
       background-image: url("./../img/svg/long-arr-white.svg");
-      background-size: 100% 100%;
+      background-size: auto 100%;
       background-position: right;
       background-repeat: no-repeat;
     }

@@ -346,10 +346,10 @@ if (listalkaWrapper.length > 0) {
   });
 }
 
-const descriptSlider = document.querySelectorAll(".descript__slider");
+const descriptSlider = document.querySelectorAll(".descript__wrap");
 if (descriptSlider.length > 0) {
   descriptSlider.forEach((wrap) => {
-    const slider = wrap;
+    const slider = wrap.querySelector(".descript__slider");
     const btnPrev = wrap.querySelector(".descript__arr--prev");
     const btnNext = wrap.querySelector(".descript__arr--next");
     const pagination = wrap.querySelector(".descript-pag") ?? null;
@@ -438,6 +438,7 @@ if (shareCont.length > 0) {
         },
         901: {
           slidesPerView: 4,
+          spaceBetween: 20,
         },
       },
       on: {
@@ -453,6 +454,7 @@ if (shareCont.length > 0) {
 // --- Общая функция для обновления кастомной пагинации ---
 function updateCustomPagination(swiper, slider, pagination) {
   // Получаем реальное количество слайдов (без клонов)
+
   let slidesCount;
   if (swiper.params.loop && swiper.originalSlides) {
     slidesCount = swiper.originalSlides.length;

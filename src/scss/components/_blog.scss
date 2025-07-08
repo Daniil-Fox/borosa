@@ -2,6 +2,16 @@
   padding: 6rem 0;
 
   &__title {
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #d9d9d9;
+    margin: 0;
+    margin-bottom: 2rem;
+    font-family: var(--second-family);
+    font-weight: 500;
+    font-size: 3rem;
+    line-height: 110%;
+    letter-spacing: -0.01em;
+    color: #1d1b1a;
     svg {
       width: 0.6rem;
       height: 1.2rem;

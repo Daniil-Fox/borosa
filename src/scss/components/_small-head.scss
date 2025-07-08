@@ -82,6 +82,7 @@
 
   &--dark {
     background-color: #1d1b1a;
+    padding-top: 12rem;
     h1,
     h2,
     h3,
@@ -90,6 +91,9 @@
     h6,
     p {
       color: #fff;
+    }
+    p {
+      max-width: 100%;
     }
   }
 }

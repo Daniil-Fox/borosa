@@ -4,8 +4,13 @@
   &__row {
     display: flex;
     gap: 2rem;
+    justify-content: space-between;
+    max-width: calc(108rem + var(--container-offset) * 2);
   }
-
+  &__item {
+    flex-shrink: 0;
+    width: 17.6rem;
+  }
   &__img {
     margin-bottom: 1rem;
     aspect-ratio: 1 / 1;
