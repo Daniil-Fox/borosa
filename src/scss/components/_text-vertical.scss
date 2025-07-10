@@ -1,7 +1,6 @@
 .text-vertical {
   padding: 6rem 0;
   background-color: #fff;
-  overflow: hidden;
   @include mobile {
     padding: 3rem 0;
   }
@@ -159,7 +158,10 @@
     flex-direction: column;
     align-items: flex-end;
     min-width: 0;
-    max-width: 100%;
+    max-width: 57%;
+    @include small-tablet {
+      max-width: 100%;
+    }
   }
   &__btn {
     position: absolute;

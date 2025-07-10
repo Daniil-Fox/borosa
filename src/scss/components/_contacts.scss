@@ -14,8 +14,9 @@
   &__address {
     padding: 2rem;
     background-color: #fff;
-    box-shadow: 4px 4px 16px 0 rgba(99, 99, 99, 0.48);
+    box-shadow: 4px 4px 16px 4px rgba(99, 99, 99, 0.05);
     &--main {
+      box-shadow: 4px 4px 16px 0 rgba(99, 99, 99, 0.48);
       grid-column: 2 span;
     }
   }

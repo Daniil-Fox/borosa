@@ -82,17 +82,21 @@
   &__images {
     width: 100%;
     max-width: 56rem;
+
     flex-shrink: 0;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
+    min-height: 44rem;
     @include tablet {
       max-width: 100%;
+      height: auto;
     }
     figure {
       margin: 0;
       display: block;
       height: 100%;
+      // aspect-ratio: 475 / 594;
 
       img {
         display: block;
@@ -172,10 +176,12 @@
   @include tablet {
     padding: 3rem 0;
   }
-  &:not(:last-child) {
-    margin-bottom: 12rem;
-    @include tablet {
-      margin-bottom: 6rem;
+
+  .listalka-item__images {
+    min-height: 34.5rem;
+
+    @include small-tablet {
+      min-height: unset;
     }
   }
 }

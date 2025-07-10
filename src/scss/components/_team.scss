@@ -48,10 +48,12 @@
     }
   }
   &__tt {
+    margin: 0;
     border: none !important;
 
     position: relative;
     padding-bottom: 1.7rem;
+    margin-bottom: 2.5rem;
     font-family: var(--second-family);
     font-weight: 500;
     font-size: 3rem;
@@ -66,7 +68,7 @@
       transform: translateY(-50%);
       left: 0;
       width: 100%;
-      background-image: url("./../img/svg/long-arr-white.svg");
+      background-image: url("./../img/long-arr-white.webp");
       background-size: auto 100%;
       background-position: right;
       background-repeat: no-repeat;

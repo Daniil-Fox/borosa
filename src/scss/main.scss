@@ -90,3 +90,11 @@ h6.title55 {
     font-size: 1.8rem;
   }
 }
+
+.al-c {
+  align-items: center;
+
+  @include small-tablet {
+    align-items: unset;
+  }
+}
