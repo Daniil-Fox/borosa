@@ -4,7 +4,16 @@
 
   &__title {
     span {
+      line-height: 30%;
       transform: rotate(-1deg) translateY(2rem);
+
+      @include tablet {
+        transform: rotate(-1deg) translateY(1rem);
+      }
+      @include mobile {
+        transform: rotate(-1deg) translateY(0.5rem);
+        line-height: 70%;
+      }
     }
   }
 }

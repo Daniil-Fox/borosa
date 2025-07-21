@@ -19,7 +19,7 @@
   }
   &__tt {
     margin: 0;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2.5rem;
     padding-bottom: 1rem;
     font-family: var(--second-family);
     font-weight: 500;
@@ -28,20 +28,28 @@
     letter-spacing: -0.01em;
     color: #fff;
     position: relative;
+    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+    border-bottom: 1px solid #fff;
+    a {
+      color: inherit;
+
+      @include mobile {
+        display: block;
+        width: 100%;
+      }
+    }
 
     &::after {
       content: "";
       position: absolute;
-      top: 100%;
-      left: 0;
-      transform: translateY(-50%);
-      height: 1.7rem;
-      width: 100%;
-      background-image: url("./../img/svg/long-arr-white.svg");
+      top: 0.4rem;
+      width: 2.4rem;
+      height: 2.4rem;
+      background-image: url("./../img/svg/arr-right-brown.svg");
       background-repeat: no-repeat;
-      background-position: right;
-      background-repeat: no-repeat;
-      background-size: auto 100%;
+      background-size: 1rem;
+      background-position: center;
     }
   }
   &__subtitle {
@@ -64,7 +72,7 @@
   }
 
   &__container {
-    max-width: calc(115.8rem + var(--container-offset) * 2);
+    max-width: 100%;
     padding: 0 var(--container-offset);
     margin: 0 auto;
     display: grid;
@@ -136,7 +144,7 @@
   cursor: pointer;
   display: flex;
   flex-direction: column;
-
+  position: relative;
   max-height: 52rem;
   @include tablet {
     cursor: default;
@@ -145,6 +153,12 @@
     .portfolio-item__img img {
       transform: scale(1.05);
     }
+  }
+
+  &__link {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
   }
 
   &__mob {

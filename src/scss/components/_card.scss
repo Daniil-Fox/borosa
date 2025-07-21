@@ -2,6 +2,10 @@
   background-color: #f6f6f6;
   position: relative;
   transition: transform 0.3s ease-in, box-shadow 0.3s ease-in;
+
+  @include mobile {
+    width: 20rem;
+  }
   &__link {
     position: absolute;
     inset: 0;
@@ -16,10 +20,23 @@
       height: 100%;
     }
   }
+  &__more {
+    opacity: 0;
+    margin-top: 0.2rem;
+    display: flex;
+    justify-content: flex-end;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 1.2rem;
+    line-height: 120%;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+    color: #b56d25;
 
+    transition: opacity 0.2s ease-in;
+  }
   &__content {
     padding: 1rem;
-    padding-bottom: 2.4rem;
   }
 
   &__time {
@@ -33,6 +50,7 @@
   &__name {
     margin-bottom: 1rem;
     font-weight: 500;
+    font-size: 1.2rem;
   }
   &__desc {
     font-size: 1.3rem;
@@ -42,5 +60,9 @@
   @include hover {
     transform: translateY(-0.5rem);
     box-shadow: 4px 4px 5px rgba(#000, 0.1);
+
+    .card__more {
+      opacity: 1;
+    }
   }
 }

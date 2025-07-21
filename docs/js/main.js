@@ -20640,6 +20640,10 @@ window.addEventListener("DOMContentLoaded", () => {
     spaceBetween: 0,
     slidesPerView: "auto"
   });
+  resizableSwiper("(max-width: 900px)", ".people__slider", {
+    spaceBetween: 10,
+    slidesPerView: "auto"
+  });
   const portfolioSliders = document.querySelectorAll(".portfolio-item__mob");
   portfolioSliders.forEach(el => {
     const prevEl = el.querySelector(".portfolio-prev");
@@ -20853,7 +20857,7 @@ if (shareCont.length > 0) {
       },
       breakpoints: {
         320: {
-          slidesPerView: 1,
+          slidesPerView: "auto",
           spaceBetween: 10
         },
         601: {

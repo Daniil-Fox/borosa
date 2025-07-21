@@ -2,6 +2,7 @@
   padding: 7.5rem 0;
   @include small-tablet {
     padding: 3rem 0;
+    padding-top: 6rem;
   }
   &__container {
     padding: 1.5rem;
@@ -38,9 +39,7 @@
     }
 
     @include mobile {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 1rem;
+      gap: 0.5rem;
       padding: 1rem 0;
     }
   }
@@ -54,9 +53,15 @@
     display: flex;
     align-items: center;
     gap: 1rem;
+    @include mobile {
+      gap: 0.5rem;
+    }
   }
 
   &__title {
+    @include mobile {
+      font-size: 1.8rem;
+    }
     &:not(:last-child) {
       margin-bottom: 1.5rem;
     }
@@ -68,6 +73,7 @@
     font-size: 1.8rem;
     line-height: 140%;
     color: #000;
+
     h1,
     h2,
     h3,
@@ -79,10 +85,6 @@
       font-size: 2.2rem;
       line-height: 120%;
       color: #000;
-
-      @include small-tablet {
-        font-size: 2rem;
-      }
     }
     b {
       font-weight: 500;
@@ -92,7 +94,7 @@
       font-size: 1.4rem;
     }
     @include mobile {
-      font-size: 1.2rem;
+      font-size: 1.6rem;
     }
   }
 }
@@ -107,7 +109,7 @@
   line-height: 120%;
   color: #000;
   @include mobile {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
   &__icon {
     display: flex;
@@ -115,7 +117,10 @@
     justify-content: center;
     width: 2.5rem;
     height: 2.5rem;
-
+    @include mobile {
+      width: 2rem;
+      height: 2rem;
+    }
     svg {
       width: 100%;
       height: 100%;
@@ -207,6 +212,9 @@
     gap: 0.4rem;
     &:not(:last-child) {
       margin-bottom: 2rem;
+      @include mobile {
+        margin-bottom: 1rem;
+      }
     }
   }
   &__img {
@@ -224,6 +232,10 @@
       width: 10rem;
       height: 10rem;
     }
+    @include mobile {
+      width: 8rem;
+      height: 8rem;
+    }
   }
   &__content {
     margin: 0;
@@ -234,10 +246,7 @@
     color: #1d1b1a;
 
     @include small-tablet {
-      font-size: 1.2rem;
-    }
-    @include mobile {
-      font-size: 1rem;
+      font-size: 1.4rem;
     }
   }
   &__name {

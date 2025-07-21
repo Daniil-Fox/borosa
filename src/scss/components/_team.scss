@@ -60,6 +60,11 @@
     line-height: 110%;
     letter-spacing: -0.01em;
     color: #fff;
+    @include mobile {
+      padding-bottom: 1rem;
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
     &::after {
       content: "";
       position: absolute;
@@ -72,6 +77,11 @@
       background-size: auto 100%;
       background-position: right;
       background-repeat: no-repeat;
+      @include mobile {
+        height: 0.1rem;
+        background-color: #fff;
+        background-image: none;
+      }
     }
   }
   &__container {

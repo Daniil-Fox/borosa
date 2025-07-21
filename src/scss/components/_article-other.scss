@@ -53,6 +53,9 @@
     padding: 4rem;
     background-color: rgba(29, 27, 26, 0.4);
     transition: background-color 0.2s ease-in, opacity 0.3s ease-in;
+    @include mobile {
+      padding: 2rem;
+    }
     &--prev {
       left: 0;
       svg {

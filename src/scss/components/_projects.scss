@@ -1,7 +1,9 @@
 .projects {
   padding: 6rem 0;
   background-color: #1d1b1a;
-
+  @include mobile {
+    padding: 3rem 0;
+  }
   &__title {
     margin: 0;
     margin-bottom: 2.5rem;
@@ -13,34 +15,39 @@
     letter-spacing: -0.01em;
     color: #fff;
     position: relative;
+    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+    border-bottom: 1px solid #fff;
+    a {
+      color: inherit;
+
+      @include mobile {
+        display: block;
+        width: 100%;
+      }
+    }
 
     &::after {
       content: "";
       position: absolute;
-      top: 100%;
-      left: 0;
-      transform: translateY(-50%);
-      height: 1.7rem;
-      width: 100%;
-      background-image: url("./../img/long-arr-white.png");
+      top: 0.4rem;
+      width: 2.4rem;
+      height: 2.4rem;
+      background-image: url("./../img/svg/arr-right-brown.svg");
       background-repeat: no-repeat;
-      background-position: right;
-      background-repeat: no-repeat;
-      background-size: auto 100%;
+      background-size: 1rem;
+      background-position: center;
     }
   }
 
   &__container {
-    max-width: calc(108rem + var(--container-offset) * 2);
+    padding: 0 var(--container-offset);
+    max-width: 100%;
   }
 
   &__slider {
     margin: 0 auto;
-    padding: 0
-      calc(
-        (100% - 108rem - var(--container-offset) * 2) / 2 +
-          var(--container-offset)
-      );
+    padding: 0 var(--container-offset);
     .swiper-slide {
       width: auto;
     }
@@ -80,6 +87,11 @@
   flex-direction: column;
   position: relative;
   border: 1px solid rgba(255, 255, 255, 0.2);
+
+  @include mobile {
+    width: 24rem;
+    height: 32rem;
+  }
   &__link {
     position: absolute;
     inset: 0;
@@ -106,6 +118,15 @@
     letter-spacing: -0.01em;
     text-transform: uppercase;
     color: #fff;
+    @include mobile {
+      font-size: 1.2rem;
+      white-space: nowrap;
+      display: -webkit-box;
+      text-overflow: ellipsis;
+    }
+    span {
+      font-weight: 400;
+    }
   }
 
   &__more {
@@ -118,5 +139,21 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+}
+
+.projects--light {
+  background-color: transparent;
+  .projects {
+    &__title {
+      color: #1d1b1a;
+      border-block-color: #1d1d1a;
+    }
+  }
+  .pr-item {
+    border: 1px solid rgba(29, 27, 26, 0.2);
+  }
+  .pr-item__title {
+    color: #1d1b1a;
   }
 }

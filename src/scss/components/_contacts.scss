@@ -1,6 +1,8 @@
 .contacts {
   padding: 6rem 0;
-
+  @include mobile {
+    padding: 3rem 0;
+  }
   &__title {
     margin-bottom: 2rem;
   }
@@ -9,15 +11,26 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
   }
 
   &__address {
     padding: 2rem;
     background-color: #fff;
     box-shadow: 4px 4px 16px 4px rgba(99, 99, 99, 0.05);
+    @include mobile {
+      padding: 1rem;
+    }
     &--main {
       box-shadow: 4px 4px 16px 0 rgba(99, 99, 99, 0.48);
       grid-column: 2 span;
+      @include mobile {
+        grid-column: 1 span;
+      }
     }
   }
 }

@@ -111,3 +111,35 @@
 .cta--white {
   background-color: #fff;
 }
+
+.cta--dark {
+  background-color: #1d1b1a;
+
+  .cta {
+    &__title,
+    &__capture {
+      color: #fff;
+    }
+  }
+
+  .form__row {
+    border: none;
+  }
+  .form__item {
+    color: #fff;
+  }
+  .form__check,
+  .form__input,
+  .cta__sup-label {
+    border-color: #fff;
+  }
+
+  .form__label,
+  .form__input {
+    color: #fff;
+  }
+
+  .cta__sup-label {
+    color: #fff;
+  }
+}

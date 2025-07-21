@@ -58,7 +58,9 @@
     line-height: 120%;
     letter-spacing: -0.02em;
     color: #fff;
-
+    @include mobile {
+      font-size: 2.5rem;
+    }
     svg {
       width: 2.4rem;
       height: 2.4rem;

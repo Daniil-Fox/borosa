@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru" class="page">
+  @include('partials/head.html')
+
+  <body class="page__body">
+    <div class="site-container">
+      @include('partials/header-sec.html')
+      <main class="main">
+        <section class="aut">
+          <div class="container">
+            <a href="#" class="aut__back title4">
+              <svg
+                width="24"
+                height="25"
+                viewBox="0 0 24 25"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15 20.5L9 14.5L15 8.5"
+                  stroke="#1D1B1A"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+
+              Назад
+            </a>
+
+            <h2 class="title2 title2--dark aut__title">
+              Статьи про <span>архитектуру</span>
+            </h2>
+
+            <div class="aut__author">
+              <div class="aut__img">
+                <img src="./img/author.webp" alt="" />
+              </div>
+
+              <div class="aut__content">
+                <p class="aut__name">Екатерина Кивенко</p>
+                <p class="aut__capture">Ландшафтный архитектор</p>
+                <p class="aut__desc">
+                  Специалист, который проектирует и организует природные и
+                  городские пространства. Он сочетает знания в области экологии,
+                  дизайна и инженерии, создавая функциональные, эстетичные и
+                  экологически устойчивые ландшафты
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="category-f">
+          <div class="container category-f__container">
+            <article class="share__item card">
+              <a href="#" class="card__link"></a>
+              <div class="card__img">
+                <img src="./img/case.webp" alt="" />
+              </div>
+              <div class="card__content">
+                <time datetime="01.01.2025" class="card__time">01.01.2025</time>
+                <p class="desc3 card__name">Максим Александров</p>
+                <p class="card__desc desc3">
+                  Искусство создания единой архитектурной концепции в
+                  многофункциональных объектах
+                </p>
+                <div class="card__more">
+                  <span class="card__more">Подробнее</span>
+                </div>
+              </div>
+            </article>
+            <article class="share__item card">
+              <a href="#" class="card__link"></a>
+              <div class="card__img">
+                <img src="./img/case.webp" alt="" />
+              </div>
+              <div class="card__content">
+                <time datetime="01.01.2025" class="card__time">01.01.2025</time>
+                <p class="desc3 card__name">Максим Александров</p>
+                <p class="card__desc desc3">
+                  Искусство создания единой архитектурной концепции в
+                  многофункциональных объектах
+                </p>
+              </div>
+            </article>
+            <article class="share__item card">
+              <a href="#" class="card__link"></a>
+              <div class="card__img">
+                <img src="./img/case.webp" alt="" />
+              </div>
+              <div class="card__content">
+                <time datetime="01.01.2025" class="card__time">01.01.2025</time>
+                <p class="desc3 card__name">Максим Александров</p>
+                <p class="card__desc desc3">
+                  Искусство создания единой архитектурной концепции в
+                  многофункциональных объектах
+                </p>
+              </div>
+            </article>
+          </div>
+        </section>
+      </main>
+      @include('partials/footer.html')
+    </div>
+  </body>
+</html>

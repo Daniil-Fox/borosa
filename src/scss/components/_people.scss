@@ -1,12 +1,24 @@
 .people {
-  padding: 6rem 0;
+  padding: 3rem 0 6rem;
   background: #1d1b1a;
+
   &__row {
     display: flex;
     gap: 2rem;
     justify-content: space-between;
     max-width: calc(108rem + var(--container-offset) * 2);
+
+    @include tablet {
+      gap: unset;
+    }
   }
+  &__slider {
+    @include tablet {
+      padding: 0 var(--container-offset);
+      margin: 0 calc(-1 * var(--container-offset));
+    }
+  }
+
   &__item {
     flex-shrink: 0;
     width: 17.6rem;

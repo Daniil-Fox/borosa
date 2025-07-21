@@ -1,10 +1,17 @@
 .f-bens {
   padding: 6rem 0;
   background-color: #1d1b1a;
-
+  @include mobile {
+    padding: 3rem 0;
+  }
   &__row {
     display: flex;
     gap: 4rem;
+
+    @include mobile {
+      flex-direction: column;
+      gap: 3rem;
+    }
   }
 
   &__item {
